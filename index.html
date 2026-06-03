@@ -1546,5 +1546,10 @@ h1, h2, h3 {
             updateCalculator();
         }
     </script>
+    <button onclick="switchTab('financials'); setTimeout(() => document.getElementById('calc-box').scrollIntoView({behavior: 'smooth'}), 100)" 
+        class="fixed bottom-8 right-8 z-[9999] flex items-center gap-2 px-6 py-4 bg-gradient-to-br from-sky-400 to-sky-600 text-white font-black rounded-full shadow-[0_10px_25px_-5px_rgba(56,189,248,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 backdrop-blur-md">
+    <span>Инвестировать</span>
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+</button>
 </body>
 </html>
