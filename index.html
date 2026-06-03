@@ -68,31 +68,25 @@ h1, h2, h3 {
 
     <!-- HEADER -->
      <!-- HEADER -->
-    <header class="fixed top-4 left-4 right-4 z-50 rounded-full border border-white/30 backdrop-blur-none shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-tr from-sky-400 to-blue-500 p-2.5 rounded-xl shadow-md shadow-sky-400/20">
-                    <svg class="w-7 h-7 text-white font-bold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <div>
-                    <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-sky-600">РУСЬ</span>
-                    <span class="block text-[10px] text-sky-600 font-bold uppercase tracking-widest -mt-1">Мясное Производство</span>
-                </div>
-            </div>
-            
-            <div class="hidden lg:flex space-x-1 bg-sky-50 p-1 rounded-full border border-sky-100/80">
-                <button onclick="switchTab('overview')" 
-        class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:bg-white/60 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] text-sky-900" 
-        id="btn-overview">О проекте</button>
-                <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-catalog">Обзор продукции 🎥</button>
-                <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-strategy">Стратегия</button>
-                <button onclick="switchTab('team')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-team">Активы & Команда</button>
-                <button onclick="switchTab('history')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-history">История пути</button>
-                <button onclick="switchTab('contacts')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-contacts">Контакты</button>
-            </div>
-    </header>
+    <header class="fixed top-4 left-4 right-4 z-50 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+             <div class="bg-gradient-to-tr from-sky-400 to-blue-500 p-2 rounded-lg"><svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+             <div>
+                  <span class="text-xl font-black text-slate-900">РУСЬ</span>
+             </div>
+        </div>
+        
+        <div class="hidden lg:flex space-x-2">
+            <button onclick="switchTab('overview')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-sky-900 hover:bg-white/20 transition-all">О проекте</button>
+            <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 transition-all">Обзор продукции 🎥</button>
+            <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 transition-all">Стратегия</button>
+            <button onclick="switchTab('team')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 transition-all">Активы & Команда</button>
+            <button onclick="switchTab('history')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 transition-all">История пути</button>
+            <button onclick="switchTab('contacts')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 transition-all">Контакты</button>
+        </div>
+    </div>
+</header>
 
     <!-- MOBILE TABS BAR (прокрутка на мобильных) -->
     <div class="lg:hidden bg-white border-b border-sky-100 p-2 overflow-x-auto whitespace-nowrap flex space-x-2 scrollbar-none">
