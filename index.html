@@ -72,26 +72,6 @@
   animation: floatCloud linear infinite;
   filter: blur(3px); /* Легкое размытие для объема */
 }
-        /* Это анимация движения, она должна быть внутри style */
-  @keyframes floatCloud {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(100vw); }
-      /* Облака */
-        .cloud-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .animated-cloud {
-            position: absolute;
-            opacity: 0.25;
-            animation: floatCloud linear infinite;
-            filter: blur(3px);
-        }
-        @keyframes floatCloud {
-            from { transform: translateX(-200px); }
-            to { transform: translateX(100vw); }
-        }
-  }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
@@ -1607,72 +1587,6 @@
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', initFloatingClouds);
-        <script>
-    <script>
-function initFloatingClouds() {
-    const container = document.querySelector('.cloud-container');
-    if (!container) return;
-
-    const cloudCount = 12; // Сколько всего облаков будет летать
-    // Исправленный и закрытый тег path
-    const cloudShape = '<path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>';
-
-    for (let i = 0; i < cloudCount; i++) {
-        const cloud = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        cloud.setAttribute("viewBox", "0 0 24 24");
-        
-        // Оставляем только анимационный класс, а цвет задаем жестко через style
-        cloud.setAttribute("class", "animated-cloud");
-        // Нежный, полупрозрачный голубой цвет, который точно отобразится везде
-        cloud.style.color = "rgba(14, 165, 233, 0.15)"; 
-
-        const size = Math.floor(Math.random() * 80) + 50;     // Размер от 50px до 130px
-        const topPosition = Math.random() * 90;              // Случайная высота на сайте
-        const duration = Math.floor(Math.random() * 40) + 40; // Скорость (от 40 до 80 секунд)
-        const delay = Math.floor(Math.random() * -80);        // Чтобы они плыли сразу при загрузке
-
-        cloud.style.width = `${size}px`;
-        cloud.style.height = `${size * 0.6}px`;
-        cloud.style.top = `${topPosition}%`;
-        cloud.style.animationDuration = `${duration}s`;
-        cloud.style.animationDelay = `${delay}s`;
-
-        cloud.innerHTML = cloudShape;
-        container.appendChild(cloud);
-    }
-}
-
-// Надежный запуск
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFloatingClouds);
-} else {
-    initFloatingClouds();
-}
-<script>
-        function initFloatingClouds() {
-            const container = document.querySelector('.cloud-container');
-            if (!container) return;
-            const cloudCount = 8;
-            const cloudShape = '<path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>';
-            for (let i = 0; i < cloudCount; i++) {
-                const cloud = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                cloud.setAttribute("viewBox", "0 0 24 24");
-                cloud.setAttribute("class", "animated-cloud");
-                cloud.style.color = "#38BDF8"; 
-                const size = Math.floor(Math.random() * 100) + 50;
-                const topPosition = Math.random() * 90;
-                const duration = Math.floor(Math.random() * 40) + 40;
-                const delay = Math.floor(Math.random() * -60);
-                cloud.style.width = `${size}px`;
-                cloud.style.height = `${size * 0.6}px`;
-                cloud.style.top = `${topPosition}%`;
-                cloud.style.animationDuration = `${duration}s`;
-                cloud.style.animationDelay = `${delay}s`;
-                cloud.innerHTML = cloudShape;
-                container.appendChild(cloud);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', initFloatingClouds);
     </script>
 </body>
 </html>
