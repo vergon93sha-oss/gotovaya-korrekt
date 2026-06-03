@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Идеальный блин не трогать  <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -50,12 +50,9 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0284C7;
         }
-        .cloud-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-    .animated-cloud { position: absolute; opacity: 0.15; animation: floatCloud linear infinite; filter: blur(5px); }
-    @keyframes floatCloud { from { transform: translateX(-300px); } to { transform: translateX(100vw); } }
     </style>
 </head>
-<body <div class="cloud-container" id="cloud-layer"></div>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <!-- ФОНОВЫЕ ОБЛАКА И ГРАДИЕНТЫ (Эстетика из картинки пользователя) -->
     <div class="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-sky-400 via-sky-300 to-transparent opacity-30 pointer-events-none"></div>
@@ -1541,20 +1538,6 @@
         window.onload = function() {
             updateCalculator();
         }
-        function initClouds() {
-    const container = document.getElementById('cloud-layer');
-    for(let i=0; i<5; i++) {
-        const cloud = document.createElement('div');
-        cloud.className = 'animated-cloud';
-        cloud.style.width = (Math.random() * 200 + 100) + 'px';
-        cloud.style.top = (Math.random() * 60) + '%';
-        cloud.style.animationDuration = (Math.random() * 40 + 40) + 's';
-        cloud.style.animationDelay = (Math.random() * -40) + 's';
-        cloud.innerHTML = '☁️'; 
-        container.appendChild(cloud);
-    }
-}
-window.addEventListener('DOMContentLoaded', initClouds);
     </script>
 </body>
 </html>
