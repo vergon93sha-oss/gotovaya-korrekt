@@ -89,18 +89,9 @@ h1, h2, h3 {
                 <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-catalog">Обзор продукции 🎥</button>
                 <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-strategy">Стратегия</button>
                 <button onclick="switchTab('team')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-team">Активы & Команда</button>
-                <button onclick="switchTab('financials')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-financials">Финансы & Калькулятор</button>
                 <button onclick="switchTab('history')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-history">История пути</button>
                 <button onclick="switchTab('contacts')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-contacts">Контакты</button>
             </div>
-
-            <!-- CTA Badge -->
-            <div class="flex items-center space-x-3">
-                <button onclick="switchTab('financials'); setTimeout(() => document.getElementById('calc-box').scrollIntoView({behavior: 'smooth'}), 100)" class="bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-extrabold px-4 py-2 rounded-xl text-sm transition-all duration-300 shadow-md shadow-sky-400/20 hover:shadow-sky-400/40 active:scale-95">
-                    Инвестировать
-                </button>
-            </div>
-        </div>
     </header>
 
     <!-- MOBILE TABS BAR (прокрутка на мобильных) -->
@@ -1547,9 +1538,11 @@ h1, h2, h3 {
         }
     </script>
     <button onclick="switchTab('financials'); setTimeout(() => document.getElementById('calc-box').scrollIntoView({behavior: 'smooth'}), 100)" 
-        class="fixed bottom-8 right-8 z-[9999] flex items-center gap-2 px-6 py-4 bg-gradient-to-br from-sky-400 to-sky-600 text-white font-black rounded-full shadow-[0_10px_25px_-5px_rgba(56,189,248,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 backdrop-blur-md">
+        class="fixed bottom-8 right-8 z-[9999] group flex items-center gap-3 px-6 py-4 bg-gradient-to-br from-sky-500 to-sky-700 text-white font-bold rounded-full shadow-[0_10px_20px_-5px_rgba(3,105,161,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_30px_-5px_rgba(3,105,161,0.5)] active:scale-95 border border-white/20 backdrop-blur-md">
+    
+    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    
     <span>Инвестировать</span>
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
 </button>
 </body>
 </html>
