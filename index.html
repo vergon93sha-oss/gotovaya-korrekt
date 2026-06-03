@@ -80,22 +80,30 @@ h1, h2, h3 {
                     <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-sky-600">РУСЬ</span>
                     <span class="block text-[10px] text-sky-600 font-bold uppercase tracking-widest -mt-1">Мясное Производство</span>
                 </div>
-          <div class="hidden lg:flex space-x-1 p-1 rounded-full border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md bg-white/10">
-    
-    <button onclick="switchTab('overview')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-white/40 border border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.6)] text-sky-900" id="btn-overview">О проекте</button>
-    
-    <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-catalog">Обзор продукции 🎥</button>
-    <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-strategy">Стратегия</button>
-    <button onclick="switchTab('team')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-team">Активы & Команда</button>
-    <button onclick="switchTab('financials')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-financials">Финансы & Калькулятор</button>
-    <button onclick="switchTab('history')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-history">История пути</button>
-    <button onclick="switchTab('contacts')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-white/30 transition-all duration-300" id="btn-contacts">Контакты</button>
-    
-    <button onclick="switchTab('invest')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-sky-700 hover:bg-white/30 transition-all duration-300 border border-sky-200/50" id="btn-invest">Инвестировать</button>
-</div>
+            </div>
             
+            <div class="hidden lg:flex space-x-1 bg-sky-50 p-1 rounded-full border border-sky-100/80">
+                <button onclick="switchTab('overview')" 
+        class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:bg-white/60 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] text-sky-900" 
+        id="btn-overview">О проекте</button>
+                <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-catalog">Обзор продукции 🎥</button>
+                <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-strategy">Стратегия</button>
+                <button onclick="switchTab('team')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-team">Активы & Команда</button>
+                <button onclick="switchTab('financials')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-financials">Финансы & Калькулятор</button>
+                <button onclick="switchTab('history')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-history">История пути</button>
+                <button onclick="switchTab('contacts')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-contacts">Контакты</button>
+            </div>
 
-       
+            <!-- CTA Badge -->
+            <div class="flex items-center space-x-3">
+                <span class="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-600 border border-sky-100">
+                    <span class="w-1.5 h-1.5 bg-sky-500 rounded-full mr-2 animate-pulse"></span> Посевной этап
+                </span>
+                <button onclick="switchTab('financials'); setTimeout(() => document.getElementById('calc-box').scrollIntoView({behavior: 'smooth'}), 100)" class="bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-extrabold px-4 py-2 rounded-xl text-sm transition-all duration-300 shadow-md shadow-sky-400/20 hover:shadow-sky-400/40 active:scale-95">
+                    Инвестировать
+                </button>
+            </div>
+        </div>
     </header>
 
     <!-- MOBILE TABS BAR (прокрутка на мобильных) -->
