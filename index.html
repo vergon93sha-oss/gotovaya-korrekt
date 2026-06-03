@@ -1587,6 +1587,45 @@
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', initFloatingClouds);
+        <script>
+    function initFloatingClouds() {
+        const container = document.querySelector('.cloud-container');
+        if (!container) return;
+
+        const cloudCount = 12; // Количество облаков
+        const cloudShape = '<path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>';
+
+        for (let i = 0; i < cloudCount; i++) {
+            const cloud = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            cloud.setAttribute("viewBox", "0 0 24 24");
+            
+            // Задаем класс и нежный полупрозрачный голубой цвет, чтобы их было видно на белом фоне
+            cloud.setAttribute("class", "animated-cloud");
+            cloud.style.color = "rgba(14, 165, 233, 0.18)"; 
+
+            const size = Math.floor(Math.random() * 80) + 60;     // Размер от 60px до 140px
+            const topPosition = Math.random() * 95;              // Случайная высота по всему сайту
+            const duration = Math.floor(Math.random() * 50) + 40; // Скорость движения (от 40 до 90 сек)
+            const delay = Math.floor(Math.random() * -100);       // Отрицательная задержка, чтобы они плыли сразу
+
+            cloud.style.width = `${size}px`;
+            cloud.style.height = `${size * 0.6}px`;
+            cloud.style.top = `${topPosition}%`;
+            cloud.style.animationDuration = `${duration}s`;
+            cloud.style.animationDelay = `${delay}s`;
+
+            cloud.innerHTML = cloudShape;
+            container.appendChild(cloud);
+        }
+    }
+
+    // Запуск функции сразу после загрузки страницы
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFloatingClouds);
+    } else {
+        initFloatingClouds();
+    }
+    </script>
     </script>
 </body>
 </html>
