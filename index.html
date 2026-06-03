@@ -50,34 +50,14 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0284C7;
         }
-        @keyframes floatCloud {
-  0% { transform: translateX(-150%); }
-  100% { transform: translateX(calc(100vw + 150%)); }
-}
-
-.cloud-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Чтобы облака не мешали кликать по кнопкам */
-  z-index: 0; /* Оставляем на заднем плане */
-  overflow: hidden;
-}
-
-.animated-cloud {
-  position: absolute;
-  opacity: 0.25;
-  animation: floatCloud linear infinite;
-  filter: blur(3px); /* Легкое размытие для объема */
-}
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <!-- ФОНОВЫЕ ОБЛАКА И ГРАДИЕНТЫ (Эстетика из картинки пользователя) -->
-   <div class="cloud-container"></div>
+    <div class="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-sky-400 via-sky-300 to-transparent opacity-30 pointer-events-none"></div>
+    <div class="absolute top-10 left-[10%] w-72 h-40 bg-white/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-32 right-[15%] w-96 h-48 bg-white/50 rounded-full blur-3xl pointer-events-none"></div>
 
     <!-- HEADER -->
     <header class="border-b border-sky-100 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
@@ -482,8 +462,10 @@
 
             <!-- ИНСТРУКЦИЯ ПО ЗАМЕНЕ ВИДЕО ДЛЯ ПОЛЬЗОВАТЕЛЯ -->
             <div class="bg-sky-50 border border-sky-100 p-5 rounded-2xl flex items-start space-x-3 text-slate-600 text-sm">
-                <span class="text-lg">
-                <div></div>
+                <span class="text-lg">💡</span>
+                <div>
+                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                </div>
             </div>
         </section>
 
@@ -1556,37 +1538,6 @@
         window.onload = function() {
             updateCalculator();
         }
-        function initFloatingClouds() {
-  const container = document.querySelector('.cloud-container');
-  if (!container) return;
-
-  const cloudCount = 12; // Сколько всего облаков будет летать
-  const cloudShape = '<path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>';
-
-  for (let i = 0; i < cloudCount; i++) {
-    const cloud = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    cloud.setAttribute("viewBox", "0 0 24 24");
-    cloud.setAttribute("class", "animated-cloud text-sky-100/30"); // Нежный цвет неба
-
-    const size = Math.floor(Math.random() * 80) + 40; // Размер от 40px до 120px
-    const topPosition = Math.random() * 95; // Случайная высота на сайте
-    const duration = Math.floor(Math.random() * 40) + 40; // Скорость (от 40 до 80 секунд)
-    const delay = Math.floor(Math.random() * -80); // Минусовая задержка, чтобы летели СРАЗУ при открытии
-
-    cloud.style.width = `${size}px`;
-    cloud.style.height = `${size * 0.6}px`;
-    cloud.style.top = `${topPosition}%`;
-    cloud.style.animationDuration = `${duration}s`;
-    cloud.style.animationDelay = `${delay}s`;
-    cloud.style.opacity = (Math.random() * 0.15 + 0.1).toFixed(2);
-
-    cloud.innerHTML = cloudShape;
-    container.appendChild(cloud);
-  }
-}
-
-// Запуск при загрузке страницы
-document.addEventListener('DOMContentLoaded', initFloatingClouds);
     </script>
 </body>
 </html>
