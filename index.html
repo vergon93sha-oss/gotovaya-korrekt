@@ -72,6 +72,11 @@
   animation: floatCloud linear infinite;
   filter: blur(3px); /* Легкое размытие для объема */
 }
+        /* Это анимация движения, она должна быть внутри style */
+  @keyframes floatCloud {
+    from { transform: translateX(-200px); }
+    to { transform: translateX(100vw); }
+  }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
