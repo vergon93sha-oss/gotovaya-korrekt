@@ -64,11 +64,10 @@ h1, h2, h3 {
 
     <!-- ФОНОВЫЕ ОБЛАКА И ГРАДИЕНТЫ (Эстетика из картинки пользователя) -->
     <div class="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-sky-400 via-sky-300 to-transparent opacity-30 pointer-events-none"></div>
-    <div class="absolute top-10 left-[10%] w-72 h-40 bg-white/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-32 right-[15%] w-96 h-48 bg-white/50 rounded-full blur-3xl pointer-events-none"></div>
+    
 
     <!-- HEADER -->
-    <header class="fixed top-4 left-4 right-4 z-50 bg-sky-50/30 backdrop-blur-md border border-white/40 rounded-full"
+    <header class="fixed top-4 left-4 right-4 z-50 rounded-full border border-white/30 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-gradient-to-tr from-sky-400 to-blue-500 p-2.5 rounded-xl shadow-md shadow-sky-400/20">
@@ -84,7 +83,7 @@ h1, h2, h3 {
             
             <div class="hidden lg:flex space-x-1 bg-sky-50 p-1 rounded-full border border-sky-100/80">
                 <button onclick="switchTab('overview')" 
-        class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-white/10 border border-white/20 hover:bg-white/20 text-sky-900" 
+        class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:bg-white/60 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] text-sky-900" 
         id="btn-overview">О проекте</button>
                 <button onclick="switchTab('catalog')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-catalog">Обзор продукции 🎥</button>
                 <button onclick="switchTab('strategy')" class="tab-btn px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-sky-600 transition-all duration-300" id="btn-strategy">Стратегия</button>
