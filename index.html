@@ -92,13 +92,22 @@ h1, h2, h3 {
 
     <!-- HEADER -->
      <!-- HEADER -->
-  <header class="fixed top-4 left-4 right-4 z-50 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl shadow-xl shadow-black/5">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <header class="sticky top-4 z-50 mx-4 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl shadow-xl shadow-black/5">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         
-      <div class="flex items-center space-x-3 flex-none">
-    <img src="Russky_5.png" alt="РУСЬ" class="w-9 h-9 object-contain">
-    <span class="text-2xl font-extrabold tracking-widest text-blue-900 uppercase">РУСЬ</span>
-</div>
+        <div class="flex items-center space-x-3 flex-none">
+            <img src="Russky_5.png" alt="РУСЬ" class="w-9 h-9 object-contain">
+            <span class="text-xl md:text-2xl font-extrabold tracking-widest text-blue-900 uppercase">РУСЬ</span>
+        </div>
+
+        <div class="flex items-center space-x-1 ml-4 overflow-x-auto scrollbar-none flex-nowrap">
+            <button onclick="switchTab('overview')" class="tab-btn px-3 py-2 rounded-full text-[10px] md:text-xs font-bold text-slate-600 whitespace-nowrap hover:bg-white/20 transition-all">О проекте</button>
+            <button onclick="switchTab('catalog')" class="tab-btn px-3 py-2 rounded-full text-[10px] md:text-xs font-bold text-slate-600 whitespace-nowrap hover:bg-white/20 transition-all">Продукция 🎥</button>
+            <button onclick="switchTab('strategy')" class="tab-btn px-3 py-2 rounded-full text-[10px] md:text-xs font-bold text-slate-600 whitespace-nowrap hover:bg-white/20 transition-all">Стратегия</button>
+            <button onclick="switchTab('team')" class="tab-btn px-3 py-2 rounded-full text-[10px] md:text-xs font-bold text-slate-600 whitespace-nowrap hover:bg-white/20 transition-all">Активы</button>
+            </div>
+    </div>
+</header>
         <div class="hidden lg:flex items-center space-x-1 ml-auto mr-4">
             <button onclick="switchTab('overview')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">О проекте</button>
             <button onclick="switchTab('catalog')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">Обзор продукции 🎥</button>
