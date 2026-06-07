@@ -1128,7 +1128,7 @@
     </div>
 </section>
         <!-- ==================== TAB: CONTACTS ==================== -->
-        <section id="contacts" class="tab-content hidden scroll-mt-24 space-y-10 animate-fade-in">
+        <section id="tab-contacts" class="tab-content hidden scroll-mt-24 space-y-10 animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
                 <!-- Contact info -->
@@ -1511,27 +1511,5 @@
     
     <span>Инвестировать</span>
 </button>
-    <script>
-function switchTab(tabId) {
-    // 1. Скрываем все разделы
-    document.querySelectorAll('.tab-content').forEach(section => {
-        section.classList.add('hidden');
-    });
-    // 2. Показываем нужный раздел
-    document.getElementById('tab-' + tabId).classList.remove('hidden');
-    
-    // 3. (Опционально) Можно добавить логику подсветки активной кнопки, 
-    // но пока давай проверим, работают ли переключения
-}
-
-function toggleVideoPlay(videoId) {
-    const video = document.getElementById(videoId);
-    if (video.paused) {
-        video.play();
-    } else {
-        video.pause();
-    }
-}
-</script>
 </body>
 </html>
