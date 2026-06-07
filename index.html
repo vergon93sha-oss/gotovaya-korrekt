@@ -72,7 +72,20 @@ h1, h2, h3 {
   }
   .animate-soft-pulse {
     animation: soft-pulse 3s ease-in-out infinite;
-  }  
+  }
+    <style>
+    /* ... твой текущий код ... */
+
+    /* Принудительно меняем цвет абсолютно ВСЕГО текста на «мокрый асфальт» */
+    body, h1, h2, h3, h4, p, span, div {
+        color: #334155 !important;
+    }
+
+    /* А если где-то нужно оставить акцентный голубой, добавь это: */
+    .text-sky-600 {
+        color: #0284C7 !important;
+    }
+</style>
 </style>
 
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
