@@ -92,7 +92,7 @@ h1, h2, h3 {
 
     <!-- HEADER -->
      <!-- HEADER -->
-<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
+<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-transparent/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
     <div class="px-4 py-3 flex items-center justify-between">
         
         <div class="flex items-center space-x-2 shrink-0">
@@ -101,13 +101,13 @@ h1, h2, h3 {
         </div>
 
         <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
-            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
-            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
-            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
-            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
-            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
-            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
-            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
+            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
+            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
+            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
+            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
+            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
+            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
+            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
         </div>
     </div>
 </header>
@@ -326,14 +326,14 @@ h1, h2, h3 {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Video Box 1 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <!-- Video Placeholder/Actual video -->
                         <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-1')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -357,7 +357,7 @@ h1, h2, h3 {
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-2')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-2')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -375,13 +375,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 3 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-3" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-3')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-3')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -399,13 +399,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 4 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-4" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-4')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-4')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -423,13 +423,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 5 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-5" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-5')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-5')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -447,13 +447,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 6 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-6" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-6')" class="bg-white/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-6')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -476,7 +476,7 @@ h1, h2, h3 {
             <div class="bg-sky-50 border border-sky-100 p-5 rounded-3xl flex items-start space-x-3 text-slate-600 text-sm">
                 <span class="text-lg">💡</span>
                 <div>
-                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-transparent px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-transparent px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
                 </div>
             </div>
         </section>
@@ -490,7 +490,7 @@ h1, h2, h3 {
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1: Asset-Light (Tinkoff Model) -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">01 / Модель Тинькофф</div>
                     <h3 class="text-lg font-bold text-slate-700">Минимум операционных расходов</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -499,7 +499,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Card 2: Packaging innovation -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">02 / Продает упаковка</div>
                     <h3 class="text-lg font-bold text-slate-700">Экономия на материалах</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -508,7 +508,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Card 3: Deep Processing -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">03 / Глубокая переработка</div>
                     <h3 class="text-lg font-bold text-slate-700">Высокомаржинальные SKU</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -517,7 +517,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Card 4: Non-Corruption -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">04 / Ретро-бонусы за объём</div>
                     <h3 class="text-lg font-bold text-slate-700">Честная мотивация закупщиков</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -526,7 +526,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Card 5: Smart Purchasing -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">05 / Выгода в закупке</div>
                     <h3 class="text-lg font-bold text-slate-700">Правило первого контрагента</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -535,7 +535,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Card 6: Tax Optimization -->
-                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">06 / Оцифровка процессов</div>
                     <h3 class="text-lg font-bold text-slate-700">Легальное снижение налогов</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -545,7 +545,7 @@ h1, h2, h3 {
             </div>
 
             <!-- Regional Expansion Block -->
-            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                 <h3 class="text-xl font-bold text-slate-850 mb-6 flex items-center">
                     <span class="w-3 h-3 bg-sky-400 rounded-full mr-3 animate-ping"></span>
                     География расширения до конца 2026 года
@@ -587,7 +587,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Formula breakdown -->
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-slate-700 text-sm">Формула кадровой надёжности:</h4>
                         <div class="flex items-center space-x-2">
                             <span class="text-2xl font-black text-sky-500">30%</span>
@@ -603,7 +603,7 @@ h1, h2, h3 {
                     </div>
                 </div>
 
-                <div class="md:col-span-8 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <div class="md:col-span-8 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                     <h3 class="text-xl font-bold text-slate-700">Нематериальные активы за 10 лет работы</h3>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -669,7 +669,7 @@ h1, h2, h3 {
                         </p>
                     </div>
 
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
                         <h4 class="font-bold text-slate-700 text-sm">Плановые финансовые показатели по году:</h4>
                         <div class="space-y-3">
                             <div class="flex justify-between text-sm">
@@ -692,7 +692,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Risk Control -->
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
                         <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
                             <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
@@ -702,7 +702,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
-                <div class="lg:col-span-7 bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
+                <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="font-bold text-lg text-slate-700">Прогноз выручки по месяцам (млн ₽)</h3>
@@ -795,7 +795,7 @@ h1, h2, h3 {
             </div>
 
             <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
-            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
@@ -1009,10 +1009,10 @@ h1, h2, h3 {
 
                         <!-- Option Types -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-white p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
+                            <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-transparent p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-sky-600 uppercase">Сценарий 1</span>
-                                    <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-white" id="calc-radio-loan"></div>
+                                    <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent" id="calc-radio-loan"></div>
                                 </div>
                                 <h4 class="font-bold text-slate-700 text-sm">Конвертируемый Заём</h4>
                                 <p class="text-slate-500 text-[11px] leading-relaxed">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%.</p>
@@ -1021,7 +1021,7 @@ h1, h2, h3 {
                             <div onclick="selectCalcType('equity')" id="calc-type-equity" class="cursor-pointer bg-sky-50/20 p-4 rounded-3xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-blue-500 uppercase">Сценарий 2</span>
-                                    <div class="w-4 h-4 rounded-full border border-sky-200 bg-white" id="calc-radio-equity"></div>
+                                    <div class="w-4 h-4 rounded-full border border-sky-200 bg-transparent" id="calc-radio-equity"></div>
                                 </div>
                                 <h4 class="font-bold text-slate-700 text-sm">Вхождение в Долю</h4>
                                 <p class="text-slate-500 text-[11px] leading-relaxed">Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке.</p>
@@ -1034,11 +1034,11 @@ h1, h2, h3 {
                         <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
                         
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                                 <span class="text-[10px] text-slate-400 block">Ваш пассивный доход:</span>
                                 <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
                             </div>
-                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                                 <span class="text-[10px] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
                                 <span class="text-lg font-extrabold text-slate-700" id="calc-metric-val">33.0% годовых</span>
                             </div>
@@ -1059,7 +1059,7 @@ h1, h2, h3 {
                             </div>
                         </div>
 
-                        <div class="p-3 bg-white rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
+                        <div class="p-3 bg-transparent rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
                             🛡️ <strong class="text-slate-850">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
                         </div>
                     </div>
@@ -1085,7 +1085,7 @@ h1, h2, h3 {
   <span class="text-xs font-light text-slate-400 uppercase tracking-widest block">Июль</span>
   <span class="text-xl font-medium text-slate-500">2015</span>
 </div>
- <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+ <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
  <div class="text-sky-600 text-xs font-bold md:hidden">Июль 2015</div>
  <h3 class="text-lg font-bold text-slate-850">Основание ООО «РУСЬ» в Москве</h3>
  <p class="text-slate-500 text-sm leading-relaxed">
@@ -1099,7 +1099,7 @@ h1, h2, h3 {
     <span class="text-lg font-medium text-slate-500">2016 – 2018</span>
   </div>
   
-  <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+  <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
     <h3 class="text-lg font-bold text-slate-850">Переезд в Рязань и масштабирование сбыта</h3>
     <p class="text-slate-500 text-sm leading-relaxed">
       Склад открыт на легендарной «5 Базе» в Рязани. География поставок расширилась по всей РФ — от Санкт-Петербурга до Владивостока и Магадана. На пике достигли оборота в 90 млн. рублей при чистой прибыли около 6 млн. ₽ в год (по тем ценам).
@@ -1109,11 +1109,11 @@ h1, h2, h3 {
 
                 <!-- 2019 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">2019 - 2020</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-600 text-xs font-bold md:hidden">2019 - 2020</div>
                         <h3 class="text-lg font-bold text-slate-850">Первое производство и горький опыт</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1124,11 +1124,11 @@ h1, h2, h3 {
 
                 <!-- 2021 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-300 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-300 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-400">2021 - 2023</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-500 text-xs font-bold md:hidden">2021 - 2023</div>
                         <h3 class="text-lg font-bold text-slate-850">Закрытие цехов и жесткие выводы</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1142,11 +1142,11 @@ h1, h2, h3 {
 
                 <!-- 2024 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">Конец 2024</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-600 text-xs font-bold md:hidden">Конец 2024</div>
                         <h3 class="text-lg font-bold text-slate-850">Возрождение компании «РУСЬ»</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1157,7 +1157,7 @@ h1, h2, h3 {
 
                 <!-- 2025-2026 -->
                 <div class="relative animate-pulse">
-                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">2025 - 2026</span>
                     </div>
@@ -1184,7 +1184,7 @@ h1, h2, h3 {
                         <h2 class="text-3xl font-black text-slate-700">Технический паспорт и контакты</h2>
                     </div>
 
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-sm text-slate-600">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-sm text-slate-600">
                         <div class="space-y-1">
                             <span class="text-slate-400 block text-xs">Полное юридическое название:</span>
                             <span class="text-slate-700 font-semibold">ООО «РУСЬ» (ОГРН/ИНН: 7726345505)</span>
@@ -1204,7 +1204,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Addresses -->
-                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
                         <h4 class="font-bold text-slate-700 text-sm">Логистическая инфраструктура:</h4>
                         <div class="space-y-1">
                             <strong class="text-slate-700">Склад Рязань:</strong> ул. Чкалова 72, база РостПродукт
@@ -1222,7 +1222,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Message Box to replace Alert -->
-                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <div class="lg:col-span-7 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                     <h3 class="text-xl font-bold text-slate-850">Отправить отклик на предложение</h3>
                     
                     <form id="contactForm" action="https://formspree.io/f/mzdqpnod" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
@@ -1284,7 +1284,7 @@ h1, h2, h3 {
     </div>
 
     <!-- FOOTER -->
-    <footer class="border-t border-sky-100 bg-white py-6">
+    <footer class="border-t border-sky-100 bg-transparent py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
             <div>
                 © 2015-2026 ООО «РУСЬ». Все права защищены. Конфиденциальность на всех этапах переговоров.
@@ -1452,15 +1452,15 @@ h1, h2, h3 {
             const radioEquity = document.getElementById('calc-radio-equity');
 
             if (type === 'loan') {
-                loanBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                loanBtn.className = "cursor-pointer bg-transparent p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
                 equityBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
-                radioLoan.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
-                radioEquity.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
+                radioLoan.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent";
+                radioEquity.className = "w-4 h-4 rounded-full border border-sky-200 bg-transparent";
             } else {
-                equityBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                equityBtn.className = "cursor-pointer bg-transparent p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
                 loanBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
-                radioEquity.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
-                radioLoan.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
+                radioEquity.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent";
+                radioLoan.className = "w-4 h-4 rounded-full border border-sky-200 bg-transparent";
             }
             updateCalculator();
         }
