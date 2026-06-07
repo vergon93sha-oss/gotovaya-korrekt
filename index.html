@@ -30,64 +30,38 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* Общие стили */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F0F9FF;
-            color: #0F172A;
+            color: #334155; /* Используем базовый цвет здесь */
         }
+
         /* Кастомный премиальный скроллбар */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #E0F2FE; }
+        ::-webkit-scrollbar-thumb { background: #38BDF8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284C7; }
+
+        .tab-content { padding-top: 2rem; padding-bottom: 2rem; }
+        h1, h2, h3 { letter-spacing: -0.025em; }
+
+        /* Анимации */
+        @keyframes float {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(110vw); }
         }
-        ::-webkit-scrollbar-track {
-            background: #E0F2FE;
+        @keyframes soft-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
-        ::-webkit-scrollbar-thumb {
-            background: #38BDF8;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0284C7;
-        }
-        /* Добавь это в секцию <style> */
-.tab-content {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-h1, h2, h3 {
-    letter-spacing: -0.025em; /* Делает заголовки визуально «плотнее» и солиднее */
-}
+        .animate-soft-pulse { animation: soft-pulse 3s ease-in-out infinite; }
+
+        /* Вспомогательный класс для акцента */
+        .text-sky-brand { color: #0284C7 !important; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
-<style>
-  @keyframes float {
-    0% { transform: translateX(-200px); }
-    100% { transform: translateX(110vw); }
-  }
-  @keyframes soft-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-  .animate-soft-pulse {
-    animation: soft-pulse 3s ease-in-out infinite;
-  }
-    <style>
-    /* ... твой текущий код ... */
-
-    /* Принудительно меняем цвет абсолютно ВСЕГО текста на «мокрый асфальт» */
-    body, h1, h2, h3, h4, p, span, div {
-        color: #334155 !important;
-    }
-
-    /* А если где-то нужно оставить акцентный голубой, добавь это: */
-    .text-sky-600 {
-        color: #0284C7 !important;
-    }
-</style>
-</style>
-
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
   <img src="cloud1.png" class="absolute top-[5%] left-[-20%] w-56 opacity-30 animate-[float_60s_linear_infinite]" />
   <img src="cloud2.png" class="absolute top-[15%] left-[-40%] w-40 opacity-20 animate-[float_50s_linear_infinite_10s]" />
@@ -1154,7 +1128,7 @@ h1, h2, h3 {
     </div>
 </section>
         <!-- ==================== TAB: CONTACTS ==================== -->
-        <section id="tab-contacts" class="tab-content scroll-mt-24 space-y-10 animate-fade-in">
+        <section id="contacts" class="tab-content hidden scroll-mt-24 space-y-10 animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
                 <!-- Contact info -->
