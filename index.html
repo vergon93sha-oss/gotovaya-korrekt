@@ -16,7 +16,7 @@
                             skyDark: '#0284C7', /* Глубокий синий для акцентов */
                             bg: '#F0F9FF',      /* Сверхсветлый голубой фон */
                             card: '#FFFFFF',    /* Белоснежные карточки (эффект чистоты) */
-                            textDark: '#334155',/* Почти черный для идеальной читаемости */
+                            textDark: '#0F172A',/* Почти черный для идеальной читаемости */
                             textMuted: '#475569'/* Серый для подзаголовков */
                         }
                     },
@@ -33,7 +33,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F0F9FF;
-            color: #334155;
+            color: #0F172A;
         }
         /* Кастомный премиальный скроллбар */
         ::-webkit-scrollbar {
@@ -92,22 +92,22 @@ h1, h2, h3 {
 
     <!-- HEADER -->
      <!-- HEADER -->
-<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-transparent/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
+<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
     <div class="px-4 py-3 flex items-center justify-between">
         
         <div class="flex items-center space-x-2 shrink-0">
             <img src="Russky_5.png" alt="РУСЬ" class="w-7 h-7 object-contain">
-            <span class="text-lg font-extrabold text-slate-700 uppercase tracking-wider">РУСЬ</span>
+            <span class="text-lg font-extrabold text-blue-900 uppercase tracking-wider">РУСЬ</span>
         </div>
 
         <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
-            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
-            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
-            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
-            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
-            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
-            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
-            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-transparent/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
+            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
+            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
+            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
+            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
+            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
+            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
+            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
         </div>
     </div>
 </header>
@@ -119,20 +119,14 @@ h1, h2, h3 {
         <section id="tab-overview" class="tab-content scroll-mt-24 block space-y-10 animate-fade-in">
             <!-- Hero Pitch -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-               <div class="lg:col-span-7 space-y-6">
-    <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
-        <span>🌱 Чистое производство • Честный бизнес</span>
-    </div>
-    
-    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1] text-slate-700">
-        Комплексное производство<br>
-        <span class="text-sky-600">и оптовые поставки мяса</span>
-    </h1>
-    
-    <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
-        ООО «РУСЬ» (основано в 2015 году) предлагает принять участие в масштабировании проверенной бизнес-модели: собственное + контрактное производство мясных продуктов и СТМ с доходностью <span class="text-sky-600 font-extrabold">до 33% годовых</span>.
-    </p>
-</div>
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
+                        <span>🌱 Чистое производство • Честный бизнес</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[0.9]">
+    Комплексное производство <br>
+    <span class="text-blue-600">и оптовые поставки мяса</span>
+</h1>
                     <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
                         ООО «РУСЬ» (основано в 2015 году) предлагает принять участие в масштабировании проверенной бизнес-модели: собственное + контрактное производство мясных продуктов и СТМ с доходностью <span class="text-sky-600 font-extrabold">до 33% годовых</span>.
                     </p>
@@ -141,7 +135,7 @@ h1, h2, h3 {
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
                         <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                             <span class="block text-xs text-slate-400 mb-1">Опыт компании</span>
-                            <span class="text-2xl font-black text-slate-700">10+ лет</span>
+                            <span class="text-2xl font-black text-slate-800">10+ лет</span>
                         </div>
                         <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                             <span class="block text-xs text-slate-400 mb-1">Годовой объем</span>
@@ -153,7 +147,7 @@ h1, h2, h3 {
                         </div>
                         <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                             <span class="block text-xs text-slate-400 mb-1">Рентабельность</span>
-                            <span class="text-2xl font-black text-slate-700">~22%</span>
+                            <span class="text-2xl font-black text-slate-800">~22%</span>
                         </div>
                     </div>
                 </div>
@@ -176,11 +170,11 @@ h1, h2, h3 {
                         <div class="border-t border-sky-100 pt-4 space-y-3">
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500 font-medium">Срок займа:</span>
-                                <span class="text-slate-700 font-bold">12–15 месяцев</span>
+                                <span class="text-slate-800 font-bold">12–15 месяцев</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500 font-medium">Возврат тела:</span>
-                                <span class="text-slate-700 font-bold">Через 12 месяцев</span>
+                                <span class="text-slate-800 font-bold">Через 12 месяцев</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500 font-medium">Выплата процентов:</span>
@@ -188,7 +182,7 @@ h1, h2, h3 {
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500 font-medium">Формат гарантий:</span>
-                                <span class="text-slate-700 font-bold">Конвертируемый заём или обеспечение товаром</span>
+                                <span class="text-slate-800 font-bold">Конвертируемый заём или обеспечение товаром</span>
                             </div>
                         </div>
 
@@ -201,13 +195,13 @@ h1, h2, h3 {
 
             <!-- Project Goals & Target Metrics -->
             <div class="space-y-6">
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-700">Глобальные цели и задачи проекта</h2>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-800">Глобальные цели и задачи проекта</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 hover:border-sky-300 transition-all duration-300">
                         <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-700 mb-2">Снижение себестоимости</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Снижение себестоимости</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Оптимизация на 8% за счёт масштабирования модели контрактного производства и закупки импортного сырья напрямую у зарубежных производителей без посредников.
                         </p>
@@ -217,7 +211,7 @@ h1, h2, h3 {
                         <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-700 mb-2">Увеличение прибыли</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Увеличение прибыли</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Выход на прямые поставки в федеральные/локальные торговые сети, участие в государственных тендерах, запуск на маркетплейсах (Яндекс Лавка, Самокат) и экспорт.
                         </p>
@@ -227,7 +221,7 @@ h1, h2, h3 {
                         <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-700 mb-2">Масштабирование СТМ</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Масштабирование СТМ</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Производство готовых мясных продуктов и деликатесов высокой рентабельности под собственной торговой маркой (СТМ) заказчика и ООО «РУСЬ».
                         </p>
@@ -245,7 +239,7 @@ h1, h2, h3 {
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-700">Действующий бизнес с 2015 года</h4>
+                                <h4 class="font-bold text-slate-800">Действующий бизнес с 2015 года</h4>
                                 <p class="text-slate-500 text-sm leading-relaxed">Отлаженные бизнес-процессы, договоры, укомплектованная внешняя и внутренняя команда профессионалов.</p>
                             </div>
                         </div>
@@ -254,7 +248,7 @@ h1, h2, h3 {
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-700">3 Склада-представительства</h4>
+                                <h4 class="font-bold text-slate-800">3 Склада-представительства</h4>
                                 <p class="text-slate-500 text-sm leading-relaxed">Москва, Санкт-Петербург, Рязань. Отработана логистика кросс-докинга и фулфилмента в ключевых точках сбыта.</p>
                             </div>
                         </div>
@@ -263,7 +257,7 @@ h1, h2, h3 {
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-700">Развитие собственного производства в СЗФО</h4>
+                                <h4 class="font-bold text-slate-800">Развитие собственного производства в СЗФО</h4>
                                 <p class="text-slate-500 text-sm leading-relaxed">Производственный комплекс в Санкт-Петербурге на стадии согласования и подписания договора и разрешительных документов.</p>
                             </div>
                         </div>
@@ -318,7 +312,7 @@ h1, h2, h3 {
                 <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
                     <span>📹 ВИДЕОПРЕЗЕНТАЦИЯ ПРОДУКТА</span>
                 </div>
-                <h2 class="text-3xl font-black text-slate-700">Обзор продукции и процессов</h2>
+                <h2 class="text-3xl font-black text-slate-800">Обзор продукции и процессов</h2>
                 <p class="text-slate-500 text-lg max-w-3xl">Загляните прямо на производство и оцените качество конечного продукта.</p>
             </div>
 
@@ -326,14 +320,14 @@ h1, h2, h3 {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Video Box 1 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <!-- Video Placeholder/Actual video -->
                         <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-1')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -341,7 +335,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Филе Индейки</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Филе грудки и бедра в вакууме</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Филе грудки и бедра в вакууме</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Демонстрация калибровки, герметичности вакуумирования и безупречного товарного вида поставляемой продукции.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/mov_bbb.mp4', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -357,7 +351,7 @@ h1, h2, h3 {
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-2')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-2')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -365,7 +359,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Сыровяленые Чипсы</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Мясные снеки (Тренд 2025-2026)</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Мясные снеки (Тренд 2025-2026)</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Высокомаржинальный продукт (доходность до 150-3000%). Процесс нарезки, сушки и брендовой фасовки.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/movie.mp4', 'Сыровяленые Мясные Чипсы')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -375,13 +369,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 3 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-3" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-3')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-3')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -389,7 +383,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Цех переработки</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Работа автоматизированных линий</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Работа автоматизированных линий</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Оборудование российского и китайского производства. Максимальная гигиена и соответствие нормам ГОСТ и ХАССП.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/mov_bbb.mp4', 'Автоматизированный Цех Переработки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -399,13 +393,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 4 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-4" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-4')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-4')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -413,7 +407,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Логистика & Склад</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Кросс-докинг и отгрузка в регионы</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Кросс-докинг и отгрузка в регионы</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Процесс сборки заказов на складах ответственного хранения в Москве, Санкт-Петербурге и Рязани.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/movie.mp4', 'Логистика и Склад ответхранения')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -423,13 +417,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 5 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-5" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-5')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-5')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -437,7 +431,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Брендовая упаковка</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Новый формат коробок СТМ</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Новый формат коробок СТМ</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Демонстрация облегченных 3-7 кг коробов с яркой печатью. Экономия на вакууме и высокая маркетинговая отдача.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/mov_bbb.mp4', 'Презентация брендовой упаковки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -447,13 +441,13 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Video Box 6 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <video id="video-6" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&q=80&w=400">
                             <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-6')" class="bg-transparent/90 hover:bg-sky-400 text-slate-700 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                            <button onclick="toggleVideoPlay('video-6')" class="bg-white/90 hover:bg-sky-400 text-slate-900 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                         </div>
@@ -461,7 +455,7 @@ h1, h2, h3 {
                     </div>
                     <div class="p-5 space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase">Стейки и нарезка</span>
-                        <h4 class="font-extrabold text-slate-700 text-md">Порционная мясная разделка</h4>
+                        <h4 class="font-extrabold text-slate-800 text-md">Порционная мясная разделка</h4>
                         <p class="text-slate-500 text-xs leading-relaxed">Идеально ровная нарезка стейков на весах, фасовка в лотки на влаговпитывающие подложки для ресторанов и сетей.</p>
                         <button onclick="openVideoModal('https://www.w3schools.com/html/movie.mp4', 'Порционная нарезка стейков')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
                             <span>Развернуть на весь экран</span>
@@ -476,7 +470,7 @@ h1, h2, h3 {
             <div class="bg-sky-50 border border-sky-100 p-5 rounded-3xl flex items-start space-x-3 text-slate-600 text-sm">
                 <span class="text-lg">💡</span>
                 <div>
-                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-transparent px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-transparent px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
                 </div>
             </div>
         </section>
@@ -484,60 +478,60 @@ h1, h2, h3 {
         <!-- ==================== TAB: STRATEGY ==================== -->
         <section id="tab-strategy" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
             <div class="space-y-4">
-                <h2 class="text-3xl font-extrabold text-slate-700">Стратегия эффективности бизнеса</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800">Стратегия эффективности бизнеса</h2>
                 <p class="text-slate-500 text-lg max-w-3xl">За счет чего ООО «РУСЬ» достигает преимуществ на рынке мясопереработки, удерживая себестоимость и повышая доходность.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1: Asset-Light (Tinkoff Model) -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">01 / Модель Тинькофф</div>
-                    <h3 class="text-lg font-bold text-slate-700">Минимум операционных расходов</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Минимум операционных расходов</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Мы отказались от дорогой классической модели «офис + собственный склад». Вместо этого внедрили систему регионального ответственного хранения (фулфилмент) и удаленный формат работы сотрудников. Расходы на логистику и хранение снижены в 1.5–2 раза.
                     </p>
                 </div>
 
                 <!-- Card 2: Packaging innovation -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">02 / Продает упаковка</div>
-                    <h3 class="text-lg font-bold text-slate-700">Экономия на материалах</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Экономия на материалах</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Снизили вес короба под СТМ в 2 раза (до 3-7 кг), отказались от лишних вакуумных пакетов и контейнеров в пользу рекламы и бренда прямо на гофрокоробе. Это дало нам экономию на логистике без ущерба узнаваемости.
                     </p>
                 </div>
 
                 <!-- Card 3: Deep Processing -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">03 / Глубокая переработка</div>
-                    <h3 class="text-lg font-bold text-slate-700">Высокомаржинальные SKU</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Высокомаржинальные SKU</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Фокус на тренде 2025-2026: сыровяленая продукция (мясные чипсы, хамон, деликатесы по итальянским технологиям) и производство кормов для животных. Рентабельность деликатесной группы составляет от 150% до 3000%.
                     </p>
                 </div>
 
                 <!-- Card 4: Non-Corruption -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">04 / Ретро-бонусы за объём</div>
-                    <h3 class="text-lg font-bold text-slate-700">Честная мотивация закупщиков</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Честная мотивация закупщиков</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Вместо серых коррупционных схем («откатов») мы официально внедрили систему юридически чистых «ретро-бонусов» и товарных премий для коммерческих отделов сетей и дистрибьюторов. Это обеспечивает лавинообразный рост сбыта.
                     </p>
                 </div>
 
                 <!-- Card 5: Smart Purchasing -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">05 / Выгода в закупке</div>
-                    <h3 class="text-lg font-bold text-slate-700">Правило первого контрагента</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Правило первого контрагента</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Возможность выгодной закупки важнее продаж. Получив статус производителя и импортера субпродуктов (говяжьи щеки, тримминги, языки), мы получаем сырье на 10-20% ниже рынка, что даёт колоссальный запас прочности.
                     </p>
                 </div>
 
                 <!-- Card 6: Tax Optimization -->
-                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                     <div class="text-sky-500 text-2xl font-black">06 / Оцифровка процессов</div>
-                    <h3 class="text-lg font-bold text-slate-700">Легальное снижение налогов</h3>
+                    <h3 class="text-lg font-bold text-slate-800">Легальное снижение налогов</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Вся основная команда (технологи, дизайнеры, менеджеры) оформлены как ИП или самозанятые с оплатой за результат. Это снижает ФОТ и налоги на фонд оплаты труда, укладывая налоговую нагрузку всего в 1% от оборота.
                     </p>
@@ -545,7 +539,7 @@ h1, h2, h3 {
             </div>
 
             <!-- Regional Expansion Block -->
-            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                 <h3 class="text-xl font-bold text-slate-850 mb-6 flex items-center">
                     <span class="w-3 h-3 bg-sky-400 rounded-full mr-3 animate-ping"></span>
                     География расширения до конца 2026 года
@@ -570,7 +564,7 @@ h1, h2, h3 {
         <!-- ==================== TAB: TEAM & ASSETS ==================== -->
         <section id="tab-team" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
             <div class="space-y-4">
-                <h2 class="text-3xl font-extrabold text-slate-700">Активы компании и команда</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800">Активы компании и команда</h2>
                 <p class="text-slate-500 text-lg max-w-3xl">Кадры и нематериальные активы — основа устойчивости бизнеса.</p>
             </div>
 
@@ -580,15 +574,15 @@ h1, h2, h3 {
                     <!-- Material Asset Card -->
                     <div class="bg-gradient-to-br from-white to-sky-50/20 p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
                         <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Ключевой материальный актив</span>
-                        <h3 class="text-2xl font-black text-slate-700">15 000 000 ₽</h3>
+                        <h3 class="text-2xl font-black text-slate-800">15 000 000 ₽</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Стабильный товарный кредит от стратегического партнёра-инвестора со средним сроком 43–45 дней. Возможность расширения кредитного плеча до 30 000 000 ₽ в течение 3-4 месяцев.
                         </p>
                     </div>
 
                     <!-- Formula breakdown -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
-                        <h4 class="font-bold text-slate-700 text-sm">Формула кадровой надёжности:</h4>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">Формула кадровой надёжности:</h4>
                         <div class="flex items-center space-x-2">
                             <span class="text-2xl font-black text-sky-500">30%</span>
                             <span class="text-slate-600 text-sm">— Члены семьи и близкий круг (высокая лояльность)</span>
@@ -603,12 +597,12 @@ h1, h2, h3 {
                     </div>
                 </div>
 
-                <div class="md:col-span-8 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
-                    <h3 class="text-xl font-bold text-slate-700">Нематериальные активы за 10 лет работы</h3>
+                <div class="md:col-span-8 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-800">Нематериальные активы за 10 лет работы</h3>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <h4 class="font-bold text-slate-700 flex items-center">
+                            <h4 class="font-bold text-slate-800 flex items-center">
                                 <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>База контактов и связей
                             </h4>
                             <p class="text-slate-500 text-xs leading-relaxed">
@@ -617,7 +611,7 @@ h1, h2, h3 {
                         </div>
 
                         <div class="space-y-2">
-                            <h4 class="font-bold text-slate-700 flex items-center">
+                            <h4 class="font-bold text-slate-800 flex items-center">
                                 <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Уникальные ноу-хау и рецепты
                             </h4>
                             <p class="text-slate-500 text-xs leading-relaxed">
@@ -626,7 +620,7 @@ h1, h2, h3 {
                         </div>
 
                         <div class="space-y-2">
-                            <h4 class="font-bold text-slate-700 flex items-center">
+                            <h4 class="font-bold text-slate-800 flex items-center">
                                 <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Опыт запуска производств
                             </h4>
                             <p class="text-slate-500 text-xs leading-relaxed">
@@ -635,7 +629,7 @@ h1, h2, h3 {
                         </div>
 
                         <div class="space-y-2">
-                            <h4 class="font-bold text-slate-700 flex items-center">
+                            <h4 class="font-bold text-slate-800 flex items-center">
                                 <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Внешняя партнерская команда
                             </h4>
                             <p class="text-slate-500 text-xs leading-relaxed">
@@ -663,26 +657,26 @@ h1, h2, h3 {
                 <div class="lg:col-span-5 space-y-6">
                     <div class="space-y-2">
                         <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Оцифрованные финансы</span>
-                        <h2 class="text-3xl font-black text-slate-700">План финансового роста</h2>
+                        <h2 class="text-3xl font-black text-slate-800">План финансового роста</h2>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Ниже представлена динамика выручки в течение первого года после освоения инвестиций. Средняя рентабельность проекта на всех этапах составляет <span class="text-sky-600 font-bold">не менее 22%</span> за счет диверсификации направлений.
                         </p>
                     </div>
 
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
-                        <h4 class="font-bold text-slate-700 text-sm">Плановые финансовые показатели по году:</h4>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
                         <div class="space-y-3">
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500">Совокупный годовой оборот:</span>
-                                <span class="text-slate-700 font-extrabold text-md">> 454 000 000 ₽</span>
+                                <span class="text-slate-800 font-extrabold text-md">> 454 000 000 ₽</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500">Рентабельность опта:</span>
-                                <span class="text-slate-700 font-semibold">5% - 15%</span>
+                                <span class="text-slate-800 font-semibold">5% - 15%</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500">Рентабельность производства:</span>
-                                <span class="text-slate-700 font-semibold">15% - 250%</span>
+                                <span class="text-slate-800 font-semibold">15% - 250%</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-slate-500">Итоговая чистая маржинальность:</span>
@@ -692,7 +686,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Risk Control -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
                         <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
                             <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
@@ -702,10 +696,10 @@ h1, h2, h3 {
                 </div>
 
                 <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
-                <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
+                <div class="lg:col-span-7 bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <h3 class="font-bold text-lg text-slate-700">Прогноз выручки по месяцам (млн ₽)</h3>
+                            <h3 class="font-bold text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
                             <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
                         </div>
                         
@@ -784,7 +778,7 @@ h1, h2, h3 {
                     <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
                         <div>
                             <span class="text-xs text-slate-400 block">Выбранный период:</span>
-                            <span id="selected-month-label" class="text-md font-bold text-slate-700">12-й Месяц развития (май-июнь 2026)</span>
+                            <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
                         </div>
                         <div class="text-right">
                             <span class="text-xs text-slate-400 block">Плановая выручка:</span>
@@ -795,7 +789,7 @@ h1, h2, h3 {
             </div>
 
             <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
-            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
@@ -813,7 +807,7 @@ h1, h2, h3 {
                     <div class="lg:col-span-4 space-y-4">
                         <div class="bg-sky-50/50 p-4 rounded-3xl border border-sky-100">
                             <span class="text-xs text-slate-450 block">Размер 1-го транша:</span>
-                            <span class="text-2xl font-black text-slate-700">5 000 000 ₽</span>
+                            <span class="text-2xl font-black text-slate-800">5 000 000 ₽</span>
                             <p class="text-xs text-slate-500 mt-1">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
                         </div>
                         
@@ -852,7 +846,7 @@ h1, h2, h3 {
 
                     <div class="lg:col-span-8 overflow-x-auto">
                         <table class="w-full text-left text-sm text-slate-600">
-                            <thead class="bg-sky-50 text-slate-700">
+                            <thead class="bg-sky-50 text-slate-800">
                                 <tr>
                                     <th class="p-3 rounded-l-lg">Статья расходов</th>
                                     <th class="p-3">Расчёт в месяц</th>
@@ -862,39 +856,39 @@ h1, h2, h3 {
                             </thead>
                             <tbody class="divide-y divide-sky-100/50">
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Генеральный директор</td>
+                                    <td class="p-3 font-semibold text-slate-800">Генеральный директор</td>
                                     <td class="p-3">122 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-700">1 464 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">1 464 000 ₽</td>
                                     <td class="p-3 text-xs">А.В. Рудный. ЗП ниже рынка из-за наличия стороннего личного дохода.</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Помощник руководителя</td>
+                                    <td class="p-3 font-semibold text-slate-800">Помощник руководителя</td>
                                     <td class="p-3">73 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-700">876 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">876 000 ₽</td>
                                     <td class="p-3 text-xs">Операционная координация, распределение задач фрилансерам.</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Бухгалтерия & Юрист (аутсорс)</td>
+                                    <td class="p-3 font-semibold text-slate-800">Бухгалтерия & Юрист (аутсорс)</td>
                                     <td class="p-3">49 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-700">588 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">588 000 ₽</td>
                                     <td class="p-3 text-xs">Разработка договоров, аутсорс на ИП/самозанятых (налог 6% включен).</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Дизайн & Этикетки</td>
+                                    <td class="p-3 font-semibold text-slate-800">Дизайн & Этикетки</td>
                                     <td class="p-3">15 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-700">180 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">180 000 ₽</td>
                                     <td class="p-3 text-xs">Создание полиграфии, этикеток под СТМ, фото-видео.</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Регистрация ТЗ (4 знака)</td>
+                                    <td class="p-3 font-semibold text-slate-800">Регистрация ТЗ (4 знака)</td>
                                     <td class="p-3">Единоразово</td>
-                                    <td class="p-3 font-bold text-slate-700">214 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">214 000 ₽</td>
                                     <td class="p-3 text-xs">4 знака РУСЬ, говядина, птица, сыровяленая группа). Пошлины + регистратор.</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Брендированная коробка (2 вида)</td>
+                                    <td class="p-3 font-semibold text-slate-800">Брендированная коробка (2 вида)</td>
                                     <td class="p-3">Единоразово</td>
-                                    <td class="p-3 font-bold text-slate-700">224 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">224 000 ₽</td>
                                     <td class="p-3 text-xs">Тираж от 1000 шт. Возвратный оборотный капитал, окупается в наценке.</td>
                                 </tr>
                             </tbody>
@@ -910,7 +904,7 @@ h1, h2, h3 {
                     <div class="lg:col-span-4 space-y-4">
                         <div class="bg-sky-50/50 p-4 rounded-3xl border border-sky-100">
                             <span class="text-xs text-slate-450 block">Размер 2-го транша (с 01.10.2025):</span>
-                            <span class="text-2xl font-black text-slate-700">10 000 000 ₽</span>
+                            <span class="text-2xl font-black text-slate-800">10 000 000 ₽</span>
                             <p class="text-xs text-slate-500 mt-1">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
                         </div>
                         
@@ -934,7 +928,7 @@ h1, h2, h3 {
 
                     <div class="lg:col-span-8 overflow-x-auto">
                         <table class="w-full text-left text-sm text-slate-600">
-                            <thead class="bg-sky-50 text-slate-700">
+                            <thead class="bg-sky-50 text-slate-800">
                                 <tr>
                                     <th class="p-3 rounded-l-lg">Должность ТОП-кадра</th>
                                     <th class="p-3">Фиксированный Оклад</th>
@@ -944,27 +938,27 @@ h1, h2, h3 {
                             </thead>
                             <tbody class="divide-y divide-sky-100/50">
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Коммерческий Директор</td>
+                                    <td class="p-3 font-semibold text-slate-800">Коммерческий Директор</td>
                                     <td class="p-3">300 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-700">3 600 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">3 600 000 ₽</td>
                                     <td class="p-3 text-xs">Работа с ключевыми федеральными партнерами, открытие новых регионов (Екб, Архангельск).</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Руководитель отдела сетей и дистрибуции</td>
+                                    <td class="p-3 font-semibold text-slate-800">Руководитель отдела сетей и дистрибуции</td>
                                     <td class="p-3">200 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-700">2 400 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
                                     <td class="p-3 text-xs">Расширение матрицы SKU, ввод бренда "РУСЬ" в федеральные и локальные ритейлеры.</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Руководитель направления Тендеров и Бюджета</td>
+                                    <td class="p-3 font-semibold text-slate-800">Руководитель направления Тендеров и Бюджета</td>
                                     <td class="p-3">200 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-700">2 400 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
                                     <td class="p-3 text-xs">Контракты со школами, детскими садами, бюджетными монополиями (Сбербанк, Газпром).</td>
                                 </tr>
                                 <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-700">Командировочный фонд</td>
+                                    <td class="p-3 font-semibold text-slate-800">Командировочный фонд</td>
                                     <td class="p-3">—</td>
-                                    <td class="p-3 font-bold text-slate-700">400 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">400 000 ₽</td>
                                     <td class="p-3 text-xs">Оплата перелетов и встреч с дистрибьюторами (минимизирован, берем готовых людей с базой).</td>
                                 </tr>
                             </tbody>
@@ -982,7 +976,7 @@ h1, h2, h3 {
                 
                 <div class="space-y-2">
                     <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
-                    <h3 class="text-2xl font-black text-slate-700">Интерактивный Инвестиционный Калькулятор</h3>
+                    <h3 class="text-2xl font-black text-slate-800">Интерактивный Инвестиционный Калькулятор</h3>
                     <p class="text-slate-500 text-sm max-w-2xl">
                         Задайте параметры инвестиций и рассчитайте потенциальную доходность. Выберите формат: процентный заём или долгосрочное вхождение в капитал компании.
                     </p>
@@ -1009,21 +1003,21 @@ h1, h2, h3 {
 
                         <!-- Option Types -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-transparent p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
+                            <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-white p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-sky-600 uppercase">Сценарий 1</span>
-                                    <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent" id="calc-radio-loan"></div>
+                                    <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-white" id="calc-radio-loan"></div>
                                 </div>
-                                <h4 class="font-bold text-slate-700 text-sm">Конвертируемый Заём</h4>
+                                <h4 class="font-bold text-slate-800 text-sm">Конвертируемый Заём</h4>
                                 <p class="text-slate-500 text-[11px] leading-relaxed">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%.</p>
                             </div>
 
                             <div onclick="selectCalcType('equity')" id="calc-type-equity" class="cursor-pointer bg-sky-50/20 p-4 rounded-3xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-blue-500 uppercase">Сценарий 2</span>
-                                    <div class="w-4 h-4 rounded-full border border-sky-200 bg-transparent" id="calc-radio-equity"></div>
+                                    <div class="w-4 h-4 rounded-full border border-sky-200 bg-white" id="calc-radio-equity"></div>
                                 </div>
-                                <h4 class="font-bold text-slate-700 text-sm">Вхождение в Долю</h4>
+                                <h4 class="font-bold text-slate-800 text-sm">Вхождение в Долю</h4>
                                 <p class="text-slate-500 text-[11px] leading-relaxed">Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке.</p>
                             </div>
                         </div>
@@ -1034,20 +1028,20 @@ h1, h2, h3 {
                         <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
                         
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                                 <span class="text-[10px] text-slate-400 block">Ваш пассивный доход:</span>
                                 <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
                             </div>
-                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                                 <span class="text-[10px] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
-                                <span class="text-lg font-extrabold text-slate-700" id="calc-metric-val">33.0% годовых</span>
+                                <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
                             </div>
                         </div>
 
                         <div class="space-y-3 pt-3 border-t border-sky-100">
                             <div class="flex justify-between text-xs">
                                 <span class="text-slate-500">Срок окупаемости (тело):</span>
-                                <span class="text-slate-700 font-bold" id="calc-time-body">12 Месяцев</span>
+                                <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
                             </div>
                             <div class="flex justify-between text-xs">
                                 <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
@@ -1059,7 +1053,7 @@ h1, h2, h3 {
                             </div>
                         </div>
 
-                        <div class="p-3 bg-transparent rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
+                        <div class="p-3 bg-white rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
                             🛡️ <strong class="text-slate-850">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
                         </div>
                     </div>
@@ -1071,7 +1065,7 @@ h1, h2, h3 {
         <!-- ==================== TAB: HISTORY/STORY ==================== -->
         <section id="tab-history" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
             <div class="space-y-4">
-                <h2 class="text-3xl font-extrabold text-slate-700">История «РУСЬ»: путь предпринимателя</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800">История «РУСЬ»: путь предпринимателя</h2>
                 <p class="text-slate-500 text-lg max-w-3xl">Искренняя история взлетов, падений, выстраданных выводов и триумфального восстановления в 2024-2026 годах.</p>
             </div>
 
@@ -1085,7 +1079,7 @@ h1, h2, h3 {
   <span class="text-xs font-light text-slate-400 uppercase tracking-widest block">Июль</span>
   <span class="text-xl font-medium text-slate-500">2015</span>
 </div>
- <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+ <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
  <div class="text-sky-600 text-xs font-bold md:hidden">Июль 2015</div>
  <h3 class="text-lg font-bold text-slate-850">Основание ООО «РУСЬ» в Москве</h3>
  <p class="text-slate-500 text-sm leading-relaxed">
@@ -1099,7 +1093,7 @@ h1, h2, h3 {
     <span class="text-lg font-medium text-slate-500">2016 – 2018</span>
   </div>
   
-  <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+  <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
     <h3 class="text-lg font-bold text-slate-850">Переезд в Рязань и масштабирование сбыта</h3>
     <p class="text-slate-500 text-sm leading-relaxed">
       Склад открыт на легендарной «5 Базе» в Рязани. География поставок расширилась по всей РФ — от Санкт-Петербурга до Владивостока и Магадана. На пике достигли оборота в 90 млн. рублей при чистой прибыли около 6 млн. ₽ в год (по тем ценам).
@@ -1109,11 +1103,11 @@ h1, h2, h3 {
 
                 <!-- 2019 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">2019 - 2020</span>
                     </div>
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-600 text-xs font-bold md:hidden">2019 - 2020</div>
                         <h3 class="text-lg font-bold text-slate-850">Первое производство и горький опыт</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1124,11 +1118,11 @@ h1, h2, h3 {
 
                 <!-- 2021 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-300 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-300 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-400">2021 - 2023</span>
                     </div>
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-500 text-xs font-bold md:hidden">2021 - 2023</div>
                         <h3 class="text-lg font-bold text-slate-850">Закрытие цехов и жесткие выводы</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1142,11 +1136,11 @@ h1, h2, h3 {
 
                 <!-- 2024 -->
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">Конец 2024</span>
                     </div>
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
                         <div class="text-sky-600 text-xs font-bold md:hidden">Конец 2024</div>
                         <h3 class="text-lg font-bold text-slate-850">Возрождение компании «РУСЬ»</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -1157,7 +1151,7 @@ h1, h2, h3 {
 
                 <!-- 2025-2026 -->
                 <div class="relative animate-pulse">
-                    <div class="absolute -left-[41px] top-1.5 bg-transparent border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
                     <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
                         <span class="text-xl font-extrabold text-sky-600">2025 - 2026</span>
                     </div>
@@ -1181,31 +1175,31 @@ h1, h2, h3 {
                 <div class="lg:col-span-5 space-y-6">
                     <div class="space-y-2">
                         <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Свяжитесь с нами</span>
-                        <h2 class="text-3xl font-black text-slate-700">Технический паспорт и контакты</h2>
+                        <h2 class="text-3xl font-black text-slate-800">Технический паспорт и контакты</h2>
                     </div>
 
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-sm text-slate-600">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-sm text-slate-600">
                         <div class="space-y-1">
                             <span class="text-slate-400 block text-xs">Полное юридическое название:</span>
-                            <span class="text-slate-700 font-semibold">ООО «РУСЬ» (ОГРН/ИНН: 7726345505)</span>
+                            <span class="text-slate-800 font-semibold">ООО «РУСЬ» (ОГРН/ИНН: 7726345505)</span>
                         </div>
                         <div class="space-y-1">
                             <span class="text-slate-400 block text-xs">Генеральный директор:</span>
-                            <span class="text-slate-700 font-semibold">Рудный Александр Викторович</span>
+                            <span class="text-slate-800 font-semibold">Рудный Александр Викторович</span>
                             <a href="tel:+79104221888" class="block text-sky-500 hover:underline">+7-910-422-18-88</a>
                             <a href="mailto:aleksandr.rudniy@yandex.ru" class="block text-slate-500 hover:underline">aleksandr.rudniy@yandex.ru</a>
                         </div>
                         <div class="space-y-1">
                             <span class="text-slate-400 block text-xs">Менеджер инвестиционного проекта:</span>
-                            <span class="text-slate-700 font-semibold">Рудная Анна Александровна</span>
+                            <span class="text-slate-800 font-semibold">Рудная Анна Александровна</span>
                             <a href="tel:+79643023956" class="block text-sky-500 hover:underline">+7-964-302-39-56</a>
                             <a href="mailto:biznes0044@gmail.com" class="block text-slate-500 hover:underline">biznes0044@gmail.com</a>
                         </div>
                     </div>
 
                     <!-- Addresses -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
-                        <h4 class="font-bold text-slate-700 text-sm">Логистическая инфраструктура:</h4>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
+                        <h4 class="font-bold text-slate-800 text-sm">Логистическая инфраструктура:</h4>
                         <div class="space-y-1">
                             <strong class="text-slate-700">Склад Рязань:</strong> ул. Чкалова 72, база РостПродукт
                         </div>
@@ -1222,7 +1216,7 @@ h1, h2, h3 {
                 </div>
 
                 <!-- Message Box to replace Alert -->
-                <div class="lg:col-span-7 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                     <h3 class="text-xl font-bold text-slate-850">Отправить отклик на предложение</h3>
                     
                     <form id="contactForm" action="https://formspree.io/f/mzdqpnod" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
@@ -1284,7 +1278,7 @@ h1, h2, h3 {
     </div>
 
     <!-- FOOTER -->
-    <footer class="border-t border-sky-100 bg-transparent py-6">
+    <footer class="border-t border-sky-100 bg-white py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
             <div>
                 © 2015-2026 ООО «РУСЬ». Все права защищены. Конфиденциальность на всех этапах переговоров.
@@ -1452,15 +1446,15 @@ h1, h2, h3 {
             const radioEquity = document.getElementById('calc-radio-equity');
 
             if (type === 'loan') {
-                loanBtn.className = "cursor-pointer bg-transparent p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                loanBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
                 equityBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
-                radioLoan.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent";
-                radioEquity.className = "w-4 h-4 rounded-full border border-sky-200 bg-transparent";
+                radioLoan.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
+                radioEquity.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
             } else {
-                equityBtn.className = "cursor-pointer bg-transparent p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                equityBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
                 loanBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
-                radioEquity.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-transparent";
-                radioLoan.className = "w-4 h-4 rounded-full border border-sky-200 bg-transparent";
+                radioEquity.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
+                radioLoan.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
             }
             updateCalculator();
         }
