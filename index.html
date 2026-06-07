@@ -94,19 +94,21 @@ h1, h2, h3 {
      <!-- HEADER -->
 <header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
     <div class="px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-2">
+        
+        <div class="flex items-center space-x-2 shrink-0">
             <img src="Russky_5.png" alt="РУСЬ" class="w-7 h-7 object-contain">
             <span class="text-lg font-extrabold text-blue-900 uppercase tracking-wider">РУСЬ</span>
         </div>
-        </div>
 
-    <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 border-t border-white/30 scrollbar-none">
-        <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-catalog">Продукция 🎥</button>
-        <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-strategy">Стратегия</button>
-        <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-team">Активы</button>
-        <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-financials">Финансы</button>
-        <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-history">История</button>
-        <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-contacts">Контакты</button>
+        <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
+            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
+            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
+            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
+            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
+            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
+            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
+            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
+        </div>
     </div>
 </header>
 
