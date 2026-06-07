@@ -92,30 +92,22 @@ h1, h2, h3 {
 
     <!-- HEADER -->
      <!-- HEADER -->
-  <header class="fixed top-4 left-4 right-4 z-50 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl shadow-xl shadow-black/5">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        
-      <div class="flex items-center space-x-3 flex-none">
-    <img src="Russky_5.png" alt="РУСЬ" class="w-9 h-9 object-contain">
-    <span class="text-2xl font-extrabold tracking-widest text-blue-900 uppercase">РУСЬ</span>
-</div>
-        <div class="hidden lg:flex items-center space-x-1 ml-auto mr-4">
-            <button onclick="switchTab('overview')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">О проекте</button>
-            <button onclick="switchTab('catalog')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">Обзор продукции 🎥</button>
-            <button onclick="switchTab('strategy')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">Стратегия</button>
-            <button onclick="switchTab('team')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">Активы & Команда</button>
-            <button onclick="switchTab('history')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">История пути</button>
-            <button onclick="switchTab('contacts')" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-white/20 hover:text-sky-800 transition-all">Контакты</button>
+<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
+    <div class="px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <img src="Russky_5.png" alt="РУСЬ" class="w-7 h-7 object-contain">
+            <span class="text-lg font-extrabold text-blue-900 uppercase tracking-wider">РУСЬ</span>
         </div>
-     <!-- MOBILE TABS BAR (прокрутка на мобильных) -->
-   <div class="lg:hidden bg-white/70 backdrop-blur-md border-b border-white/20 p-1.5 overflow-x-auto whitespace-nowrap flex space-x-1 scrollbar-none">
-    <button onclick="switchTab('catalog')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-catalog">Продукция 🎥</button>
-    <button onclick="switchTab('strategy')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-strategy">Стратегия</button>
-    <button onclick="switchTab('team')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-team">Активы</button>
-    <button onclick="switchTab('financials')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-financials">Финансы</button>
-    <button onclick="switchTab('history')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-history">История</button>
-    <button onclick="switchTab('contacts')" class="mob-tab-btn px-2.5 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-white/50 text-sky-900 border border-white/50" id="btn-contacts">Контакты</button>
-</div>
+        </div>
+
+    <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 border-t border-white/30 scrollbar-none">
+        <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-catalog">Продукция 🎥</button>
+        <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-strategy">Стратегия</button>
+        <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-team">Активы</button>
+        <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-financials">Финансы</button>
+        <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-history">История</button>
+        <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] font-bold bg-white/60 text-sky-900 shadow-sm" id="btn-contacts">Контакты</button>
+    </div>
 </header>
 
     <!-- MAIN CONTENT CONTAINER -->
