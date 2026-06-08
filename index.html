@@ -475,6 +475,18 @@ h1, h2, h3 {
                             <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
                         </button>
                     </div>
+                </div>
+
+            </div>
+
+            <!-- ИНСТРУКЦИЯ ПО ЗАМЕНЕ ВИДЕО ДЛЯ ПОЛЬЗОВАТЕЛЯ -->
+            <div class="bg-sky-50 border border-sky-100 p-5 rounded-3xl flex items-start space-x-3 text-slate-600 text-sm">
+                <span class="text-lg">💡</span>
+                <div>
+                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                </div>
+            </div>
+        </section>
 
         <!-- ==================== TAB: STRATEGY ==================== -->
         <section id="tab-strategy" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
@@ -573,7 +585,7 @@ h1, h2, h3 {
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
                 <div class="md:col-span-4 space-y-6">
                     <!-- Material Asset Card -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                    <div class="bg-transparent from-white to-sky-50/20 p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
                         <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Ключевой материальный актив</span>
                         <h3 class="text-2xl font-black text-slate-800">15 000 000 ₽</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
@@ -582,7 +594,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Formula breakdown -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">Формула кадровой надёжности:</h4>
                         <div class="flex items-center space-x-2">
                             <span class="text-2xl font-black text-sky-500">30%</span>
@@ -664,7 +676,7 @@ h1, h2, h3 {
                         </p>
                     </div>
 
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
                         <div class="space-y-3">
                             <div class="flex justify-between text-sm">
@@ -687,7 +699,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Risk Control -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
                         <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
                             <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
@@ -790,7 +802,7 @@ h1, h2, h3 {
             </div>
 
             <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
-            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
@@ -1033,7 +1045,7 @@ h1, h2, h3 {
                                 <span class="text-[10px] text-slate-400 block">Ваш пассивный доход:</span>
                                 <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
                             </div>
-                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                                 <span class="text-[10px] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
                                 <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
                             </div>
@@ -1054,7 +1066,7 @@ h1, h2, h3 {
                             </div>
                         </div>
 
-                        <div class="p-3 bg-white rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
+                        <div class="p-3 bg-transparent rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
                             🛡️ <strong class="text-slate-850">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
                         </div>
                     </div>
@@ -1169,7 +1181,7 @@ h1, h2, h3 {
                     </div>
 
                     <!-- Addresses -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
                         <h4 class="font-bold text-slate-800 text-sm">Логистическая инфраструктура:</h4>
                         <div class="space-y-1">
                             <strong class="text-slate-700">Склад Рязань:</strong> ул. Чкалова 72, база РостПродукт
