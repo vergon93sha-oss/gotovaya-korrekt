@@ -481,44 +481,20 @@ h1, h2, h3 {
         <h4 class="font-extrabold text-slate-800 text-md">Стандарт качества</h4>
         <p class="text-slate-500 text-xs leading-relaxed">Сертификация ЕАС и полное соответствие СТО для федеральных сетей.</p>
         
-        <button onclick="openMediaModal('i-1.jpg', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
-    <span>Развернуть на весь экран</span>
+        <button onclick="openImageModal('i-1.jpg', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
             <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
         </button>
     </div>
 </div>
             <!-- ИНСТРУКЦИЯ ПО ЗАМЕНЕ ВИДЕО ДЛЯ ПОЛЬЗОВАТЕЛЯ -->
-           <section class="mt-8">
-    <div class="mb-6">
-        <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-            <span>💡</span> Наши принципы контроля качества
-        </h3>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <div class="bg-white border border-sky-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-sky-700 mb-2">Маркировка и прослеживаемость</h4>
-            <p class="text-slate-600 text-sm leading-relaxed">Все товары проходят обязательную цифровую маркировку, что обеспечивает полную прозрачность движения продукта от производства до конечного потребителя.</p>
-        </div>
-
-        <div class="bg-white border border-sky-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-sky-700 mb-2">Государственные системы</h4>
-            <p class="text-slate-600 text-sm leading-relaxed">Работаем в строгом соответствии с требованиями систем «Честный ЗНАК» и «Меркурий», что подтверждает легитимность производства и оборота товаров.</p>
-        </div>
-
-        <div class="bg-white border border-sky-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-sky-700 mb-2">Стандартизация</h4>
-            <p class="text-slate-600 text-sm leading-relaxed">Соблюдаем требования ГОСТ и взаимодействуем через систему GS1, что гарантирует соответствие международным и российским стандартам.</p>
-        </div>
-
-        <div class="bg-white border border-sky-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-sky-700 mb-2">Технологическая дисциплина</h4>
-            <p class="text-slate-600 text-sm leading-relaxed">Каждый продукт сопровождается технической документацией (СТО), подтверждающей состав и безопасность, как в примере с говяжьим фаршем.</p>
-        </div>
-
-    </div>
-</section>
+            <div class="bg-sky-50 border border-sky-100 p-5 rounded-3xl flex items-start space-x-3 text-slate-600 text-sm">
+                <span class="text-lg">💡</span>
+                <div>
+                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                </div>
+            </div>
+        </section>
 
         <!-- ==================== TAB: STRATEGY ==================== -->
         <section id="tab-strategy" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
@@ -1371,126 +1347,30 @@ h1, h2, h3 {
             }
         }
 
-       // Функция открытия
-// Функция для открытия медиа (видео или фото)
-function openMediaModal(mediaSrc, title) {
-    const modal = document.getElementById('videoModal');
-    const player = document.getElementById('modalVideoPlayer');
-    const titleEl = document.getElementById('videoModalTitle');
-    
-    // Ищем или создаем элемент img
-    let img = document.getElementById('modalImageDisplay');
-    if (!img) {
-        img = document.createElement('img');
-        img.id = 'modalImageDisplay';
-        // Стили для обычного режима внутри модалки
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '80vh';
-        img.style.margin = '0 auto';
-        img.style.display = 'none';
-        player.parentNode.appendChild(img);
-    }
+        // Open video in full screen modal
+        function openVideoModal(videoSrc, title) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            const titleEl = document.getElementById('videoModalTitle');
 
-    const isImage = /\.(jpeg|jpg|png|gif|webp)$/i.test(mediaSrc);
-
-    titleEl.textContent = title;
-    // Показываем саму модалку (чтобы кнопка закрытия и заголовок были видны)
-    modal.classList.remove('hidden');
-
-    if (isImage) {
-        // Режим КАРТИНКИ
-        player.style.display = 'none';
-        player.pause();
-        player.src = ''; // Убираем видео из памяти
-
-        img.src = mediaSrc;
-        img.style.display = 'block';
-
-        // РАЗВОРАЧИВАЕМ КАРТИНКУ НА ВЕСЬ ЭКРАН
-        if (img.requestFullscreen) {
-            img.requestFullscreen().catch(err => {
-                console.log(`Ошибка FS для фото: ${err.message}`);
-            });
-        } else if (img.webkitRequestFullscreen) { /* Safari */
-            img.webkitRequestFullscreen();
+            // Set content and source
+            titleEl.textContent = title;
+            player.src = videoSrc;
+            
+            // Show modal and auto-play
+            modal.classList.remove('hidden');
+            player.load();
+            player.play();
         }
 
-    } else {
-        // Режим ВИДЕО
-        img.style.display = 'none';
-        img.src = ''; // Убираем фото из памяти
-
-        player.style.display = 'block';
-        player.src = mediaSrc;
-        player.load();
-        
-        // РАЗВОРАЧИВАЕМ ВИДЕО НА ВЕСЬ ЭКРАН
-        if (player.requestFullscreen) {
-            player.requestFullscreen().catch(err => {
-                console.log(`Ошибка FS для видео: ${err.message}`);
-            });
-        } else if (player.webkitRequestFullscreen) { /* Safari */
-            player.webkitRequestFullscreen();
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            
+            modal.classList.add('hidden');
+            player.pause();
+            player.src = "";
         }
-        player.play();
-    }
-}
-
-// Функция для ЗАКРЫТИЯ модалки (привяжи её к кнопке закрытия "X")
-function closeModal() {
-    const modal = document.getElementById('videoModal');
-    const player = document.getElementById('modalVideoPlayer');
-    const img = document.getElementById('modalImageDisplay');
-    
-    // 1. Скрываем саму модалку
-    modal.classList.add('hidden');
-    
-    // 2. Останавливаем и очищаем медиа
-    player.pause();
-    player.src = ""; 
-    if (img) {
-        img.src = "";
-        img.style.display = 'none';
-    }
-    
-    // 3. ОБЯЗАТЕЛЬНО: Выходим из полноэкранного режима, если он активен
-    if (document.fullscreenElement || document.webkitFullscreenElement) {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        }
-    }
-}
-
-// --- Обработка клавиши Esc ---
-// Если пользователь нажмет Esc, браузер сам выйдет из FS, 
-// но нам нужно еще и скрыть модалку.
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        const modal = document.getElementById('videoModal');
-        if (!modal.classList.contains('hidden')) {
-            closeModal();
-        }
-    }
-});
-
-// --- Обработка выхода из FS кнопкой браузера ---
-// Если пользователь выходит из FS (кнопкой в плеере или Esc), 
-// но модалка остается, этот код закроет и модалку.
-document.addEventListener('fullscreenchange', handleFsChange);
-document.addEventListener('webkitfullscreenchange', handleFsChange); // Safari
-
-function handleFsChange() {
-    // Если мы вышли из полноэкранного режима
-    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-        const modal = document.getElementById('videoModal');
-        // И если модалка все еще видна — закрываем её
-        if (modal && !modal.classList.contains('hidden')) {
-            closeModal(); 
-        }
-    }
-}
 
         // Selected Month Details inside Charts
         const months = [
