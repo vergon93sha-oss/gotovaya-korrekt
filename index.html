@@ -30,38 +30,64 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F0F9FF;
-            color: #334155; /* Используем базовый цвет здесь */
+            color: #0F172A;
         }
-
         /* Кастомный премиальный скроллбар */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #E0F2FE; }
-        ::-webkit-scrollbar-thumb { background: #38BDF8; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0284C7; }
-
-        .tab-content { padding-top: 2rem; padding-bottom: 2rem; }
-        h1, h2, h3 { letter-spacing: -0.025em; }
-
-        /* Анимации */
-        @keyframes float {
-            0% { transform: translateX(-200px); }
-            100% { transform: translateX(110vw); }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
-        @keyframes soft-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        ::-webkit-scrollbar-track {
+            background: #E0F2FE;
         }
-        .animate-soft-pulse { animation: soft-pulse 3s ease-in-out infinite; }
-
-        /* Вспомогательный класс для акцента */
-        .text-sky-brand { color: #0284C7 !important; }
+        ::-webkit-scrollbar-thumb {
+            background: #38BDF8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284C7;
+        }
+        /* Добавь это в секцию <style> */
+.tab-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+h1, h2, h3 {
+    letter-spacing: -0.025em; /* Делает заголовки визуально «плотнее» и солиднее */
+}
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+<style>
+  @keyframes float {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(110vw); }
+  }
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .animate-soft-pulse {
+    animation: soft-pulse 3s ease-in-out infinite;
+  }
+    <style>
+    /* ... твой текущий код ... */
+
+    /* Принудительно меняем цвет абсолютно ВСЕГО текста на «мокрый асфальт» */
+    body, h1, h2, h3, h4, p, span, div {
+        color: #334155 !important;
+    }
+
+    /* А если где-то нужно оставить акцентный голубой, добавь это: */
+    .text-sky-600 {
+        color: #0284C7 !important;
+    }
+</style>
+</style>
+
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
   <img src="cloud1.png" class="absolute top-[5%] left-[-20%] w-56 opacity-30 animate-[float_60s_linear_infinite]" />
   <img src="cloud2.png" class="absolute top-[15%] left-[-40%] w-40 opacity-20 animate-[float_50s_linear_infinite_10s]" />
@@ -150,7 +176,7 @@
                         </div>
                         <div class="space-y-2">
                             <span class="text-slate-400 text-sm">Общая сумма привлечения:</span>
-                            <div class="text-4xl font-black text-slate-800 text-sky-600">15 000 000 ₽</div>
+                            <div class="text-4xl font-black text-slate-850 text-sky-600">15 000 000 ₽</div>
                             <span class="block text-xs text-slate-400">(Двумя траншами: 5 млн ₽ + 10 млн ₽ для плавного запуска)</span>
                         </div>
                         
@@ -218,7 +244,7 @@
 
             <!-- Current Stage and Capacity -->
             <div class="bg-transparent rounded-3xl p-6 sm:p-8 border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
-                <h3 class="text-2xl font-black text-slate-800">Текущий статус и инфраструктура</h3>
+                <h3 class="text-2xl font-black text-slate-850">Текущий статус и инфраструктура</h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -527,7 +553,7 @@
 
             <!-- Regional Expansion Block -->
             <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                <h3 class="text-xl font-bold text-slate-850 mb-6 flex items-center">
                     <span class="w-3 h-3 bg-sky-400 rounded-full mr-3 animate-ping"></span>
                     География расширения до конца 2026 года
                 </h3>
@@ -568,7 +594,7 @@
                     </div>
 
                     <!-- Formula breakdown -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">Формула кадровой надёжности:</h4>
                         <div class="flex items-center space-x-2">
                             <span class="text-2xl font-black text-sky-500">30%</span>
@@ -584,7 +610,7 @@
                     </div>
                 </div>
 
-                <div class="md:col-span-8 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <div class="md:col-span-8 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                     <h3 class="text-xl font-bold text-slate-800">Нематериальные активы за 10 лет работы</h3>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -650,7 +676,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
                         <div class="space-y-3">
                             <div class="flex justify-between text-sm">
@@ -673,7 +699,7 @@
                     </div>
 
                     <!-- Risk Control -->
-                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
                         <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
                         <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
                             <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
@@ -683,7 +709,7 @@
                 </div>
 
                 <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
-                <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
+                <div class="lg:col-span-7 bg-white p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="font-bold text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
@@ -776,10 +802,10 @@
             </div>
 
             <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
-            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
-                        <h3 class="text-xl font-bold text-slate-800">Целевое освоение инвестиций</h3>
+                        <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
                         <p class="text-slate-500 text-sm">Посмотрите, как до копейки распределяется инвестиционный капитал</p>
                     </div>
                     <!-- Toggle Switch -->
@@ -1041,7 +1067,7 @@
                         </div>
 
                         <div class="p-3 bg-white rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
-                            🛡️ <strong class="text-slate-800">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
+                            🛡️ <strong class="text-slate-850">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
                         </div>
                     </div>
 
@@ -1059,76 +1085,103 @@
             <!-- Vertical Timeline Layout -->
             <div class="relative border-l-2 border-sky-100 ml-4 md:ml-32 space-y-12">
                 
-<section class="max-w-4xl mx-auto px-6 py-12">
-    <div class="relative border-l border-sky-200 ml-12 md:ml-32 space-y-12">
-        
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block">
-                <span class="text-xs text-slate-400 uppercase tracking-widest block">Июль</span>
-                <span class="text-xl font-light text-slate-400">2015</span>
-            </div>
-            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Основание ООО «РУСЬ» в Москве</h3>
-                <p class="text-slate-600 text-sm">Основание ООО «Русь» в Москве
-Основано Александром Рудным в возрасте 26 лет. Поставки птицы шли из Рязани. При въезде в Рязань висел плакат Есенина «Шестую часть земли с названьем кратким Русь». Название родилось мгновенно. Первые 6 человек в штате. Первые крупные обороты.</p>
-            </div>
-        </div>
+                <!-- 2015 -->
+ <!-- Новый код с пульсацией -->
+<!-- Исправленный блок: по центру, тонкий шрифт, единый цвет -->
+<div class="absolute -left-32 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-end justify-center w-24 animate-soft-pulse">
+  <span class="text-xs font-light text-slate-400 uppercase tracking-widest block">Июль</span>
+  <span class="text-xl font-medium text-slate-500">2015</span>
+</div>
+ <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+ <div class="text-sky-600 text-xs font-bold md:hidden">Июль 2015</div>
+ <h3 class="text-lg font-bold text-slate-850">Основание ООО «РУСЬ» в Москве</h3>
+ <p class="text-slate-500 text-sm leading-relaxed">
+ Основано Александром Рудным в возрасте 26 лет. Поставки птицы шли из Рязани. При въезде в Рязань висел плакат Есенина «Шестую часть земли с названьем кратким РУСЬ». Название родилось мгновенно. Первые 6 человек в штате. Первые крупные обороты.
+ </p>
+ </div>
+  </div>
+<!-- 2016 – 2018 -->
+<div class="relative mb-10">
+  <div class="absolute -left-32 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-end justify-center w-24 animate-soft-pulse">
+    <span class="text-lg font-medium text-slate-500">2016 – 2018</span>
+  </div>
+  
+  <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+    <h3 class="text-lg font-bold text-slate-850">Переезд в Рязань и масштабирование сбыта</h3>
+    <p class="text-slate-500 text-sm leading-relaxed">
+      Склад открыт на легендарной «5 Базе» в Рязани. География поставок расширилась по всей РФ — от Санкт-Петербурга до Владивостока и Магадана. На пике достигли оборота в 90 млн. рублей при чистой прибыли около 6 млн. ₽ в год (по тем ценам).
+    </p>
+  </div>
+</div>
 
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2016–2018</div>
-            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Переезд в Рязань и масштабирование сбыта</h3>
-                <p class="text-slate-600 text-sm">Склад открыт на легендарной «5 Базе» в Рязани. География поставок расширилась по всей РФ — от Санкт-Петербурга до Владивостока и Магадана. На пике достигли оборота в 90 млн. рублей при чистой прибыли около 6 млн. ₽ в год (по тем ценам).</p>
-            </div>
-        </div>
+                <!-- 2019 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
+                        <span class="text-xl font-extrabold text-sky-600">2019 - 2020</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                        <div class="text-sky-600 text-xs font-bold md:hidden">2019 - 2020</div>
+                        <h3 class="text-lg font-bold text-slate-850">Первое производство и горький опыт</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Начали тестировать производство мясных полуфабрикатов. Александр Рудный лично работал в цеху руками, изучал особенности специй и технологического выхода. К пандемии вышли на полные мощности, загрузили производство на максимум.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2019–2020</div>
-            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Первое производство и горький опыт</h3>
-                <p class="text-slate-600 text-sm">Начали тестировать производство мясных полуфабрикатов. Александр Рудный лично работал в цеху руками, изучал особенности специй и технологического выхода. К пандемии вышли на полные мощности, загрузили производство на максимум.</p>
-            </div>
-        </div>
+                <!-- 2021 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-300 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
+                        <span class="text-xl font-extrabold text-sky-400">2021 - 2023</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                        <div class="text-sky-500 text-xs font-bold md:hidden">2021 - 2023</div>
+                        <h3 class="text-lg font-bold text-slate-850">Закрытие цехов и жесткие выводы</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Из-за отсутствия прочной финансовой подушки, ошибок менеджмента и форс-мажорного поведения партнеров крупное производство пришлось закрыть. Сложный период переосмысления. 
+                        </p>
+                        <div class="bg-sky-50 p-3 rounded border border-sky-100 text-xs text-sky-600 font-medium">
+                            🛡️ <strong>Выводы:</strong> Нельзя совмещать производство и продажи без выделенных руководителей. Нужна прозрачная финансовая модель и юридически закрепленные договоры на бумаге. Так родилась идея <em>ассет-лайт</em> модели СТМ.
+                        </div>
+                    </div>
+                </div>
 
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2021–2023</div>
-            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Закрытие цехов и жесткие выводы</h3>
-                <p class="text-slate-600 text-sm mb-4">Из-за отсутствия прочной финансовой подушки, ошибок менеджмента и форс-мажорного поведения партнеров крупное производство пришлось закрыть. Сложный период переосмысления</p>
-                <div class="bg-sky-50 p-3 rounded-xl text-xs text-sky-800 font-medium border border-sky-100">🛡️ 🛡️ Выводы: Нельзя совмещать производство и продажи без выделенных руководителей. Нужна прозрачная финансовая модель и юридически закрепленные договоры на бумаге. Так родилась идея ассет-лайт модели СТМ</div>
-            </div>
-        </div>
+                <!-- 2024 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
+                        <span class="text-xl font-extrabold text-sky-600">Конец 2024</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-sky-100 max-w-3xl space-y-2 shadow-xl shadow-sky-500/10">
+                        <div class="text-sky-600 text-xs font-bold md:hidden">Конец 2024</div>
+                        <h3 class="text-lg font-bold text-slate-850">Возрождение компании «РУСЬ»</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Запуск процесса масштабного восстановления. Собрана сильная команда технологов, финансистов и юристов. Полностью обновлены бизнес- и налоговые модели. Заключены контракты на аренду мощностей и фулфилмент складов.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block">
-                <span class="text-xs text-slate-400 uppercase tracking-widest block">Конец</span>
-                <span class="text-xl font-light text-slate-400">2024</span>
-            </div>
-            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Возрождение компании «РУСЬ»</h3>
-                <p class="text-slate-600 text-sm">Запуск процесса масштабного восстановления. Собрана сильная команда технологов, финансистов и юристов. Полностью обновлены бизнес- и налоговые модели. Заключены контракты на аренду мощностей и фулфилмент складов.</p>
-            </div>
-        </div>
+                <!-- 2025-2026 -->
+                <div class="relative animate-pulse">
+                    <div class="absolute -left-[41px] top-1.5 bg-white border-2 border-sky-400 w-5 h-5 rounded-full z-10"></div>
+                    <div class="absolute -left-32 top-1.5 hidden md:block text-right w-24">
+                        <span class="text-xl font-extrabold text-sky-600">2025 - 2026</span>
+                    </div>
+                    <div class="bg-gradient-to-r from-white to-sky-50/30 p-6 rounded-xl border border-sky-200 max-w-3xl space-y-2 shadow-md">
+                        <div class="text-sky-600 text-xs font-bold md:hidden">2025 - 2026</div>
+                        <h3 class="text-lg font-bold text-sky-600">Сегодня: Первые отгрузки и Инвестиции</h3>
+                        <p class="text-slate-550 text-sm leading-relaxed">
+                            Начало первых поставок. Запущен сбор инвестиций Посевного раунда для покупки брендовой упаковки, этикеток и расширения команды ТОП-менеджеров с целью форсированного выхода на 454 млн ₽ оборота за 12 месяцев.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="relative pl-8 md:pl-12">
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-500 rounded-full animate-ping"></div>
-            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-500 rounded-full"></div>
-            
-            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-medium text-sky-600">2025–2026</div>
-            <div class="bg-transparent p-6 rounded-3xl border-2 border-sky-300 shadow-xl shadow-sky-100 animate-pulse">
-                <h3 class="text-lg font-bold text-sky-700 mb-2">Сегодня: Первые отгрузки и Инвестиции</h3>
-                <p class="text-slate-700 text-sm">Начало первых поставок. Запущен сбор инвестиций Посевного раунда для покупки брендовой упаковки, этикеток и расширения команды ТОП-менеджеров с целью форсированного выхода на 454 млн ₽ оборота за 12 месяцев</p>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+
         <!-- ==================== TAB: CONTACTS ==================== -->
-        <section id="tab-contacts" class="tab-content hidden scroll-mt-24 space-y-10 animate-fade-in">
+        <section id="tab-contacts" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
                 <!-- Contact info -->
@@ -1177,7 +1230,7 @@
 
                 <!-- Message Box to replace Alert -->
                 <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
-                    <h3 class="text-xl font-bold text-slate-800">Отправить отклик на предложение</h3>
+                    <h3 class="text-xl font-bold text-slate-850">Отправить отклик на предложение</h3>
                     
                     <form id="contactForm" action="https://formspree.io/f/mzdqpnod" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
                         <div>
@@ -1511,31 +1564,27 @@
     
     <span>Инвестировать</span>
 </button>
-                // Функция открытия видео
-function openVideoModal(videoSrc, title) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideoPlayer');
-    const titleEl = document.getElementById('videoModalTitle');
+    <script>
+function switchTab(tabId) {
+    // 1. Скрываем все разделы
+    document.querySelectorAll('.tab-content').forEach(section => {
+        section.classList.add('hidden');
+    });
+    // 2. Показываем нужный раздел
+    document.getElementById('tab-' + tabId).classList.remove('hidden');
     
-    video.src = videoSrc;
-    titleEl.innerText = title;
-    modal.classList.remove('hidden');
-    video.play();
+    // 3. (Опционально) Можно добавить логику подсветки активной кнопки, 
+    // но пока давай проверим, работают ли переключения
 }
 
-// Функция закрытия (останавливает воспроизведение)
-function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideoPlayer');
-    
-    video.pause();
-    video.src = ""; // Очищаем источник, чтобы видео не грузилось в фоне
-    modal.classList.add('hidden');
+function toggleVideoPlay(videoId) {
+    const video = document.getElementById(videoId);
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
 }
-
-// Закрытие по клику вне области видео
-document.getElementById('videoModal').addEventListener('click', function(e) {
-    if (e.target === this) closeVideoModal();
-});
+</script>
 </body>
 </html>
