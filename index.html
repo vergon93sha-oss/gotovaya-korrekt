@@ -491,7 +491,11 @@ h1, h2, h3 {
             <div class="bg-sky-50 border border-sky-100 p-5 rounded-3xl flex items-start space-x-3 text-slate-600 text-sm">
                 <span class="text-lg">💡</span>
                 <div>
-                    <strong>Инструкция для тебя:</strong> Чтобы вставить свои реальные видео, открой этот файл в любом текстовом редакторе, найди теги <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">&lt;source src="..."&gt;</code> внутри видеокарт и просто вставь туда ссылки на свои видеоролики в формате <code class="bg-white px-1 py-0.5 rounded text-sky-600 border border-sky-100 font-mono">.mp4</code> или вставь код интеграции с диска. Сделать это займет всего пару минут!
+                    <strong>Наши принципы контроля качества:
+* Маркировка и прослеживаемость: Все товары проходят обязательную цифровую маркировку, что обеспечивает полную прозрачность движения продукта от производства до конечного потребителя.
+* Государственные системы контроля: Мы осуществляем работу в строгом соответствии с требованиями государственных систем «Честный ЗНАК» и «Меркурий», что подтверждает легитимность нашего производства и оборота товаров.
+* Стандартизация и соответствие: В процессе маркировки продукции мы строго соблюдаем требования ГОСТ, а также осуществляем взаимодействие через международную систему GS1, что гарантирует корректность данных и соответствие международным и российским логистическим стандартам.
+* Технологическая дисциплина: Каждый продукт сопровождается технической документацией (СТО), подтверждающей соответствие состава и безопасности, как показано на примере маркировки для нашего говяжьего фарша.
                 </div>
             </div>
         </section>
@@ -1347,42 +1351,53 @@ h1, h2, h3 {
             }
         }
 
-        // Open video in full screen modal
-       function openVideoModal(mediaSrc, title) {
+       // Функция открытия
+function openVideoModal(mediaSrc, title) {
     const modal = document.getElementById('videoModal');
-    const player = document.getElementById('modalVideoPlayer'); // Это ваш <video> в модалке
+    const player = document.getElementById('modalVideoPlayer');
     const titleEl = document.getElementById('videoModalTitle');
     
-    // Определяем, что мы открываем по расширению файла
-    const isImage = mediaSrc.match(/\.(jpeg|jpg|png|gif|webp)$/i);
+    // Ищем контейнер для картинки
+    let img = document.getElementById('modalImageDisplay');
+    if (!img) {
+        img = document.createElement('img');
+        img.id = 'modalImageDisplay';
+        img.className = 'max-w-full max-h-[80vh] rounded-lg';
+        img.style.display = 'none'; // Изначально скрыта
+        player.parentNode.appendChild(img);
+    }
+
+    const isImage = /\.(jpeg|jpg|png|gif|webp)$/i.test(mediaSrc);
 
     titleEl.textContent = title;
     modal.classList.remove('hidden');
 
     if (isImage) {
-        // Если это картинка: создаем временный <img> или подменяем логику
-        // Самый простой способ: временно спрятать видео и показать картинку
         player.style.display = 'none';
-        
-        let img = document.getElementById('modalImageDisplay');
-        if (!img) {
-            img = document.createElement('img');
-            img.id = 'modalImageDisplay';
-            img.className = 'max-w-full max-h-[80vh] rounded-lg';
-            player.parentNode.appendChild(img);
-        }
+        player.pause(); // Останавливаем видео, если оно играло
         img.src = mediaSrc;
         img.style.display = 'block';
     } else {
-        // Если это видео: возвращаем всё как было
-        let img = document.getElementById('modalImageDisplay');
-        if (img) img.style.display = 'none';
-        
+        img.style.display = 'none';
         player.style.display = 'block';
         player.src = mediaSrc;
         player.load();
         player.play();
     }
+}
+
+// ВАЖНО: Функция закрытия (вызывай её при клике на крестик или фон)
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('modalVideoPlayer');
+    const img = document.getElementById('modalImageDisplay');
+
+    modal.classList.add('hidden');
+    
+    // Очистка
+    player.pause();
+    player.src = ""; // Сбрасываем источник, чтобы видео точно остановилось
+    if (img) img.style.display = 'none';
 }
 
         // Selected Month Details inside Charts
