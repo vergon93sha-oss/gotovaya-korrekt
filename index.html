@@ -1352,38 +1352,123 @@ h1, h2, h3 {
         }
 
        // Функция открытия
-function openMediaModal(mediaSrc, title) { // Переименовали здесь
+// Функция для открытия медиа (видео или фото)
+function openMediaModal(mediaSrc, title) {
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('modalVideoPlayer');
     const titleEl = document.getElementById('videoModalTitle');
     
+    // Ищем или создаем элемент img
     let img = document.getElementById('modalImageDisplay');
     if (!img) {
         img = document.createElement('img');
         img.id = 'modalImageDisplay';
+        // Стили для обычного режима внутри модалки
         img.style.maxWidth = '100%';
         img.style.maxHeight = '80vh';
         img.style.margin = '0 auto';
-        img.style.display = 'none'; // Изначально скрыта
+        img.style.display = 'none';
         player.parentNode.appendChild(img);
     }
 
     const isImage = /\.(jpeg|jpg|png|gif|webp)$/i.test(mediaSrc);
 
     titleEl.textContent = title;
+    // Показываем саму модалку (чтобы кнопка закрытия и заголовок были видны)
     modal.classList.remove('hidden');
 
     if (isImage) {
+        // Режим КАРТИНКИ
         player.style.display = 'none';
         player.pause();
+        player.src = ''; // Убираем видео из памяти
+
         img.src = mediaSrc;
         img.style.display = 'block';
+
+        // РАЗВОРАЧИВАЕМ КАРТИНКУ НА ВЕСЬ ЭКРАН
+        if (img.requestFullscreen) {
+            img.requestFullscreen().catch(err => {
+                console.log(`Ошибка FS для фото: ${err.message}`);
+            });
+        } else if (img.webkitRequestFullscreen) { /* Safari */
+            img.webkitRequestFullscreen();
+        }
+
     } else {
+        // Режим ВИДЕО
         img.style.display = 'none';
+        img.src = ''; // Убираем фото из памяти
+
         player.style.display = 'block';
         player.src = mediaSrc;
         player.load();
+        
+        // РАЗВОРАЧИВАЕМ ВИДЕО НА ВЕСЬ ЭКРАН
+        if (player.requestFullscreen) {
+            player.requestFullscreen().catch(err => {
+                console.log(`Ошибка FS для видео: ${err.message}`);
+            });
+        } else if (player.webkitRequestFullscreen) { /* Safari */
+            player.webkitRequestFullscreen();
+        }
         player.play();
+    }
+}
+
+// Функция для ЗАКРЫТИЯ модалки (привяжи её к кнопке закрытия "X")
+function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('modalVideoPlayer');
+    const img = document.getElementById('modalImageDisplay');
+    
+    // 1. Скрываем саму модалку
+    modal.classList.add('hidden');
+    
+    // 2. Останавливаем и очищаем медиа
+    player.pause();
+    player.src = ""; 
+    if (img) {
+        img.src = "";
+        img.style.display = 'none';
+    }
+    
+    // 3. ОБЯЗАТЕЛЬНО: Выходим из полноэкранного режима, если он активен
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+// --- Обработка клавиши Esc ---
+// Если пользователь нажмет Esc, браузер сам выйдет из FS, 
+// но нам нужно еще и скрыть модалку.
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('videoModal');
+        if (!modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    }
+});
+
+// --- Обработка выхода из FS кнопкой браузера ---
+// Если пользователь выходит из FS (кнопкой в плеере или Esc), 
+// но модалка остается, этот код закроет и модалку.
+document.addEventListener('fullscreenchange', handleFsChange);
+document.addEventListener('webkitfullscreenchange', handleFsChange); // Safari
+
+function handleFsChange() {
+    // Если мы вышли из полноэкранного режима
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        const modal = document.getElementById('videoModal');
+        // И если модалка все еще видна — закрываем её
+        if (modal && !modal.classList.contains('hidden')) {
+            closeModal(); 
+        }
     }
 }
 
