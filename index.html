@@ -1371,6 +1371,22 @@ h1, h2, h3 {
             player.pause();
             player.src = "";
         }
+        // Функция для открытия картинки
+function openImageModal(imgSrc, title) {
+    const modal = document.getElementById('imageModal');
+    const imgEl = document.getElementById('modalImageDisplay');
+    const titleEl = document.getElementById('imageModalTitle');
+
+    titleEl.textContent = title;
+    imgEl.src = imgSrc;
+    modal.classList.remove('hidden');
+}
+
+// Функция для закрытия картинки
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+}
 
         // Selected Month Details inside Charts
         const months = [
@@ -1545,5 +1561,14 @@ h1, h2, h3 {
     
     <span>Инвестировать</span>
 </button>
+            <div id="imageModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+    <div class="bg-white p-5 rounded-2xl max-w-2xl w-full">
+        <div class="flex justify-between mb-4">
+            <h3 id="imageModalTitle" class="font-bold"></h3>
+            <button onclick="closeImageModal()" class="text-slate-500 hover:text-black font-bold">Закрыть ✕</button>
+        </div>
+        <img id="modalImageDisplay" src="" alt="Детальное фото" class="w-full h-auto rounded-lg">
+    </div>
+</div>
 </body>
 </html>
