@@ -115,7 +115,7 @@ h1, h2, h3 {
 
         <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
             <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
-            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция 🎥</button>
+            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция</button>
             <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
             <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
             <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
@@ -323,7 +323,7 @@ h1, h2, h3 {
         <section id="tab-catalog" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
             <div class="space-y-4">
                 <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
-                    <span>📹 ВИДЕОПРЕЗЕНТАЦИЯ ПРОДУКТА</span>
+                    <span> ВИДЕОПРЕЗЕНТАЦИЯ ПРОДУКТА</span>
                 </div>
                 <h2 class="text-3xl font-black text-slate-800">Обзор продукции и процессов</h2>
                 <p class="text-slate-500 text-lg max-w-3xl">Загляните прямо на производство и оцените качество конечного продукта.</p>
@@ -337,7 +337,7 @@ h1, h2, h3 {
                     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
                         <!-- Video Placeholder/Actual video -->
                         <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=400">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <source src="<source src="видео/v1.mp4" type="video/mp4">" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
                             <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
