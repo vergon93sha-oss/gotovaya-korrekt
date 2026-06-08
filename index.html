@@ -1348,29 +1348,42 @@ h1, h2, h3 {
         }
 
         // Open video in full screen modal
-        function openVideoModal(videoSrc, title) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            const titleEl = document.getElementById('videoModalTitle');
+       function openVideoModal(mediaSrc, title) {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('modalVideoPlayer'); // Это ваш <video> в модалке
+    const titleEl = document.getElementById('videoModalTitle');
+    
+    // Определяем, что мы открываем по расширению файла
+    const isImage = mediaSrc.match(/\.(jpeg|jpg|png|gif|webp)$/i);
 
-            // Set content and source
-            titleEl.textContent = title;
-            player.src = videoSrc;
-            
-            // Show modal and auto-play
-            modal.classList.remove('hidden');
-            player.load();
-            player.play();
-        }
+    titleEl.textContent = title;
+    modal.classList.remove('hidden');
 
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            
-            modal.classList.add('hidden');
-            player.pause();
-            player.src = "";
+    if (isImage) {
+        // Если это картинка: создаем временный <img> или подменяем логику
+        // Самый простой способ: временно спрятать видео и показать картинку
+        player.style.display = 'none';
+        
+        let img = document.getElementById('modalImageDisplay');
+        if (!img) {
+            img = document.createElement('img');
+            img.id = 'modalImageDisplay';
+            img.className = 'max-w-full max-h-[80vh] rounded-lg';
+            player.parentNode.appendChild(img);
         }
+        img.src = mediaSrc;
+        img.style.display = 'block';
+    } else {
+        // Если это видео: возвращаем всё как было
+        let img = document.getElementById('modalImageDisplay');
+        if (img) img.style.display = 'none';
+        
+        player.style.display = 'block';
+        player.src = mediaSrc;
+        player.load();
+        player.play();
+    }
+}
 
         // Selected Month Details inside Charts
         const months = [
