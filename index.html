@@ -333,28 +333,25 @@ h1, h2, h3 {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Video Box 1 -->
-                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-                    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
-                        <!-- Video Placeholder/Actual video -->
-                        <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=400">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-                            <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
-                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
-                        </div>
-                        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:10</span>
-                    </div>
-                    <div class="p-5 space-y-2">
-                        <span class="text-xs font-bold text-sky-600 uppercase">Филе Индейки</span>
-                        <h4 class="font-extrabold text-slate-800 text-md">Филе грудки и бедра в вакууме</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Демонстрация калибровки, герметичности вакуумирования и безупречного товарного вида поставляемой продукции.</p>
-                        <button onclick="openVideoModal('https://www.w3schools.com/html/mov_bbb.mp4', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
-                            <span>Развернуть на весь экран</span>
-                            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
-                        </button>
-                    </div>
+               <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        
+        <iframe 
+            src="https://drive.google.com/file/d/1CbCmvmysmFeB8nEtRH9_kVEKUZDZ4h2e/preview" 
+            class="w-full h-full object-cover" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+        </iframe>
+        </div>
+    
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Филе Индейки</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Филе грудки и бедра в вакууме</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Демонстрация калибровки, герметичности вакуумирования и безупречного товарного вида поставляемой продукции.</p>
+        
+        </div>
+</div>
                 </div>
 
                 <!-- Video Box 2 -->
