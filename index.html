@@ -1,798 +1,1580 @@
-import React, { useState, useEffect } from 'react';
-
-// Цветовая палитра компании:
-// sky: '#38BDF8', skyDark: '#0284C7', bg: '#F0F9FF', card: 'transparent', textDark: '#0F172A', textMuted: '#475569'
-
-export default function App() {
-  
-  // Список фото товара (используем загруженные файлы)
-  const productImages = [
-    { src: 'gs2.jpeg', alt: 'Котлетное мясо в упаковке (ближний ракурс)' },
-    { src: 'gs4.jpeg', alt: 'Замороженный блок котлетного мяса 70/30' },
-    { src: 'gs3.jpeg', alt: 'Паллета с готовой продукцией на складе' }
-  ];
-
-  // Плейсхолдеры для деклараций соответствия
-  const declarationImages = [
-    { id: 1, title: 'Декларация о соответствии (Лист 1)', placeholder: 'Декларация №1\n(Нажмите для загрузки / просмотра)' },
-    { id: 2, title: 'Декларация о соответствии (Лист 2)', placeholder: 'Декларация №2\n(Нажмите для загрузки / просмотра)' },
-    { id: 3, title: 'Сертификат качества / Протокол испытаний', placeholder: 'Декларация №3\n(Нажмите для загрузки / просмотра)' }
-  ];
-
-  // Состояния слайдера товара
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  // Состояния лайтбокса (увеличенного просмотра документов и фото)
-  const [lightboxImage, setLightboxImage] = useState(null);
-  const [lightboxTitle, setLightboxTitle] = useState('');
-  const [lightboxDescription, setLightboxDescription] = useState('');
-
-  // Состояние открытой вкладки технических характеристик
-  const [activeTab, setActiveTab] = useState('general');
-
-  // Состояния для формы обратного звонка
-  const [clientName, setClientName] = useState('');
-  const [clientPhone, setClientPhone] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  // Автопрокрутка слайдов товара каждые 5 секунд
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % productImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [productImages.length]);
-
-  const nextSlide = (e) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev + 1) % productImages.length);
-  };
-
-  const prevSlide = (e) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev === 0 ? productImages.length - 1 : prev - 1));
-  };
-
-  // Обработка отправки формы обратного звонка
-  const handleCallbackSubmit = (e) => {
-    e.preventDefault();
-    if (!clientName || !clientPhone) return;
-
-    setIsSubmitting(true);
-    // Имитация отправки запроса на сервер
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setClientName('');
-      setClientPhone('');
-      // Сбрасываем сообщение об успехе через 6 секунд
-      setTimeout(() => setSubmitSuccess(false), 6000);
-    }, 1200);
-  };
-
-  return (
-    <div className="min-h-screen font-sans p-4 md:p-8" style={{ backgroundColor: '#F0F9FF', color: '#0F172A' }}>
-      
-      {/* Стили для кастомной пульсации кнопки призыва к действию и анимации свечения */}
-      <style>{`
-        @keyframes pulseGlow {
-          0% {
-            box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
-          }
-          70% {
-            box-shadow: 0 0 0 12px rgba(2, 132, 199, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
-          }
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООО «РУСЬ» — Инвестиционное Предложение</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sky: '#38BDF8',     /* Небесно-голубой из палитры компании */
+                            skyDark: '#0284C7', /* Глубокий синий для акцентов */
+                            bg: '#F0F9FF',      /* Сверхсветлый голубой фон */
+                            card: 'transparent',    /* Белоснежные карточки (эффект чистоты) */
+                            textDark: '#0F172A',/* Почти черный для идеальной читаемости */
+                            textMuted: '#475569'/* Серый для подзаголовков */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
         }
-        .cta-pulsing-button {
-          animation: pulseGlow 2s infinite;
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F9FF;
+            color: #0F172A;
         }
-      `}</style>
-
-      {}
-      <header className="max-w-6xl mx-auto mb-8 bg-white/70 backdrop-blur-md rounded-2xl p-6 border border-[#38BDF8]/20 shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-xl shadow-md animate-bounce" style={{ backgroundColor: '#0284C7' }}>
-            R
-          </div>
-          <div>
-            <h1 className="text-2xl font-black tracking-tight uppercase" style={{ color: '#0F172A' }}>
-              RUSSKY <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-white align-middle ml-2" style={{ backgroundColor: '#38BDF8' }}>Производитель</span>
-            </h1>
-            <p className="text-xs font-medium" style={{ color: '#475569' }}>ООО "РУСЬ" • Высококачественные мясные полуфабрикаты</p>
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-2 bg-[#38BDF8]/10 px-4 py-2 rounded-xl border border-[#38BDF8]/20">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span className="text-xs font-bold" style={{ color: '#0284C7' }}>Прямые поставки со склада</span>
-        </div>
-      </header>
-
-      {}
-      <main className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-        
-        {/* ЛЕВАЯ КОЛОНКА: Слайдер и Галерея (5 колонок на больших экранах) */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
-          
-          {/* Главный слайдер */}
-          <div 
-            className="relative w-full aspect-square bg-white rounded-3xl overflow-hidden border border-[#38BDF8]/30 shadow-md group cursor-zoom-in"
-            onClick={() => {
-              setLightboxImage(productImages[currentSlide].src);
-              setLightboxTitle(productImages[currentSlide].alt);
-              setLightboxDescription('Оригинальное фото готовой продукции высокого качества с нашего производства.');
-            }}
-          >
-            {/* Картинка слайда */}
-            <img 
-              src={productImages[currentSlide].src} 
-              alt={productImages[currentSlide].alt}
-              className="w-full h-full object-cover transition-all duration-700 ease-in-out hover:scale-105"
-            />
-
-            {/* Описание слайда на черной плашке */}
-            <div className="absolute inset-0 bg-slate-900/10 pointer-events-none flex items-end p-4">
-              <span className="bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg font-medium">
-                {productImages[currentSlide].alt}
-              </span>
-            </div>
-
-            {/* Кнопки переключения слайдов */}
-            <button 
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-[#0F172A] flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-              aria-label="Предыдущее фото"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-[#0F172A] flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-              aria-label="Следующее фото"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Автопроигрывание: визуальный индикатор */}
-            <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] text-white font-bold tracking-widest uppercase flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-ping"></span>
-              5s AUTO
-            </div>
-          </div>
-
-          {/* Миниатюры */}
-          <div className="grid grid-cols-3 gap-3">
-            {productImages.map((img, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all shadow-sm ${
-                  idx === currentSlide ? 'border-[#0284C7] scale-[1.03] shadow-md' : 'border-white/50 hover:border-[#38BDF8]'
-                }`}
-              >
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors"></div>
-              </button>
-            ))}
-          </div>
-
-          {/* Быстрые фичи */}
-          <div className="grid grid-cols-2 gap-3 mt-2">
-            <div className="bg-white/60 rounded-2xl p-3 border border-[#38BDF8]/10 text-center">
-              <p className="text-xs" style={{ color: '#475569' }}>Жирность продукта</p>
-              <p className="text-lg font-black" style={{ color: '#0284C7' }}>до 30%</p>
-            </div>
-            <div className="bg-white/60 rounded-2xl p-3 border border-[#38BDF8]/10 text-center">
-              <p className="text-xs" style={{ color: '#475569' }}>Температура хранения</p>
-              <p className="text-lg font-black" style={{ color: '#0284C7' }}>-18 °C</p>
-            </div>
-          </div>
-        </div>
-
-        {/* ПРАВАЯ КОЛОНКА: Название, Цены и Основные данные (7 колонок) */}
-        <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-          
-          <div className="bg-white/40 border border-[#38BDF8]/20 rounded-3xl p-6 md:p-8 flex flex-col gap-4">
-            <div>
-              <div className="flex flex-wrap gap-2 mb-2">
-                <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md text-white" style={{ backgroundColor: '#0284C7' }}>
-                  Говядина замороженная
-                </span>
-                <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 border border-emerald-500/20">
-                  Без химических добавок E
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: '#0F172A' }}>
-                Котлетное мясо 70/30
-              </h2>
-              <p className="text-sm mt-1 font-medium" style={{ color: '#475569' }}>
-                Бренд: <span className="font-bold text-[#0F172A]">RUSSKY</span> | Страна производства: Российская Федерация
-              </p>
-            </div>
-
-            {/* Блок цены */}
-            <div className="flex items-baseline gap-4 py-4 px-5 rounded-2xl bg-white/80 border border-[#38BDF8]/15 shadow-sm">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider block mb-1" style={{ color: '#475569' }}>Оптовая цена за кг</span>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tight" style={{ color: '#0284C7' }}>368 ₽</span>
-                  <span className="text-xs font-bold" style={{ color: '#475569' }}>с НДС 10%</span>
-                </div>
-              </div>
-              <div className="ml-auto border-l border-slate-200 pl-4">
-                <span className="text-xs font-semibold block" style={{ color: '#475569' }}>Минимальный заказ</span>
-                <span className="text-sm font-bold text-[#0F172A]">От 1 европаллеты (до 800 кг)</span>
-              </div>
-            </div>
-
-            {/* Краткое описание состава */}
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#475569' }}>Состав продукта</h4>
-              <p className="text-sm leading-relaxed p-4 rounded-xl bg-sky-50/50 border border-[#38BDF8]/10 text-slate-800">
-                Обрезь говяжья корпусная, говяжий тримминг 80\20, говяжий тримминг 70\30.
-              </p>
-            </div>
-
-            {/* Энергетическая ценность (БЖУ) */}
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2.5" style={{ color: '#475569' }}>Пищевая ценность (на 100г продукта)</h4>
-              <div className="grid grid-cols-4 gap-2.5">
-                <div className="bg-white/85 rounded-xl p-2.5 text-center border border-slate-100">
-                  <span className="block text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Белки</span>
-                  <span className="text-base font-bold text-slate-800">19,2 г</span>
-                </div>
-                <div className="bg-white/85 rounded-xl p-2.5 text-center border border-slate-100">
-                  <span className="block text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Жиры</span>
-                  <span className="text-base font-bold text-slate-800">20,0 г</span>
-                </div>
-                <div className="bg-white/85 rounded-xl p-2.5 text-center border border-slate-100">
-                  <span className="block text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Углеводы</span>
-                  <span className="text-base font-bold text-slate-400">—</span>
-                </div>
-                <div className="bg-white/85 rounded-xl p-2.5 text-center border border-[#38BDF8]/20" style={{ backgroundColor: '#F0F9FF' }}>
-                  <span className="block text-[10px] font-bold tracking-wider uppercase" style={{ color: '#0284C7' }}>Ккал</span>
-                  <span className="text-base font-black text-[#0284C7]">254</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Небольшой информационный инфоблок вместо контактов (для баланса дизайна) */}
-            <div className="mt-2 p-3 bg-emerald-500/5 rounded-2xl border border-emerald-500/10 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-                ✓
-              </span>
-              <p className="text-xs text-slate-600 font-medium">
-                Продукция полностью соответствует требованиям ГОСТ и санитарным нормам РФ. Все ветеринарные документы предоставляются автоматически через систему «Меркурий».
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </main>
-
-      {}
-      {/* ПОДРОБНАЯ СПЕЦИФИКАЦИЯ (Карта товара) */}
-      <section className="max-w-6xl mx-auto mb-12 bg-white rounded-3xl p-6 md:p-8 border border-[#38BDF8]/20 shadow-md">
-        <div className="border-b border-slate-100 pb-4 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h3 className="text-2xl font-black" style={{ color: '#0F172A' }}>Техническая карта товара</h3>
-            <p className="text-xs" style={{ color: '#475569' }}>Все характеристики в соответствии с ТУ производителя и договором поставки</p>
-          </div>
-          
-          {/* Кнопки переключения вкладок */}
-          <div className="flex gap-1.5 p-1 bg-slate-100 rounded-xl self-start md:self-auto">
-            <button 
-              onClick={() => setActiveTab('general')}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeTab === 'general' ? 'bg-white shadow-sm text-[#0284C7]' : 'text-slate-500 hover:text-slate-800'}`}
-            >
-              Общие данные
-            </button>
-            <button 
-              onClick={() => setActiveTab('logistic')}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeTab === 'logistic' ? 'bg-white shadow-sm text-[#0284C7]' : 'text-slate-500 hover:text-slate-800'}`}
-            >
-              Логистика
-            </button>
-            <button 
-              onClick={() => setActiveTab('docs')}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeTab === 'docs' ? 'bg-white shadow-sm text-[#0284C7]' : 'text-slate-500 hover:text-slate-800'}`}
-            >
-              Коды и Бухучет
-            </button>
-          </div>
-        </div>
-
-        {/* Таблицы с подробными данными */}
-        {activeTab === 'general' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Наименование товара</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>Котлетное мясо 70/30</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Срок годности в днях</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>365 дней</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Температурный режим хранения</span>
-                <span className="text-xs font-bold text-right text-sky-600">-18 °C</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Условия после вскрытия упаковки</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>до 4 дней при температуре -2...+2 °C</span>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Поставщик / Производитель</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>ООО "РУСЬ"</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Страна происхождения</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>Российская Федерация</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Торговая марка (Бренд)</span>
-                <span className="text-xs font-bold text-right text-[#0284C7] uppercase font-black">RUSSKY</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Содержит добавки Е</span>
-                <span className="text-xs font-bold text-right text-emerald-600 font-semibold">Не содержит</span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'logistic' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#0284C7' }}>Транспортная укладка</h4>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Коробов на Европаллете</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>до 50 шт.</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Количеств слоев на Европаллете</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>до 10 слоев</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Коробов в одном слое</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>до 5 шт.</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Высота паллеты / Вес Брутто</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>1.75 м / до 800 кг</span>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#0284C7' }}>Единица тары и упаковка</h4>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Вид транспортной упаковки</span>
-                <span className="text-xs font-bold text-right text-slate-700">Полиэтилен, стрейч-пленка</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Вид упаковки единицы тары</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>Пакет</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Вес Короба (Нетто/Брутто)</span>
-                <span className="text-xs font-bold text-right" style={{ color: '#0F172A' }}>до 25 кг / до 25 кг</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Штрих-код Короба / Штуки</span>
-                <span className="text-xs font-bold text-right text-slate-400">Паллетный лист без присвоения штрихкода</span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'docs' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#0284C7' }}>Коды классификации</h4>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Код ТН ВЭД</span>
-                <span className="text-xs font-bold text-right text-[#0F172A]">0201</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Код ОКПД2</span>
-                <span className="text-xs font-bold text-right text-[#0F172A]">10.11.20.190</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Подлежит маркировке "Честный Знак"</span>
-                <span className="text-xs font-bold text-right text-amber-600">Нет</span>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#0284C7' }}>Бухгалтерские показатели</h4>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Цена за единицу (руб.)</span>
-                <span className="text-xs font-bold text-right text-[#0F172A]">368 ₽ / кг</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Ставка НДС</span>
-                <span className="text-xs font-bold text-right text-[#0F172A]">10%</span>
-              </div>
-              <div className="flex justify-between items-center py-2.5 border-b border-slate-100">
-                <span className="text-xs font-medium" style={{ color: '#475569' }}>Единица исчисления товара</span>
-                <span className="text-xs font-bold text-right text-[#0F172A]">кг (Килограмм)</span>
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
-
-      {}
-      {/* РАЗДЕЛ ДЕКЛАРАЦИЙ */}
-      <section className="max-w-6xl mx-auto mb-8">
-        <div className="mb-6">
-          <h3 className="text-2xl font-black" style={{ color: '#0F172A' }}>Декларации о соответствии</h3>
-          <p className="text-xs" style={{ color: '#475569' }}>Официальные ветеринарные документы и государственные сертификаты качества. Нажмите для детального просмотра.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {declarationImages.map((doc) => (
-            <div 
-              key={doc.id}
-              onClick={() => {
-                setLightboxImage('placeholder_doc');
-                setLightboxTitle(doc.title);
-                setLightboxDescription('Официальный бланк Декларации о соответствии качества. Для замены данного файла загрузите соответствующий скан в код проекта.');
-              }}
-              className="bg-white hover:bg-sky-50/20 border border-[#38BDF8]/20 hover:border-[#38BDF8] rounded-2xl p-6 flex flex-col items-center justify-between text-center min-h-[220px] shadow-sm hover:shadow-md transition-all cursor-zoom-in group"
-            >
-              <div className="w-12 h-12 rounded-full bg-[#38BDF8]/10 flex items-center justify-center text-[#0284C7] mb-4 group-hover:scale-110 transition-transform">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-wider mb-2" style={{ color: '#0F172A' }}>
-                  {doc.title}
-                </h4>
-                <p className="text-[10px] whitespace-pre-line" style={{ color: '#475569' }}>
-                  {doc.placeholder}
-                </p>
-              </div>
-
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#0284C7] mt-4 opacity-70 group-hover:opacity-100 flex items-center gap-1">
-                Открыть скан
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {}
-      {/* РАЗДЕЛ: МАРКИРОВКА ТОВАРА (ЭТИКЕТКА) */}
-      <section className="max-w-6xl mx-auto mb-12">
-        <div className="mb-6">
-          <h3 className="text-2xl font-black" style={{ color: '#0F172A' }}>МАРКИРОВКА ТОВАРА (ЭТИКЕТКА)</h3>
-          <p className="text-xs" style={{ color: '#475569' }}>Пример маркировки упакованного котлетного мяса 70/30 на коробке. Нажмите для увеличения.</p>
-        </div>
-
-        <div 
-          onClick={() => {
-            setLightboxImage('placeholder_label');
-            setLightboxTitle('Маркировка товара (Этикетка) ГОСТ');
-            setLightboxDescription('Здесь будет находиться скан-копия официальной заводской этикетки со штрих-кодом, составом, датой изготовления и реквизитами производителя.');
-          }}
-          className="bg-white hover:bg-sky-50/10 border-2 border-dashed border-[#38BDF8]/40 hover:border-[#0284C7] rounded-3xl p-8 flex flex-col items-center justify-center text-center min-h-[260px] cursor-zoom-in transition-all group shadow-sm hover:shadow-md"
-        >
-          {/* Иконка этикетки/кода */}
-          <div className="w-16 h-16 rounded-2xl bg-sky-50 text-[#0284C7] flex items-center justify-center mb-4 border border-[#38BDF8]/20 group-hover:scale-105 transition-transform">
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 7h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11l-3-3m0 0l-3 3m3-3v8" />
-            </svg>
-          </div>
-
-          <h4 className="text-base font-black uppercase tracking-tight mb-2" style={{ color: '#0F172A' }}>
-            Фото/Скан заводской этикетки
-          </h4>
-          <p className="text-xs max-w-md" style={{ color: '#475569' }}>
-            Место для этикетки ТУ/ГОСТ со штрихкодом. Кликните, чтобы посмотреть демонстрационный шаблон. Сюда можно подгрузить реальное изображение маркировки.
-          </p>
-
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] mt-5 px-4 py-1.5 rounded-xl bg-sky-50 border border-sky-100 flex items-center gap-2 group-hover:bg-[#0284C7] group-hover:text-white transition-all">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            Просмотреть образец маркировки
-          </span>
-        </div>
-      </section>
-
-      {}
-      {/* РАЗДЕЛ: СВЯЗЬ С ОТДЕЛОМ ПРОДАЖ (Перенесен в самый низ) */}
-      <section className="max-w-6xl mx-auto mb-12 bg-slate-900 text-white rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden border border-sky-900">
-        {/* Фоновые градиентные круги */}
-        <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#0284C7] rounded-full blur-[100px] opacity-25 pointer-events-none"></div>
-        <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#38BDF8] rounded-full blur-[100px] opacity-15 pointer-events-none"></div>
-
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          {/* Контакты отдела продаж (7 колонок) */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            <div>
-              <span className="text-[10px] font-extrabold tracking-widest text-[#38BDF8] uppercase block mb-1">
-                Прямой оптовый заказ от производителя
-              </span>
-              <h3 className="text-3xl font-black tracking-tight text-white mb-2">
-                Связаться с отделом продаж
-              </h3>
-              <p className="text-sm text-slate-300">
-                Оформление долгосрочных договоров поставок, индивидуальный расчет стоимости под объем закупки и отправка образцов продукции.
-              </p>
-            </div>
-
-            {/* Контакты менеджеров */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Менеджер 1 (Алексей) */}
-              <div className="bg-white/5 border border-white/10 p-4 rounded-2xl flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0284C7]/30 flex items-center justify-center font-bold text-[#38BDF8] border border-[#38BDF8]/30">
-                    АГ
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold">Алексей Г.</p>
-                    <p className="text-[10px] text-slate-400">Старший оптовый менеджер</p>
-                  </div>
-                </div>
-                <div className="space-y-1 pt-1 border-t border-white/10 text-xs text-slate-300">
-                  <p className="flex items-center gap-2">
-                    <span className="text-sky-400">📞</span> +7 (999) 456-11-22
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-sky-400">✉</span> a.g@russky-meat.ru
-                  </p>
-                </div>
-                <a 
-                  href="https://t.me" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mt-1 text-center bg-white/5 hover:bg-sky-500/20 text-[#38BDF8] hover:text-white py-2 rounded-xl text-xs font-bold border border-[#38BDF8]/20 transition-all"
-                >
-                  Написать в Telegram →
-                </a>
-              </div>
-
-              {/* Менеджер 2 (Елена) */}
-              <div className="bg-white/5 border border-white/10 p-4 rounded-2xl flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center font-bold text-emerald-400 border border-emerald-500/30">
-                    ЕН
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold">Елена Н.</p>
-                    <p className="text-[10px] text-slate-400">Руководитель по СНГ и ВЭД</p>
-                  </div>
-                </div>
-                <div className="space-y-1 pt-1 border-t border-white/10 text-xs text-slate-300">
-                  <p className="flex items-center gap-2">
-                    <span className="text-emerald-400">📞</span> +7 (999) 789-33-44
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-emerald-400">✉</span> e.n@russky-meat.ru
-                  </p>
-                </div>
-                <a 
-                  href="https://wa.me" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mt-1 text-center bg-white/5 hover:bg-emerald-500/20 text-emerald-400 hover:text-white py-2 rounded-xl text-xs font-bold border border-emerald-500/20 transition-all"
-                >
-                  Написать в WhatsApp →
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Интерактивная форма обратного звонка (5 колонок) */}
-          <div className="lg:col-span-5 bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-md">
-            <h4 className="text-lg font-black tracking-tight mb-2 text-white">
-              Перезвонить вам?
-            </h4>
-            <p className="text-xs text-slate-300 mb-6">
-              Заполните короткую заявку, и один из наших специалистов перезвонит вам в течение 15 минут.
-            </p>
-
-            {submitSuccess ? (
-              <div className="bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 p-4 rounded-2xl text-center space-y-2 animate-fadeIn">
-                <p className="text-base font-bold">✓ Заявка успешно отправлена!</p>
-                <p className="text-xs text-slate-300">Наш менеджер уже готовит индивидуальное коммерческое предложение для вас.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleCallbackSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-300 mb-1" htmlFor="client-name">
-                    Ваше имя
-                  </label>
-                  <input 
-                    id="client-name"
-                    type="text" 
-                    required
-                    placeholder="Александр"
-                    value={clientName}
-                    onChange={(e) => setClientName(e.target.value)}
-                    className="w-full bg-white/10 border border-white/20 focus:border-[#38BDF8] rounded-xl px-4 py-3 text-sm text-white focus:outline-none placeholder-slate-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-300 mb-1" htmlFor="client-phone">
-                    Контактный телефон
-                  </label>
-                  <input 
-                    id="client-phone"
-                    type="tel" 
-                    required
-                    placeholder="+7 (999) 000-00-00"
-                    value={clientPhone}
-                    onChange={(e) => setClientPhone(e.target.value)}
-                    className="w-full bg-white/10 border border-white/20 focus:border-[#38BDF8] rounded-xl px-4 py-3 text-sm text-white focus:outline-none placeholder-slate-500 transition-colors"
-                  />
-                </div>
-
-                {/* Пульсирующая кнопка для вызова действия */}
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="cta-pulsing-button w-full py-3.5 px-6 rounded-xl text-white font-extrabold text-sm transition-all focus:outline-none flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                  style={{ backgroundColor: '#0284C7' }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Отправка...
-                    </>
-                  ) : (
-                    <>
-                      Получить коммерческое предложение
-                      <span className="text-xs">⚡</span>
-                    </>
-                  )}
-                </button>
-
-                <p className="text-[9px] text-center text-slate-400 mt-2">
-                  Нажимая кнопку, вы соглашаетесь с обработкой персональных данных согласно 152-ФЗ.
-                </p>
-              </form>
-            )}
-
-          </div>
-
-        </div>
-      </section>
-
-      {}
-      {/* ЛАЙТБОКС (Увеличенный просмотр фото, деклараций и этикеток) */}
-      {lightboxImage && (
-        <div 
-          className="fixed inset-0 bg-slate-900/90 z-50 flex flex-col items-center justify-center p-4 backdrop-blur-sm transition-all duration-300"
-          onClick={() => setLightboxImage(null)}
-        >
-          {/* Кнопка закрытия */}
-          <div className="absolute top-4 right-4">
-            <button 
-              onClick={() => setLightboxImage(null)}
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all focus:outline-none"
-              title="Закрыть"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <div 
-            className="max-w-4xl w-full max-h-[80vh] flex items-center justify-center relative rounded-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Отрисовка в зависимости от типа открываемого контента */}
-            {lightboxImage === 'placeholder_doc' ? (
-              <div className="bg-white border-2 border-dashed border-[#38BDF8]/40 rounded-3xl p-8 md:p-12 text-center max-w-md mx-auto shadow-2xl flex flex-col items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center text-[#0284C7]">
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-black text-slate-800">{lightboxTitle}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  {lightboxDescription}
-                </p>
-                <div className="w-full border-t border-slate-100 pt-4 flex flex-col gap-1 text-[10px] text-left text-slate-400">
-                  <p>• Название документа: Декларация о соответствии ЕАС</p>
-                  <p>• Статус: Действителен</p>
-                  <p>• Продукт: Котлетное говяжье мясо</p>
-                </div>
-                <button 
-                  onClick={() => setLightboxImage(null)}
-                  className="px-6 py-2 rounded-xl text-white font-bold text-xs"
-                  style={{ backgroundColor: '#0284C7' }}
-                >
-                  Закрыть скан
-                </button>
-              </div>
-            ) : lightboxImage === 'placeholder_label' ? (
-              <div className="bg-white border-2 border-dashed border-[#38BDF8]/40 rounded-3xl p-8 md:p-12 text-center max-w-lg mx-auto shadow-2xl flex flex-col gap-4">
-                <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-                  <h3 className="text-lg font-black text-slate-800">{lightboxTitle}</h3>
-                  <span className="text-[9px] font-bold text-white bg-[#0284C7] px-2 py-0.5 rounded-full uppercase">Образец</span>
-                </div>
-                
-                {/* Имитация этикетки */}
-                <div className="border border-slate-200 p-4 rounded-xl text-left bg-slate-50 font-mono text-[9px] text-slate-700 space-y-2">
-                  <p className="font-bold text-center text-xs border-b border-slate-200 pb-1 uppercase">ПОЛУФАБРИКАТ МЯСНОЙ ИЗ ГОВЯДИНЫ ЗАМОРОЖЕННЫЙ</p>
-                  <p><span className="font-bold">Категория:</span> Блок из жилованного мяса</p>
-                  <p><span className="font-bold">Состав:</span> Говядина жилованная односортная (котлетное мясо 70/30)</p>
-                  <p><span className="font-bold">Пищевая ценность (100г):</span> белков - не менее 19,2г; жиров - не более 20,0г. Энерг. ценность: 254 ккал/1054 кДж</p>
-                  <p><span className="font-bold">Срок годности:</span> 12 месяцев при t не выше минус 18°С</p>
-                  <p><span className="font-bold">Производитель:</span> ООО "РУСЬ", РФ, Владимирская обл.</p>
-                  <p><span className="font-bold">Масса нетто:</span> 25.0 кг. Масса брутто: 25.1 кг</p>
-                  <div className="flex justify-between items-center pt-2 border-t border-slate-200">
-                    <span>EAC</span>
-                    <span className="text-right text-xs tracking-widest font-bold">|||| | ||| |||| | |||</span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  {lightboxDescription}
-                </p>
-                
-                <button 
-                  onClick={() => setLightboxImage(null)}
-                  className="px-6 py-2 rounded-xl text-white font-bold text-xs"
-                  style={{ backgroundColor: '#0284C7' }}
-                >
-                  Вернуться в каталог
-                </button>
-              </div>
-            ) : (
-              <img 
-                src={lightboxImage} 
-                alt={lightboxTitle} 
-                className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl border border-white/10"
-              />
-            )}
-          </div>
-
-          <div className="mt-4 text-center">
-            <p className="text-sm font-bold text-white tracking-wide uppercase">{lightboxTitle}</p>
-            <p className="text-xs text-slate-400 mt-1">Кликните за пределами области, чтобы закрыть просмотр</p>
-          </div>
-        </div>
-      )}
-
-      {/* Подвал */}
-      <footer className="max-w-6xl mx-auto border-t border-slate-200 mt-12 pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs" style={{ color: '#475569' }}>
-        <p>© 2026 RUSSKY — ООО "РУСЬ". Все права защищены.</p>
-        <p>Предоставленная информация носит ознакомительный характер и соответствует спецификации производителя.</p>
-      </footer>
-
-    </div>
-  );
+        /* Кастомный премиальный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E0F2FE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38BDF8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284C7;
+        }
+        /* Добавь это в секцию <style> */
+.tab-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
+h1, h2, h3 {
+    letter-spacing: -0.025em; /* Делает заголовки визуально «плотнее» и солиднее */
+}
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+<style>
+  @keyframes float {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(110vw); }
+  }
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .animate-soft-pulse {
+    animation: soft-pulse 3s ease-in-out infinite;
+  }
+    <style>
+    /* ... твой текущий код ... */
+
+    /* Принудительно меняем цвет абсолютно ВСЕГО текста на «мокрый асфальт» */
+    body, h1, h2, h3, h4, p, span, div {
+        color: #334155 !important;
+    }
+
+    /* А если где-то нужно оставить акцентный голубой, добавь это: */
+    .text-sky-600 {
+        color: #0284C7 !important;
+    }
+</style>
+</style>
+
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  <img src="cloud1.png" class="absolute top-[5%] left-[-20%] w-56 opacity-30 animate-[float_60s_linear_infinite]" />
+  <img src="cloud2.png" class="absolute top-[15%] left-[-40%] w-40 opacity-20 animate-[float_50s_linear_infinite_10s]" />
+  
+  <img src="cloud3.png" class="absolute top-[30%] left-[-30%] w-48 opacity-35 animate-[float_45s_linear_infinite_5s]" />
+  <img src="cloud1.png" class="absolute top-[45%] left-[-50%] w-36 opacity-25 animate-[float_55s_linear_infinite_15s]" />
+  
+  <img src="cloud2.png" class="absolute top-[60%] left-[-20%] w-44 opacity-30 animate-[float_40s_linear_infinite_8s]" />
+  <img src="cloud3.png" class="absolute top-[75%] left-[-35%] w-52 opacity-20 animate-[float_48s_linear_infinite_3s]" />
+  <img src="cloud1.png" class="absolute top-[85%] left-[-15%] w-32 opacity-35 animate-[float_42s_linear_infinite_20s]" />
+</div>
+    <!-- ФОНОВЫЕ ОБЛАКА И ГРАДИЕНТЫ (Эстетика из картинки пользователя) -->
+    <div class="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-sky-400 via-sky-300 to-transparent opacity-30 pointer-events-none"></div>
+    
+
+    <!-- HEADER -->
+     <!-- HEADER -->
+<header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
+    <div class="px-4 py-3 flex items-center justify-between">
+        
+        <div class="flex items-center space-x-2 shrink-0">
+            <img src="Russky_5.png" alt="РУСЬ" class="w-7 h-7 object-contain">
+            <span class="text-lg font-extrabold text-blue-900 uppercase tracking-wider">РУСЬ</span>
+        </div>
+
+        <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
+            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
+            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция</button>
+            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
+            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
+            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
+            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
+            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
+        </div>
+    </div>
+</header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 pt-24 pb-20">
+
+        <!-- ==================== TAB: OVERVIEW ==================== -->
+        <section id="tab-overview" class="tab-content scroll-mt-24 block space-y-10 animate-fade-in">
+            <!-- Hero Pitch -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
+                        <span>🌱 Чистое производство • Честный бизнес</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-600 tracking-tighter leading-[0.9]">
+    Комплексное производство <br>
+    <span class="text-blue-600">и оптовые поставки мяса</span>
+</h1>
+                    <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
+                        ООО «РУСЬ» (основано в 2015 году) предлагает принять участие в масштабировании проверенной бизнес-модели: собственное + контрактное производство мясных продуктов и СТМ с доходностью <span class="text-sky-600 font-extrabold">до 33% годовых</span>.
+                    </p>
+                    
+                    <!-- Quick Stats Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                        <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                            <span class="block text-xs text-slate-400 mb-1">Опыт компании</span>
+                            <span class="text-2xl font-black text-slate-800">11+ лет</span>
+                        </div>
+                        <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                            <span class="block text-xs text-slate-400 mb-1">Годовой объем</span>
+                            <span class="text-2xl font-black text-sky-500">> 3600 т</span>
+                        </div>
+                        <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                            <span class="block text-xs text-slate-400 mb-1">Доходность займа</span>
+                            <span class="text-2xl font-black text-blue-600">33%</span>
+                        </div>
+                        <div class="bg-transparent p-4 rounded-3xl shadow-xl shadow-sky-500/10 border border-sky-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                            <span class="block text-xs text-slate-400 mb-1">Рентабельность</span>
+                            <span class="text-2xl font-black text-slate-800">~22%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Highlight Card -->
+               <div class="lg:col-span-5 p-6 sm:p-8 rounded-3xl border border-white/40 shadow-xl overflow-hidden relative" 
+     style="background-image: url('GUGU.png'); background-size: cover; background-position: center; background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px);">
+                    <div class="absolute -top-16 -right-16 w-32 h-32 bg-sky-100 rounded-full blur-2xl"></div>
+                    <div class="space-y-6 relative z-10">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Параметры раунда</span>
+                            <span class="px-2.5 py-1 rounded bg-sky-100 text-sky-600 text-xs font-bold border border-sky-200">Seed Round (Посевной этап)</span>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-slate-400 text-sm">Общая сумма привлечения:</span>
+                            <div class="text-4xl font-black text-slate-850 text-sky-600">15 000 000 ₽</div>
+                            <span class="block text-xs text-slate-400">(Двумя траншами: 5 млн ₽ + 10 млн ₽ для плавного запуска)</span>
+                        </div>
+                        
+                        <div class="border-t border-sky-100 pt-4 space-y-3">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-medium">Срок займа:</span>
+                                <span class="text-slate-800 font-bold">12–15 месяцев</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-medium">Возврат тела:</span>
+                                <span class="text-slate-800 font-bold">Через 12 месяцев</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-medium">Выплата процентов:</span>
+                                <span class="text-sky-600 font-black">С 13 по 15 месяц</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-medium">Формат гарантий:</span>
+                                <span class="text-slate-800 font-bold">Конвертируемый заём или обеспечение товаром</span>
+                            </div>
+                        </div>
+
+                        <button onclick="switchTab('financials')" class="w-full py-3 bg-sky-400 hover:bg-sky-500 text-white font-extrabold rounded-xl transition-all duration-300 text-center text-sm shadow-md shadow-sky-400/25">
+                            Перейти к расчёту окупаемости
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Goals & Target Metrics -->
+            <div class="space-y-6">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-800">Глобальные цели и задачи проекта</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 hover:border-sky-300 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Снижение себестоимости</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Оптимизация на 8% за счёт масштабирования модели контрактного производства и закупки импортного сырья напрямую у зарубежных производителей без посредников.
+                        </p>
+                    </div>
+
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 hover:border-sky-300 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Увеличение прибыли</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Выход на прямые поставки в федеральные/локальные торговые сети, участие в государственных тендерах, запуск на маркетплейсах (Яндекс Лавка, Самокат) и экспорт.
+                        </p>
+                    </div>
+
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 hover:border-sky-300 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Масштабирование СТМ</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Производство готовых мясных продуктов и деликатесов высокой рентабельности под собственной торговой маркой (СТМ) заказчика и ООО «РУСЬ».
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Stage and Capacity -->
+            <div class="bg-transparent rounded-3xl p-6 sm:p-8 border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <h3 class="text-2xl font-black text-slate-850">Текущий статус и инфраструктура</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-sky-100 p-1.5 rounded text-sky-600">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Действующий бизнес с 2015 года</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Отлаженные бизнес-процессы, договоры, укомплектованная внешняя и внутренняя команда профессионалов.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-sky-100 p-1.5 rounded text-sky-600">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">3 Склада-представительства</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Москва, Санкт-Петербург, Рязань. Отработана логистика кросс-докинга и фулфилмента в ключевых точках сбыта.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-sky-100 p-1.5 rounded text-sky-600">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Развитие собственного производства в СЗФО</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Производственный комплекс в Санкт-Петербурге на стадии согласования и подписания договора и разрешительных документов.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Production Capacities -->
+                    <div class="bg-sky-50/40 p-6 rounded-3xl border border-sky-100 space-y-4">
+                        <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Плановая мощность: от 3600 тонн/год</span>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-600 mb-1">
+                                    <span>Собственное производство мясных полуфабрикатов</span>
+                                    <span class="text-sky-600 font-bold">100-150 тонн/мес</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-sky-400 h-full rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-600 mb-1">
+                                    <span>Контрактные площадки (МО, ЛО)</span>
+                                    <span class="text-sky-600 font-bold">50-100 тонн/мес</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-sky-400 h-full rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-600 mb-1">
+                                    <span>Крупный опт сырьевой базы</span>
+                                    <span class="text-sky-600 font-bold">от 100 тонн/мес</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-sky-400 h-full rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2 italic leading-relaxed">
+                            * Такая диверсификация минимизирует риски порчи сырья или падения объемов продаж.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB: CATALOG (PRODUCT OVERVIEW) ==================== -->
+        <section id="tab-catalog" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
+            <div class="space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100 text-xs text-sky-600 font-bold tracking-wide uppercase">
+                    <span> ВИДЕОПРЕЗЕНТАЦИЯ ПРОДУКТА</span>
+                </div>
+                <h2 class="text-3xl font-black text-slate-800">Обзор продукции и процессов</h2>
+                <p class="text-slate-500 text-lg max-w-3xl">Загляните прямо на производство и оцените качество конечного продукта.</p>
+            </div>
+
+            <!-- 6 VIDEO WINDOWS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Video Box 1 -->
+               <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v1.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:10</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Филе Индейки</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Филе грудки и бедра в вакууме</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Демонстрация калибровки, герметичности вакуумирования и безупречного товарного вида поставляемой продукции.</p>
+        <button onclick="openVideoModal('видео/v1.mp4', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+<div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-2" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v2.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-2')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:12</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Сыровяленые Чипсы</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Мясные снеки (Тренд 2025-2026)</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Высокомаржинальный продукт (доходность до 150-3000%). Процесс нарезки, сушки и брендовой фасовки.</p>
+        <button onclick="openVideoModal('видео/v2.mp4', 'Сыровяленые Мясные Чипсы')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+<div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-3" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v3.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-3')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:10</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Цех переработки</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Работа автоматизированных линий</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Оборудование российского и китайского производства. Максимальная гигиена и соответствие нормам ГОСТ и ХАССП.</p>
+        <button onclick="openVideoModal('видео/v3.mp4', 'Автоматизированный Цех Переработки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+<div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-4" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v4.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-4')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:12</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Логистика & Склад</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Кросс-докинг и отгрузка в регионы</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Процесс сборки заказов на складах ответственного хранения в Москве, Санкт-Петербурге и Рязани.</p>
+        <button onclick="openVideoModal('видео/v4.mp4', 'Логистика и Склад ответхранения')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+<div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-5" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v5.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-5')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:10</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Брендовая упаковка</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Новый формат коробок СТМ</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Демонстрация облегченных 3-7 кг коробов с яркой печатью. Экономия на вакууме и высокая маркетинговая отдача.</p>
+        <button onclick="openVideoModal('видео/v5.mp4', 'Презентация брендовой упаковки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+<div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative bg-slate-900 aspect-video group overflow-hidden">
+        <video id="video-6" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
+            <source src="видео/v6.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
+            <button onclick="toggleVideoPlay('video-6')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+        <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:12</span>
+    </div>
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Стейки и нарезка</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Порционная мясная разделка</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Идеально ровная нарезка стейков на весах, фасовка в лотки на влаговпитывающие подложки для ресторанов и сетей.</p>
+        <button onclick="openVideoModal('видео/v6.mp4', 'Порционная нарезка стейков')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+
+                 <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div class="relative overflow-hidden flex items-center justify-center p-4">
+        <img src="i-1.jpg" alt="Стандарт качества" class="w-full h-auto object-contain">
+    </div>
+
+    <div class="p-5 space-y-2">
+        <span class="text-xs font-bold text-sky-600 uppercase">Этикетка на штучную упаковку</span>
+        <h4 class="font-extrabold text-slate-800 text-md">Стандарт качества</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Сертификация ЕАС и полное соответствие СТО для федеральных сетей.</p>
+        
+        <button onclick="openImageModal('i-1.jpg', 'Фарш 80/20')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+            <span>Развернуть на весь экран</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+        </button>
+    </div>
+</div>
+            <!-- ИНСТРУКЦИЯ ПО ЗАМЕНЕ ВИДЕО ДЛЯ ПОЛЬЗОВАТЕЛЯ -->
+            
+                
+                
+                   
+           
+                </div>
+        </section>
+
+        <!-- ==================== TAB: STRATEGY ==================== -->
+        <section id="tab-strategy" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-extrabold text-slate-800">Стратегия эффективности бизнеса</h2>
+                <p class="text-slate-500 text-lg max-w-3xl">За счет чего ООО «РУСЬ» достигает преимуществ на рынке мясопереработки, удерживая себестоимость и повышая доходность.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Asset-Light (Tinkoff Model) -->
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="text-sky-500 text-2xl font-black">01 / Модель Т-Банк </div>
+                    <h3 class="text-lg font-bold text-slate-800">Минимум операционных расходов</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Мы отказались от дорогой классической модели «офис + собственный склад». Вместо этого внедрили систему регионального ответственного хранения (фулфилмент) и удаленный формат работы сотрудников. Расходы на логистику и хранение снижены в 1.5–2 раза.
+                    </p>
+                </div>
+
+                <!-- Card 2: Packaging innovation -->
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="text-sky-500 text-2xl font-black">02 / Продает упаковка</div>
+                    <h3 class="text-lg font-bold text-slate-800">Экономия на материалах</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Снизили вес короба под СТМ в 2 раза (до 3-7 кг), отказались от лишних вакуумных пакетов и контейнеров в пользу рекламы и бренда прямо на гофрокоробе. Это дало нам экономию на логистике без ущерба узнаваемости.
+                    </p>
+                </div>
+
+                <!-- Card 3: Deep Processing -->
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="text-sky-500 text-2xl font-black">03 / Глубокая переработка</div>
+                    <h3 class="text-lg font-bold text-slate-800">Высокомаржинальные SKU</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Фокус на тренде 2025-2026: сыровяленая продукция (мясные чипсы, хамон, деликатесы по итальянским технологиям) и производство кормов для животных. Рентабельность деликатесной группы составляет от 150% до 3000%.
+                    </p>
+                    
+    <p class="text-xs text-slate-400 pt-2 italic leading-relaxed border-t border-sky-100">
+        * Высокомаржинальные SKU — самые прибыльные товарные позиции.
+    </p>
+</div>
+
+                <!-- Card 4: Non-Corruption -->
+               <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+    <div class="text-sky-500 text-2xl font-black">04 / Ретро-бонусы за объём</div>
+    <h3 class="text-lg font-bold text-slate-800">Честная мотивация закупщиков</h3>
+    <p class="text-slate-500 text-sm leading-relaxed">
+        Вместо серых коррупционных схем («откатов») мы официально внедрили систему юридически чистых «ретро-бонусов» и товарных премий для коммерческих отделов сетей и дистрибьюторов. Это обеспечивает лавинообразный рост сбыта.
+    </p>
+</div>
+                <!-- Card 5: Smart Purchasing -->
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="text-sky-500 text-2xl font-black">05 / Выгода в закупке</div>
+                    <h3 class="text-lg font-bold text-slate-800">Правило первого контрагента</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Возможность выгодной закупки важнее продаж. Получив статус производителя и импортера субпродуктов (говяжьи щеки, тримминги, языки), мы получаем сырье на 10-20% ниже рынка, что даёт колоссальный запас прочности.
+                    </p>
+                </div>
+
+                <!-- Card 6: Tax Optimization -->
+                <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                    <div class="text-sky-500 text-2xl font-black">06 / Оцифровка процессов</div>
+                    <h3 class="text-lg font-bold text-slate-800">Легальное снижение налогов</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Вся основная команда (технологи, дизайнеры, менеджеры) оформлены как ИП или самозанятые с оплатой за результат. Это снижает ФОТ и налоги на фонд оплаты труда, укладывая налоговую нагрузку всего в 1% от оборота.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Regional Expansion Block -->
+            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                <h3 class="text-xl font-bold text-slate-850 mb-6 flex items-center">
+                    <span class="w-3 h-3 bg-sky-400 rounded-full mr-3 animate-ping"></span>
+                    География расширения до конца 2026 года
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-3">
+                        <div class="text-lg font-bold text-sky-600">ЕКАТЕРИНБУРГ — Ворота на Урал и в Азию</div>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Крупный транспортный узел. Высокая востребованность продукции эконом-сегмента. Перевалочная база для экспортно-импортных поставок с Казахстаном, Киргизией и Узбекистаном.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="text-lg font-bold text-sky-600">АРХАНГЕЛЬСК — Северный рубеж и Тендеры</div>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Огромный спрос на снековую сыровяленую продукцию к пиву и мясные консервы. Близость к Мурманску и поставки народам Крайнего Севера через тендеры с льготами резидента Арктики.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB: TEAM & ASSETS ==================== -->
+        <section id="tab-team" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-extrabold text-slate-800">Активы компании и команда</h2>
+                <p class="text-slate-500 text-lg max-w-3xl">Кадры и нематериальные активы — основа устойчивости бизнеса.</p>
+            </div>
+
+            <!-- Assets grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4 space-y-6">
+                    <!-- Material Asset Card -->
+                    <div class="bg-transparent from-white to-sky-50/20 p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                        <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Ключевой материальный актив</span>
+                        <h3 class="text-2xl font-black text-slate-800">15 000 000 ₽</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Стабильный товарный кредит от стратегического партнёра-инвестора со средним сроком 43–45 дней. Возможность расширения кредитного плеча до 30 000 000 ₽ в течение 3-4 месяцев.
+                        </p>
+                    </div>
+
+                    <!-- Formula breakdown -->
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">Формула кадровой надёжности:</h4>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-2xl font-black text-sky-500">30%</span>
+                            <span class="text-slate-600 text-sm">— Члены семьи и близкий круг (высокая лояльность)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-2xl font-black text-blue-500">70%</span>
+                            <span class="text-slate-600 text-sm">— Рыночные специалисты и фрилансеры</span>
+                        </div>
+                        <p class="text-xs text-slate-400 italic mt-2">
+                            Присутствие родственников не дает привилегий: показатели результативности и договора едины для всей команды без исключений.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-800">Нематериальные активы за 10 лет работы</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-800 flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>База контактов и связей
+                            </h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Арсенал долгосрочных договоров с сотнями поставщиков и покупателей по всей РФ. База нарабатывалась лично Александром Рудным с 2015 года.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-800 flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Уникальные ноу-хау и рецепты
+                            </h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Рецептуры мясных изделий и специй на аутсорс-разработке. Оптимизированные составы для минимизации себестоимости с сохранением отличного вкуса.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-800 flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Опыт запуска производств
+                            </h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Собственный практический опыт руководителя (включая работу руками в цехах и управление крупными контрактными площадками с 2019 года).
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-800 flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>Внешняя партнерская команда
+                            </h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Контрактные производственные, логистические и бухгалтерские аутсорсинговые компании на жестких договорах. Диверсификация рисков.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Founder Quote -->
+                    <div class="border-t border-sky-100 pt-6 mt-4">
+                        <blockquote class="italic text-slate-600 border-l-4 border-sky-400 pl-4 text-sm leading-relaxed">
+                            «Я вырос в то время, когда цена слова была дороже денег. Если обещал — исполни. Иначе с тобой не будут иметь дела. Это правило — главный гарант безопасности для инвестора компании "РУСЬ".»
+                            <span class="block mt-2 text-xs font-bold text-slate-500 uppercase tracking-widest">— Александр Рудный, Генеральный директор ООО «РУСЬ»</span>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB: FINANCIALS & CALCULATOR ==================== -->
+        <section id="tab-financials" class="tab-content scroll-mt-24 hidden space-y-12 animate-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- LEFT: Explanations & Projections -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Оцифрованные финансы</span>
+                        <h2 class="text-3xl font-black text-slate-800">План финансового роста</h2>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Ниже представлена динамика выручки в течение первого года после освоения инвестиций. Средняя рентабельность проекта на всех этапах составляет <span class="text-sky-600 font-bold">не менее 22%</span> за счет диверсификации направлений.
+                        </p>
+                    </div>
+
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Совокупный годовой оборот:</span>
+                                <span class="text-slate-800 font-extrabold text-md">> 454 000 000 ₽</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Рентабельность опта:</span>
+                                <span class="text-slate-800 font-semibold">5% - 15%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Рентабельность производства:</span>
+                                <span class="text-slate-800 font-semibold">15% - 250%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Итоговая чистая маржинальность:</span>
+                                <span class="text-sky-600 font-bold">~ 22%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Control -->
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
+                        <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
+                        <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
+                            <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
+                            <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий дефицита ликвидности:</strong> Снижаем оборот по низкомаржинальному опту, делая жесткий фокус на маржинальные мясные чипсы и деликатесы.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
+                <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
+                            <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
+                        </div>
+                        
+                        <!-- Mini SVG chart with hover effects -->
+                        <div class="h-64 flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative">
+                            <!-- Helper guide lines -->
+                            <div class="absolute w-full border-t border-sky-100/40 top-[25%] pointer-events-none"></div>
+                            <div class="absolute w-full border-t border-sky-100/40 top-[50%] pointer-events-none"></div>
+                            <div class="absolute w-full border-t border-sky-100/40 top-[75%] pointer-events-none"></div>
+                            
+                            <!-- Monthly bars -->
+                            <div onclick="selectMonth(1, 5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">5М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-4 transition-all duration-300 shadow-lg shadow-sky-400/0 group-hover:shadow-sky-400/10"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М1</span>
+                            </div>
+                            <div onclick="selectMonth(2, 6.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">6.5М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-6 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М2</span>
+                            </div>
+                            <div onclick="selectMonth(3, 12.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">12.5М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-12 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М3</span>
+                            </div>
+                            <div onclick="selectMonth(4, 15)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">15М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-14 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М4</span>
+                            </div>
+                            <div onclick="selectMonth(5, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М5</span>
+                            </div>
+                            <div onclick="selectMonth(6, 30)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">30М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-28 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М6</span>
+                            </div>
+                            <div onclick="selectMonth(7, 50)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">50М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-40 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М7</span>
+                            </div>
+                            <div onclick="selectMonth(8, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М8</span>
+                            </div>
+                            <div onclick="selectMonth(9, 60)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">60М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-48 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М9</span>
+                            </div>
+                            <div onclick="selectMonth(10, 65)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">65М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-52 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М10</span>
+                            </div>
+                            <div onclick="selectMonth(11, 75)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">75М</span>
+                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-56 transition-all duration-300"></div>
+                                <span class="text-[9px] text-slate-400 mt-2">М11</span>
+                            </div>
+                            <div onclick="selectMonth(12, 85)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-sky-500 mb-1 opacity-100 transition-opacity text-sky-500">85М</span>
+                                <div class="w-full bg-sky-400 rounded-t h-60 transition-all duration-300"></div>
+                                <span class="text-[9px] text-sky-500 mt-2 font-bold">М12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected Month Stats -->
+                    <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Выбранный период:</span>
+                            <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-400 block">Плановая выручка:</span>
+                            <span id="selected-month-val" class="text-xl font-black text-sky-600">85 000 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
+            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
+                        <p class="text-slate-500 text-sm">Посмотрите, как до копейки распределяется инвестиционный капитал</p>
+                    </div>
+                    <!-- Toggle Switch -->
+                    <div class="flex bg-sky-50 p-1 rounded-lg border border-sky-100">
+                        <button onclick="switchTranche(1)" id="btn-tranche1" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-sky-400 text-white shadow-xl shadow-sky-500/10">1-й Транш (5 млн ₽)</button>
+                        <button onclick="switchTranche(2)" id="btn-tranche2" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-sky-600">2-й Транш (10 млн ₽)</button>
+                    </div>
+                </div>
+
+                <!-- Tranche 1 content -->
+                <div id="tranche1-content" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="bg-sky-50/50 p-4 rounded-3xl border border-sky-100">
+                            <span class="text-xs text-slate-450 block">Размер 1-го транша:</span>
+                            <span class="text-2xl font-black text-slate-800">5 000 000 ₽</span>
+                            <p class="text-xs text-slate-500 mt-1">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
+                        </div>
+                        
+                        <!-- Simple visual progress breakdown -->
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>ФОТ команды на 12 мес.</span>
+                                    <span>4 392 000 ₽ (87%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 87.8%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>Товарные знаки & СТМ</span>
+                                    <span>214 000 ₽ (4.3%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-blue-400 h-full rounded-full" style="width: 4.3%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>Брендированная упаковка</span>
+                                    <span>224 000 ₽ (4.5%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4.5%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>Сертификаты & Декларации</span>
+                                    <span>90 000 ₽ (1.8%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-550 h-full rounded-full" style="width: 1.8%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-600">
+                            <thead class="bg-sky-50 text-slate-800">
+                                <tr>
+                                    <th class="p-3 rounded-l-lg">Статья расходов</th>
+                                    <th class="p-3">Расчёт в месяц</th>
+                                    <th class="p-3">Общий итог (год)</th>
+                                    <th class="p-3 rounded-r-lg">Комментарий</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-sky-100/50">
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Генеральный директор</td>
+                                    <td class="p-3">122 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">1 464 000 ₽</td>
+                                    <td class="p-3 text-xs">А.В. Рудный. ЗП ниже рынка из-за наличия стороннего личного дохода.</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Помощник руководителя</td>
+                                    <td class="p-3">73 000 ₽ + %</td>
+                                    <td class="p-3 font-bold text-slate-800">876 000 ₽</td>
+                                    <td class="p-3 text-xs">Операционная координация, распределение задач фрилансерам.</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Бухгалтерия & Юрист (аутсорс)</td>
+                                    <td class="p-3">49 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">588 000 ₽</td>
+                                    <td class="p-3 text-xs">Разработка договоров, аутсорс на ИП/самозанятых (налог 6% включен).</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Дизайн & Этикетки</td>
+                                    <td class="p-3">15 000 ₽</td>
+                                    <td class="p-3 font-bold text-slate-800">180 000 ₽</td>
+                                    <td class="p-3 text-xs">Создание полиграфии, этикеток под СТМ, фото-видео.</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Регистрация ТЗ (4 знака)</td>
+                                    <td class="p-3">Единоразово</td>
+                                    <td class="p-3 font-bold text-slate-800">214 000 ₽</td>
+                                    <td class="p-3 text-xs">4 знака РУСЬ, говядина, птица, сыровяленая группа). Пошлины + регистратор.</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Брендированная коробка (2 вида)</td>
+                                    <td class="p-3">Единоразово</td>
+                                    <td class="p-3 font-bold text-slate-800">224 000 ₽</td>
+                                    <td class="p-3 text-xs">Тираж от 1000 шт. Возвратный оборотный капитал, окупается в наценке.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-[11px] text-slate-400 mt-3">
+                            * Остаток в размере 204 000 ₽ идет на годовой бюджет канцелярии, почтовых отправлений, мелкой техники и командировочных.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tranche 2 content -->
+                <div id="tranche2-content" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="bg-sky-50/50 p-4 rounded-3xl border border-sky-100">
+                            <span class="text-xs text-slate-450 block">Размер 2-го транша (с 01.10.2025):</span>
+                            <span class="text-2xl font-black text-slate-800">10 000 000 ₽</span>
+                            <p class="text-xs text-slate-500 mt-1">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>ФОТ 3-х Топ-менеджеров</span>
+                                    <span>9 600 000 ₽ (96%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 96%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                    <span>Командировочный фонд</span>
+                                    <span>400 000 ₽ (4%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-600">
+                            <thead class="bg-sky-50 text-slate-800">
+                                <tr>
+                                    <th class="p-3 rounded-l-lg">Должность ТОП-кадра</th>
+                                    <th class="p-3">Фиксированный Оклад</th>
+                                    <th class="p-3">Общий итог (12 мес)</th>
+                                    <th class="p-3 rounded-r-lg">Цели & Задачи</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-sky-100/50">
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Коммерческий Директор</td>
+                                    <td class="p-3">300 000 ₽ + %</td>
+                                    <td class="p-3 font-bold text-slate-800">3 600 000 ₽</td>
+                                    <td class="p-3 text-xs">Работа с ключевыми федеральными партнерами, открытие новых регионов (Екб, Архангельск).</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Руководитель отдела сетей и дистрибуции</td>
+                                    <td class="p-3">200 000 ₽ + %</td>
+                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
+                                    <td class="p-3 text-xs">Расширение матрицы SKU, ввод бренда "РУСЬ" в федеральные и локальные ритейлеры.</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Руководитель направления Тендеров и Бюджета</td>
+                                    <td class="p-3">200 000 ₽ + %</td>
+                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
+                                    <td class="p-3 text-xs">Контракты со школами, детскими садами, бюджетными монополиями (Сбербанк, Газпром).</td>
+                                </tr>
+                                <tr class="hover:bg-sky-50/20">
+                                    <td class="p-3 font-semibold text-slate-800">Командировочный фонд</td>
+                                    <td class="p-3">—</td>
+                                    <td class="p-3 font-bold text-slate-800">400 000 ₽</td>
+                                    <td class="p-3 text-xs">Оплата перелетов и встреч с дистрибьюторами (минимизирован, берем готовых людей с базой).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bg-sky-50 p-3 rounded-lg border border-sky-100 text-xs text-sky-600 mt-4 leading-relaxed font-medium">
+                            💡 <strong>Преимущество на рынке труда:</strong> Высокий официальный белый оклад является нашим мощным конкурентным магнитом для лучших отраслевых ТОП-менеджеров, поскольку большинство конкурентов платят "в серую".
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== CALCULATOR BOX ==================== -->
+            <div id="calc-box" class="bg-gradient-to-tr from-white via-white to-sky-50/60 rounded-3xl p-6 sm:p-8 border border-sky-100 space-y-8 shadow-xl shadow-sky-100/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-sky-100 rounded-full blur-3xl"></div>
+                
+                <div class="space-y-2">
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
+                    <h3 class="text-2xl font-black text-slate-800">Интерактивный Инвестиционный Калькулятор</h3>
+                    <p class="text-slate-500 text-sm max-w-2xl">
+                        Задайте параметры инвестиций и рассчитайте потенциальную доходность. Выберите формат: процентный заём или долгосрочное вхождение в капитал компании.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Calculator Inputs -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <!-- Slider -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm font-semibold text-slate-750">
+                                <span>Сумма Ваших инвестиций:</span>
+                                <span class="text-sky-600 font-extrabold text-lg" id="calc-sum-display">5 000 000 ₽</span>
+                            </div>
+                            <input oninput="updateCalculator()" type="range" id="calc-sum" min="1000000" max="15000000" step="500000" value="5000000" class="w-full h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                            <div class="flex justify-between text-[11px] text-slate-400">
+                                <span>1 000 000 ₽</span>
+                                <span>5 000 000 ₽</span>
+                                <span>10 000 000 ₽</span>
+                                <span>15 000 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Option Types -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-white p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-sky-600 uppercase">Сценарий 1</span>
+                                    <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-white" id="calc-radio-loan"></div>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-sm">Конвертируемый Заём</h4>
+                                <p class="text-slate-500 text-[11px] leading-relaxed">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%.</p>
+                            </div>
+
+                            <div onclick="selectCalcType('equity')" id="calc-type-equity" class="cursor-pointer bg-sky-50/20 p-4 rounded-3xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-blue-500 uppercase">Сценарий 2</span>
+                                    <div class="w-4 h-4 rounded-full border border-sky-200 bg-white" id="calc-radio-equity"></div>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-sm">Вхождение в Долю</h4>
+                                <p class="text-slate-500 text-[11px] leading-relaxed">Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Outputs -->
+                    <div class="lg:col-span-6 bg-sky-50/50 p-6 rounded-3xl border border-sky-100 space-y-6">
+                        <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                                <span class="text-[10px] text-slate-400 block">Ваш пассивный доход:</span>
+                                <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
+                            </div>
+                            <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                                <span class="text-[10px] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
+                                <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-3 border-t border-sky-100">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-500">Срок окупаемости (тело):</span>
+                                <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
+                                <span class="text-sky-600 font-bold" id="calc-time-profit">с 13 по 15 мес.</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-500">Гарантийное обеспечение:</span>
+                                <span class="text-sky-600 font-bold">Оборотные средства / Товар</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-transparent rounded-lg text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
+                            🛡️ <strong class="text-slate-850">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+               <!-- ==================== TAB: HISTORY/STORY ==================== -->
+        <section id="tab-history" class="tab-content scroll-mt-24 hidden space-y-10 animate-fade-in">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-extrabold text-slate-800">История «РУСЬ»: путь предпринимателя</h2>
+                <p class="text-slate-500 text-lg max-w-3xl">Искренняя история взлетов, падений, выстраданных выводов и триумфального восстановления в 2024-2026 годах.</p>
+            </div>
+
+            <!-- Vertical Timeline Layout -->
+            <div class="relative border-l-2 border-sky-100 ml-4 md:ml-32 space-y-12">
+        
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block">
+                <span class="text-xs text-slate-400 uppercase tracking-widest block">Июль</span>
+                <span class="text-xl font-light text-slate-400">2015</span>
+            </div>
+            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Основание ООО «РУСЬ» в Москве</h3>
+                <p class="text-slate-600 text-sm">Основание ООО «Русь» в Москве
+Основано Александром Рудным в возрасте 26 лет. Поставки птицы шли из Рязани. При въезде в Рязань висел плакат Есенина «Шестую часть земли с названьем кратким Русь». Название родилось мгновенно. Первые 6 человек в штате. Первые крупные обороты.</p>
+            </div>
+        </div>
+
+                <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2016–2018</div>
+            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Переезд в Рязань и масштабирование сбыта</h3>
+                <p class="text-slate-600 text-sm">Склад открыт на легендарной «5 Базе» в Рязани. География поставок расширилась по всей РФ — от Санкт-Петербурга до Владивостока и Магадана. На пике достигли оборота в 90 млн. рублей при чистой прибыли около 6 млн. ₽ в год (по тем ценам).</p>
+            </div>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2019–2020</div>
+            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Первое производство и горький опыт</h3>
+                <p class="text-slate-600 text-sm">Начали тестировать производство мясных полуфабрикатов. Александр Рудный лично работал в цеху руками, изучал особенности специй и технологического выхода. К пандемии вышли на полные мощности, загрузили производство на максимум.</p>
+            </div>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-light text-slate-400">2021–2023</div>
+            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Закрытие цехов и жесткие выводы</h3>
+                <p class="text-slate-600 text-sm mb-4">Из-за отсутствия прочной финансовой подушки, ошибок менеджмента и форс-мажорного поведения партнеров крупное производство пришлось закрыть. Сложный период переосмысления</p>
+                <div class="bg-sky-50 p-3 rounded-xl text-xs text-sky-800 font-medium border border-sky-100">🛡️ 🛡️ Выводы: Нельзя совмещать производство и продажи без выделенных руководителей. Нужна прозрачная финансовая модель и юридически закрепленные договоры на бумаге. Так родилась идея ассет-лайт модели СТМ</div>
+            </div>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-400 rounded-full"></div>
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block">
+                <span class="text-xs text-slate-400 uppercase tracking-widest block">Конец</span>
+                <span class="text-xl font-light text-slate-400">2024</span>
+            </div>
+            <div class="bg-transparent p-6 rounded-3xl border border-white shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Возрождение компании «РУСЬ»</h3>
+                <p class="text-slate-600 text-sm">Запуск процесса масштабного восстановления. Собрана сильная команда технологов, финансистов и юристов. Полностью обновлены бизнес- и налоговые модели. Заключены контракты на аренду мощностей и фулфилмент складов.</p>
+            </div>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-500 rounded-full animate-ping"></div>
+            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-sky-500 rounded-full"></div>
+            
+            <div class="absolute -left-32 top-0 w-28 text-right hidden md:block text-xl font-medium text-sky-600">2025–2026</div>
+            <div class="bg-transparent p-6 rounded-3xl border-2 border-sky-300 shadow-xl shadow-sky-100 animate-pulse">
+                <h3 class="text-lg font-bold text-sky-700 mb-2">Сегодня: Первые отгрузки и Инвестиции</h3>
+                <p class="text-slate-700 text-sm">Начало первых поставок. Запущен сбор инвестиций Посевного раунда для покупки брендовой упаковки, этикеток и расширения команды ТОП-менеджеров с целью форсированного выхода на 454 млн ₽ оборота за 12 месяцев</p>
+            </div>
+           </section>
+            
+
+        <!-- ==================== TAB: CONTACTS ==================== -->
+        <section id="tab-contacts" class="tab-content scroll-mt-24 space-y-10 animate-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Contact info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Свяжитесь с нами</span>
+                        <h2 class="text-3xl font-black text-slate-800">Технический паспорт и контакты</h2>
+                    </div>
+
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-sm text-slate-600">
+                        <div class="space-y-1">
+                            <span class="text-slate-400 block text-xs">Полное юридическое название:</span>
+                            <span class="text-slate-800 font-semibold">ООО «РУСЬ» (ОГРН/ИНН: 7726345505)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-slate-400 block text-xs">Генеральный директор:</span>
+                            <span class="text-slate-800 font-semibold">Рудный Александр Викторович</span>
+                            <a href="tel:+79104221888" class="block text-sky-500 hover:underline">+7-910-422-18-88</a>
+                            <a href="mailto:aleksandr.rudniy@yandex.ru" class="block text-slate-500 hover:underline">aleksandr.rudniy@yandex.ru</a>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-slate-400 block text-xs">Менеджер инвестиционного проекта:</span>
+                            <span class="text-slate-800 font-semibold">Рудная Анна Александровна</span>
+                            <a href="tel:+79643023956" class="block text-sky-500 hover:underline">+7-964-302-39-56</a>
+                            <a href="mailto:biznes0044@gmail.com" class="block text-slate-500 hover:underline">biznes0044@gmail.com</a>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-slate-400 block text-xs">Бизнес-ассистент руководителя:</span>
+                            <span class="text-slate-800 font-semibold">Сосина Екатерина Андреевна</span>
+                            <a href="tel:+79104221888" class="block text-sky-500 hover:underline">+7-987-823-40-86</a>
+                            <a href="mailto:vergonskaya@icloud.com" class="block text-slate-500 hover:underline">vergonskaya@icloud.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Addresses -->
+                    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 text-xs text-slate-500">
+                        <h4 class="font-bold text-slate-800 text-sm">Логистическая инфраструктура:</h4>
+                        <div class="space-y-1">
+                            <strong class="text-slate-700">Склад Рязань:</strong> ул. Чкалова 72, база РостПродукт
+                        </div>
+                        <div class="space-y-1">
+                            <strong class="text-slate-700">Склад Москва:</strong> Щелково, ул. Заречная, д. 117
+                        </div>
+                        <div class="space-y-1">
+                            <strong class="text-slate-700">Склад Санкт-Петербург:</strong> 7-й Предпортовый проезд, д.14
+                        </div>
+                        <div class="space-y-1">
+                            <strong class="text-slate-700">Производство в СПБ:</strong> г. Петергоф, ул. Первого Мая, 89 (в стадии оформления)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Box to replace Alert -->
+                <div class="lg:col-span-7 bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-850">Отправить отклик на предложение</h3>
+                    
+                    <form id="contactForm" action="https://formspree.io/f/mzdqpnod" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Ваше имя / Имя фонда</label>
+                            <input type="text" name="Имя_Фонд" required placeholder="Например: Иван Иванов / Capital Group" class="w-full bg-sky-50/30 border border-sky-100 focus:border-sky-400 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none transition-all">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Телефон для связи</label>
+                                <input type="tel" name="Телефон" required placeholder="+7 (999) 000-00-00" class="w-full bg-sky-50/30 border border-sky-100 focus:border-sky-400 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Электронная почта</label>
+                                <input type="email" name="Email" required placeholder="investor@example.com" class="w-full bg-sky-50/30 border border-sky-100 focus:border-sky-400 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Параметры интереса</label>
+                            <textarea name="Сообщение" rows="3" placeholder="Укажите желаемую сумму инвестиций, вопросы по обеспечению или время для созвона..." class="w-full bg-sky-50/30 border border-sky-100 focus:border-sky-400 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none transition-all resize-none"></textarea>
+                        </div>
+
+                        <div id="form-error-msg" class="hidden text-red-500 text-xs font-semibold">Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь по почте напрямую.</div>
+
+                        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-extrabold text-sm rounded-xl shadow-md transition-all duration-300">
+                            Отправить заявку руководителю
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="success-box" class="hidden bg-sky-50 p-4 rounded-3xl border border-sky-100 text-xs text-sky-600 space-y-2">
+                        <div class="font-bold text-sm">Успешно отправлено!</div>
+                        <p>Ваша заявка зафиксирована. Мы свяжемся с вами в течение рабочего дня для предоставления полных финансовых таблиц и выписок по компании ООО «РУСЬ».</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FULLSCREEN VIDEO MODAL (ПОЛНОЭКРАННОЕ ОКНО ДЛЯ ВИДЕО) -->
+    <div id="videoModal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="p-4 bg-slate-950 border-b border-slate-800 flex justify-between items-center text-white">
+                <h4 id="videoModalTitle" class="font-bold text-sm sm:text-base">Просмотр видео</h4>
+                <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-all">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="aspect-video">
+                <video id="modalVideoPlayer" class="w-full h-full" controls autoplay>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-sky-100 bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+            <div>
+                © 2015-2026 ООО «РУСЬ». Все права защищены. Конфиденциальность на всех этапах переговоров.
+            </div>
+            <div class="flex space-x-4">
+                <a href="#tab-contacts" onclick="switchTab('contacts')" class="hover:text-slate-500">Техпаспорт</a>
+                <span>•</span>
+                <span class="text-sky-500 font-semibold">Действующий Seed-раунд</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT STATE MANAGEMENT -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabName) {
+            // Stop all playing videos when switching tabs
+            document.querySelectorAll('video').forEach(video => {
+                video.pause();
+            });
+
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+            
+            // Show selected tab content
+            const activeTab = document.getElementById(`tab-${tabName}`);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+                activeTab.classList.add('block');
+            }
+
+            // Update desktop tab buttons active class
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
+                btn.classList.add('text-slate-600', 'hover:text-sky-600');
+            });
+            const activeDesktopBtn = document.getElementById(`btn-${tabName}`);
+            if (activeDesktopBtn) {
+                activeDesktopBtn.classList.remove('text-slate-600', 'hover:text-sky-600');
+                activeDesktopBtn.classList.add('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
+            }
+
+            // Update mobile tab buttons active class
+            document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-400', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            const activeMobileBtn = document.getElementById(`mob-btn-${tabName}`);
+            if (activeMobileBtn) {
+                activeMobileBtn.classList.remove('bg-slate-100', 'text-slate-700');
+                activeMobileBtn.classList.add('bg-sky-400', 'text-white');
+            }
+
+            // Smooth scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Play/Pause preview videos inside cards
+        function toggleVideoPlay(videoId) {
+            const player = document.getElementById(videoId);
+            if (player.paused) {
+                // Pause other videos first
+                document.querySelectorAll('video').forEach(v => {
+                    if (v.id !== videoId) v.pause();
+                });
+                player.play();
+            } else {
+                player.pause();
+            }
+        }
+
+        // Open video in full screen modal
+        function openVideoModal(videoSrc, title) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            const titleEl = document.getElementById('videoModalTitle');
+
+            // Set content and source
+            titleEl.textContent = title;
+            player.src = videoSrc;
+            
+            // Show modal and auto-play
+            modal.classList.remove('hidden');
+            player.load();
+            player.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            
+            modal.classList.add('hidden');
+            player.pause();
+            player.src = "";
+        }
+        // Функция для открытия картинки
+function openImageModal(imgSrc, title) {
+    const modal = document.getElementById('imageModal');
+    const imgEl = document.getElementById('modalImageDisplay');
+    const titleEl = document.getElementById('imageModalTitle');
+
+    titleEl.textContent = title;
+    imgEl.src = imgSrc;
+    modal.classList.remove('hidden');
+}
+
+// Функция для закрытия картинки
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+}
+
+        // Selected Month Details inside Charts
+        const months = [
+            { label: "1-й Месяц развития (Июнь 2025)", val: "5 000 000 ₽" },
+            { label: "2-й Месяц развития (Июль 2025)", val: "6 500 000 ₽" },
+            { label: "3-й Месяц развития (Август 2025)", val: "12 500 000 ₽" },
+            { label: "4-й Месяц развития (Сентябрь 2025)", val: "15 000 000 ₽" },
+            { label: "5-й Месяц развития (Октябрь 2025)", val: "25 000 000 ₽" },
+            { label: "6-й Месяц развития (Ноябрь 2025)", val: "30 000 000 ₽" },
+            { label: "7-й Месяц развития (Декабрь 2025)", val: "50 000 000 ₽" },
+            { label: "8-й Месяц развития (Январь 2026)", val: "25 000 000 ₽" },
+            { label: "9-й Месяц развития (Февраль 2026)", val: "60 000 000 ₽" },
+            { label: "10-й Месяц развития (Март 2026)", val: "65 000 000 ₽" },
+            { label: "11-й Месяц развития (Апрель 2026)", val: "75 000 000 ₽" },
+            { label: "12-й Месяц развития (Май-Июнь 2026)", val: "85 000 000 ₽" }
+        ];
+
+        function selectMonth(index, value) {
+            const labelEl = document.getElementById('selected-month-label');
+            const valueEl = document.getElementById('selected-month-val');
+            
+            // Highlight bar in DOM
+            document.querySelectorAll('.month-bar div').forEach(bar => {
+                bar.classList.remove('bg-sky-400');
+                bar.classList.add('bg-sky-100');
+            });
+            
+            // Set active color to clicked bar
+            const clickedBar = document.querySelectorAll('.month-bar div')[index - 1];
+            if (clickedBar) {
+                clickedBar.classList.remove('bg-sky-100');
+                clickedBar.classList.add('bg-sky-400');
+            }
+
+            labelEl.textContent = months[index - 1].label;
+            valueEl.textContent = months[index - 1].val;
+        }
+
+        // Dynamic budget allocation switch
+        function switchTranche(num) {
+            const t1Btn = document.getElementById('btn-tranche1');
+            const t2Btn = document.getElementById('btn-tranche2');
+            const t1Content = document.getElementById('tranche1-content');
+            const t2Content = document.getElementById('tranche2-content');
+
+            if (num === 1) {
+                t1Btn.className = "px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-sky-400 text-white shadow-xl shadow-sky-500/10";
+                t2Btn.className = "px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-sky-600";
+                t1Content.classList.remove('hidden');
+                t2Content.classList.add('hidden');
+            } else {
+                t2Btn.className = "px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-sky-400 text-white shadow-xl shadow-sky-500/10";
+                t1Btn.className = "px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-sky-600";
+                t2Content.classList.remove('hidden');
+                t1Content.classList.add('hidden');
+            }
+        }
+
+        // Calculator states
+        let calcType = 'loan'; // 'loan' or 'equity'
+
+        function selectCalcType(type) {
+            calcType = type;
+            const loanBtn = document.getElementById('calc-type-loan');
+            const equityBtn = document.getElementById('calc-type-equity');
+            const radioLoan = document.getElementById('calc-radio-loan');
+            const radioEquity = document.getElementById('calc-radio-equity');
+
+            if (type === 'loan') {
+                loanBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                equityBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
+                radioLoan.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
+                radioEquity.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
+            } else {
+                equityBtn.className = "cursor-pointer bg-white p-4 rounded-xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300";
+                loanBtn.className = "cursor-pointer bg-sky-50/20 p-4 rounded-xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300";
+                radioEquity.className = "w-4 h-4 rounded-full border-4 border-sky-400 bg-white";
+                radioLoan.className = "w-4 h-4 rounded-full border border-sky-200 bg-white";
+            }
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const sumInput = document.getElementById('calc-sum');
+            const sumDisplay = document.getElementById('calc-sum-display');
+            const returnDisplay = document.getElementById('calc-return-display');
+            const metricLabel = document.getElementById('calc-metric-label');
+            const metricVal = document.getElementById('calc-metric-val');
+            const timeBody = document.getElementById('calc-time-body');
+            const timeProfit = document.getElementById('calc-time-profit');
+            const detailsLabel = document.getElementById('calc-details-label');
+
+            const val = parseInt(sumInput.value);
+            sumDisplay.textContent = val.toLocaleString('ru-RU') + " ₽";
+
+            if (calcType === 'loan') {
+                // Guarantee 33% interest
+                const profit = val * 0.33;
+                returnDisplay.textContent = profit.toLocaleString('ru-RU') + " ₽";
+                metricLabel.textContent = "Гарантированный процент:";
+                metricVal.textContent = "33.0% годовых";
+                timeBody.textContent = "12 Месяцев";
+                timeProfit.textContent = "с 13 по 15 мес.";
+                detailsLabel.textContent = "Период выплаты прибыли:";
+            } else {
+                // Conversion to equity
+                const equityShare = (val / 170900000) * 100;
+                returnDisplay.textContent = equityShare.toFixed(2) + "% доли";
+                metricLabel.textContent = "Прогноз капитализации доли:";
+                metricVal.textContent = "X3-X5 за 3 года";
+                timeBody.textContent = "Бессрочно (с дивидендами)";
+                timeProfit.textContent = "1-й раунд (Окт-Дек 2026)";
+                detailsLabel.textContent = "Оценка стоимости компании:";
+            }
+        }
+
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
+            const errorMsg = document.getElementById('form-error-msg');
+            const originalButtonText = button.innerHTML;
+            
+            if (errorMsg) errorMsg.classList.add('hidden');
+            
+            // Включаем красивый лоадер
+            button.disabled = true;
+            button.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg> Отправка...`;
+
+            try {
+                // Отправляем данные методом AJAX (fetch)
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Скрываем форму и показываем блок успеха
+                    form.classList.add('hidden');
+                    document.getElementById('success-box').classList.remove('hidden');
+                    form.reset();
+                } else {
+                    if (errorMsg) errorMsg.classList.remove('hidden');
+                }
+            } catch (error) {
+                if (errorMsg) {
+                    errorMsg.textContent = 'Ошибка сети. Проверьте подключение к интернету.';
+                    errorMsg.classList.remove('hidden');
+                }
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            }
+        }
+
+        // Run calculator init on load
+        window.onload = function() {
+            updateCalculator();
+        }
+    </script>
+    <button onclick="switchTab('financials'); setTimeout(() => document.getElementById('calc-box').scrollIntoView({behavior: 'smooth'}), 100)" 
+        class="fixed bottom-8 right-8 z-[9999] group flex items-center gap-3 px-6 py-4 bg-gradient-to-br from-sky-500 to-sky-700 text-white font-bold rounded-full shadow-[0_10px_20px_-5px_rgba(3,105,161,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_30px_-5px_rgba(3,105,161,0.5)] active:scale-95 border border-white/20 backdrop-blur-md">
+    
+    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    
+    <span>Инвестировать</span>
+</button>
+            <div id="imageModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+    <div class="bg-white p-5 rounded-2xl max-w-2xl w-full">
+        <div class="flex justify-between mb-4">
+            <h3 id="imageModalTitle" class="font-bold"></h3>
+            <button onclick="closeImageModal()" class="text-slate-500 hover:text-black font-bold">Закрыть ✕</button>
+        </div>
+        <img id="modalImageDisplay" src="" alt="Детальное фото" class="w-full h-auto rounded-lg">
+    </div>
+</div>
+</body>
+</html>
