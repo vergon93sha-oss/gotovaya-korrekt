@@ -111,14 +111,15 @@ h1, h2, h3 {
             <img src="golublog.png" alt="Logo" class="h-8 w-auto object-contain">
         </div>
 
-        <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
-            <button onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">О проекте</button>
-            <button onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Продукция</button>
-            <button onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Стратегия</button>
-            <button onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Активы</button>
-            <button onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Финансы</button>
-            <button onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">История</button>
-            <button onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold bg-white/60 text-sky-900 shadow-sm lg:bg-transparent lg:shadow-none lg:hover:text-sky-700">Контакты</button>
+        <!-- Добавлены "умные" стили. Они сами будут красить и поднимать кнопку, когда ваш скрипт меняет классы -->
+        <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none [&>button.bg-sky-400]:bg-sky-600 [&>button.bg-sky-400]:text-white [&>button.bg-sky-400]:shadow-md [&>button.bg-sky-400]:-translate-y-0.5">
+            <button id="btn-overview" onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 bg-sky-400 text-white shadow-md -translate-y-0.5">О проекте</button>
+            <button id="btn-catalog" onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Продукция</button>
+            <button id="btn-strategy" onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Стратегия</button>
+            <button id="btn-team" onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Активы</button>
+            <button id="btn-financials" onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Финансы</button>
+            <button id="btn-history" onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">История</button>
+            <button id="btn-contacts" onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Контакты</button>
         </div>
     </div>
 </header>
