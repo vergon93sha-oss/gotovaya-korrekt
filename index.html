@@ -103,7 +103,7 @@ h1, h2, h3 {
     <div class="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-sky-400 via-sky-300 to-transparent opacity-30 pointer-events-none"></div>
     
 
-    <!-- HEADER -->
+   <!-- HEADER -->
 <header class="fixed top-2 left-2 right-2 z-50 rounded-2xl bg-white/60 backdrop-blur-xl shadow-lg border border-white/50 overflow-hidden">
     <div class="px-4 py-3 flex items-center justify-between">
         
@@ -111,17 +111,41 @@ h1, h2, h3 {
             <img src="golublog.png" alt="Logo" class="h-8 w-auto object-contain">
         </div>
 
-               <div class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none [&>button.bg-sky-400]:bg-sky-600 [&>button.bg-sky-400]:text-white [&>button.bg-sky-400]:shadow-md [&>button.bg-sky-400]:-translate-y-0.5">
-            <button id="btn-overview" onclick="switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 bg-sky-400 text-white shadow-md -translate-y-0.5">О проекте</button>
-            <button id="btn-catalog" onclick="switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Продукция</button>
-            <button id="btn-strategy" onclick="switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Стратегия</button>
-            <button id="btn-team" onclick="switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Активы</button>
-            <button id="btn-financials" onclick="switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Финансы</button>
-            <button id="btn-history" onclick="switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">История</button>
-            <button id="btn-contacts" onclick="switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Контакты</button>
+        <div id="main-navigation-buttons" class="flex overflow-x-auto whitespace-nowrap p-1 space-x-1 scrollbar-none lg:overflow-visible lg:bg-transparent lg:shadow-none">
+            <!-- Кнопка "О проекте" изначально активна (синий фон, белый текст, приподнята вверх) -->
+            <button id="btn-overview" onclick="switchActiveTab(this); switchTab('overview')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 bg-sky-600 text-white shadow-md -translate-y-0.5">О проекте</button>
+            
+            <button id="btn-catalog" onclick="switchActiveTab(this); switchTab('catalog')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Продукция</button>
+            
+            <button id="btn-strategy" onclick="switchActiveTab(this); switchTab('strategy')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Стратегия</button>
+            
+            <button id="btn-team" onclick="switchActiveTab(this); switchTab('team')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Активы</button>
+            
+            <button id="btn-financials" onclick="switchActiveTab(this); switchTab('financials')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Финансы</button>
+            
+            <button id="btn-history" onclick="switchActiveTab(this); switchTab('history')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">История</button>
+            
+            <button id="btn-contacts" onclick="switchActiveTab(this); switchTab('contacts')" class="px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600">Контакты</button>
         </div>
     </div>
+
+    <!-- Встроенный микро-скрипт, который мгновенно переключает внешний вид кнопок при клике -->
+    <script>
+        function switchActiveTab(clickedButton) {
+            const container = document.getElementById('main-navigation-buttons');
+            const buttons = container.querySelectorAll('button');
+            
+            buttons.forEach(btn => {
+                // Сбрасываем все кнопки в обычное серое состояние
+                btn.className = "px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 text-slate-600 hover:text-sky-600";
+            });
+            
+            // Нажатую кнопку делаем синей и приподнимаем вверх
+            clickedButton.className = "px-3 py-1.5 rounded-lg text-[9px] lg:text-xs font-bold transition-all duration-300 bg-sky-600 text-white shadow-md -translate-y-0.5";
+        }
+    </script>
 </header>
+
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 pt-24 pb-20">
