@@ -1233,143 +1233,137 @@ h1, h2, h3 {
 
 
 
-            <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
-            <div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
-                        <p class="text-slate-500 text-sm">Посмотрите, как до копейки распределяется инвестиционный капитал</p>
-                    </div>
-                    <!-- Toggle Switch -->
-                    <div class="flex bg-sky-50 p-1 rounded-lg border border-sky-100">
-                        <button onclick="switchTranche(1)" id="btn-tranche1" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-sky-400 text-white shadow-xl shadow-sky-500/10">1-й Транш (5 млн ₽)</button>
-                        <button onclick="switchTranche(2)" id="btn-tranche2" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-sky-600">2-й Транш (10 млн ₽)</button>
-                    </div>
-                </div>
+           <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
+<div class="bg-transparent p-6 sm:p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-6">
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div>
+      <h3 class="text-xl font-bold text-slate-850">Целевое освоение инвестиций</h3>
+      <p class="text-slate-500 text-sm">Посмотрите, как до копейки распределяется инвестиционный капитал</p>
+    </div>
+    <!-- Toggle Switch -->
+    <div class="flex bg-sky-50 p-1 rounded-lg border border-sky-100">
+      <button onclick="switchTranche(1)" id="btn-tranche1" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-sky-400 text-white shadow-xl shadow-sky-500/10">1-й Транш (5 млн ₽)</button>
+      <button onclick="switchTranche(2)" id="btn-tranche2" class="px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-sky-600">2-й Транш (10 млн ₽)</button>
+    </div>
+  </div>
 
-                    <div class="lg:col-span-8 overflow-x-auto">
-                        <table class="w-full text-left text-sm text-slate-600">
-                            <thead class="bg-sky-50 text-slate-800">
-                                <tr>
-                                    <th class="p-3 rounded-l-lg">Статья расходов</th>
-                                    <th class="p-3">Расчёт в месяц</th>
-                                    <th class="p-3">Общий итог (год)</th>
-                                    <th class="p-3 rounded-r-lg">Комментарий</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-sky-100/50">
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Генеральный директор</td>
-                                    <td class="p-3">386 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">4 632 000 ₽</td>
-                                    <td class="p-3 text-xs">А.В. Рудный. 100% вовлеченность.ЗП указана ниже рынка за счет наличия дополнительного дохода.
-                                        <p>ЗП указана до вычета налога.</p></td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Бизнес-ассистент</td>
-                                    <td class="p-3">159 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-800">1 908 000 ₽</td>
-                                    <td class="p-3 text-xs">100% отдача делу, автоматизация Бизнес-процессов, координация отделов сотрудников компании.ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Финансовый директор (аутсорс)</td>
-                                    <td class="p-3">90 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">1 080 000 ₽</td>
-                                    <td class="p-3 text-xs">Составление и контроль финансовых плавнов, распределение бюджетных средст, просчета себестоимости продукции,инвестиционной и долговой нагрузки, оптимизация расходной части. Контроль юридического и договорного сектора компании. ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Главный бухгалтер (аутсорс)</td>
-                                    <td class="p-3">35 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">420 000 ₽</td>
-                                    <td class="p-3 text-xs">Подача налоговой отчетности, закрытие кварталов, года. Консультационная поддержка,участие и общение с налоговыми органами.ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Бухгалтер по первичке (удаленный формат работы)</td>
-                                    <td class="p-3">60 500</td>
-                                    <td class="p-3 font-bold text-slate-800">726 000 ₽</td>
-                                    <td class="p-3 text-xs">Работа с первичной документацией, общение с складскими и логистическими секторами. Обработка первичных бухгалтерских документов, взаимодействие с проверяющими и административными органами, архив документов. ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Юрист (аутсорс) </td>
-                                    <td class="p-3">20 000</td>
-                                    <td class="p-3 font-bold text-slate-800">240 000 ₽</td>
-                                    <td class="p-3 text-xs">Работа с договорной частью, весь свод юридической документации, разработка собственных форм договоров для компании, претензионный порядок и судебная практика.ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Оплата вет. врачей</td>
-                                    <td class="p-3">15 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">180 000 ₽</td>
-                                    <td class="p-3 text-xs">Отписание ветеренарных документов, сопровождение в системе "Меркурий" в торговле и производстве.ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Производственные ежемесячные затраты </td>
-                                    <td class="p-3">25 000</td>
-                                    <td class="p-3 font-bold text-slate-800">300 000 ₽</td>
-                                    <td class="p-3 text-xs">Проходжение аудитов ХАССП, внедрение нововведений и устранение замечаний.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Оплата вет. врачей</td>
-                                    <td class="p-3">15 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">180 000 ₽</td>
-                                    <td class="p-3 text-xs">Отписание ветеренарных документов, сопровождение в системе "Меркурий" в торговле и производстве.ЗП указана до вычета налогов.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Менеджер по продажам</td>
-                                    <td class="p-3">100 000 ₽</td>
-                                    <td class="p-3 font-bold text-slate-800">1 200 000 ₽</td>
-                                    <td class="p-3 text-xs">Активные продажи, работа с действующими клиентами, работа с сетями.ЗП указана до вычета налогов.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="text-[11px] text-slate-400 mt-3">
-                            * Остаток в размере 204 000 ₽ идет на годовой бюджет канцелярии, почтовых отправлений, мелкой техники и командировочных.
-                        </div>
-                    </div>
-                </div>
+  <!-- ТАБЛИЦА 1 -->
+  <div class="lg:col-span-8 overflow-x-auto">
+    <table class="w-full text-left text-sm text-slate-600">
+      <thead class="bg-sky-50 text-slate-800">
+        <tr>
+          <th class="p-3 rounded-l-lg whitespace-nowrap">Статья расходов</th>
+          <th class="p-3 text-center whitespace-nowrap">Расчёт в месяц</th>
+          <th class="p-3 text-center whitespace-nowrap">Общий итог (год)</th>
+          <th class="p-3 text-center rounded-r-lg whitespace-nowrap">Комментарий</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-sky-100/50">
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Генеральный директор</td>
+          <td class="p-3">386 000 ₽</td>
+          <td class="p-3 font-bold text-slate-800">4 632 000 ₽</td>
+          <td class="p-3 text-xs">А.В. Рудный. 100% вовлеченность.ЗП указана ниже рынка за счет наличия дополнительного дохода. <p>ЗП указана до вычета налога.</p></td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Бизнес-ассистент</td>
+          <td class="p-3">159 000 ₽ + %</td>
+          <td class="p-3 font-bold text-slate-800">1 908 000 ₽</td>
+          <td class="p-3 text-xs">100% отдача делу, автоматизация Бизнес-процессов, координация отделов сотрудников компании.ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Финансовый директор (аутсорс)</td>
+          <td class="p-3">90 000 ₽</td>
+          <td class="p-3 font-bold text-slate-800">1 080 000 ₽</td>
+          <td class="p-3 text-xs">Составление и контроль финансовых плавнов, распределение бюджетных средст, просчета себестоимости продукции,инвестиционной и долговой нагрузки, оптимизация расходной части. Контроль юридического и договорного сектора компании. ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Главный бухгалтер (аутсорс)</td>
+          <td class="p-3">35 000 ₽</td>
+          <td class="p-3 font-bold text-slate-800">420 000 ₽</td>
+          <td class="p-3 text-xs">Подача налоговой отчетности, закрытие кварталов, года. Консультационная поддержка,участие и общение с налоговыми органами.ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Бухгалтер по первичке (удаленный формат работы)</td>
+          <td class="p-3">60 500</td>
+          <td class="p-3 font-bold text-slate-800">726 000 ₽</td>
+          <td class="p-3 text-xs">Работа с первичной документацией, общение с складскими и логистическими секторами. Обработка первичных бухгалтерских документов, взаимодействие с проверяющими и административными органами, архив документов. ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Юрист (аутсорс)</td>
+          <td class="p-3">20 000</td>
+          <td class="p-3 font-bold text-slate-800">240 000 ₽</td>
+          <td class="p-3 text-xs">Работа с договорной частью, весь свод юридической документации, разработка собственных форм договоров для компании, претензионный порядок и судебная практика.ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Оплата вет. врачей</td>
+          <td class="p-3">15 000 ₽</td>
+          <td class="p-3 font-bold text-slate-800">180 000 ₽</td>
+          <td class="p-3 text-xs">Отписание ветеренарных документов, сопровождение в системе "Меркурий" в торговле и производстве.ЗП указана до вычета налогов.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Производственные ежемесячные затраты</td>
+          <td class="p-3">25 000</td>
+          <td class="p-3 font-bold text-slate-800">300 000 ₽</td>
+          <td class="p-3 text-xs">Прохождение аудитов ХАССП, внедрение нововведений и устранение замечаний.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Менеджер по продажам</td>
+          <td class="p-3">100 000 ₽</td>
+          <td class="p-3 font-bold text-slate-800">1 200 000 ₽</td>
+          <td class="p-3 text-xs">Активные продажи, работа с действующими клиентами, работа с сетями.ЗП указана до вычета налогов.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-[11px] text-slate-400 mt-3">
+      * Остаток в размере 204 000 ₽ идет на годовой бюджет канцелярии, почтовых отправлений, мелкой техники и командировочных.
+    </div>
+  </div>
 
-                    <div class="lg:col-span-8 overflow-x-auto">
-                        <table class="w-full text-left text-sm text-slate-600">
-                            <thead class="bg-sky-50 text-slate-800">
-                                <tr>
-                                    <th class="p-3 rounded-l-lg">Должность ТОП-кадра</th>
-                                    <th class="p-3">Фиксированный Оклад</th>
-                                    <th class="p-3">Общий итог (12 мес)</th>
-                                    <th class="p-3 rounded-r-lg">Цели & Задачи</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-sky-100/50">
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Коммерческий Директор</td>
-                                    <td class="p-3">300 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-800">3 600 000 ₽</td>
-                                    <td class="p-3 text-xs">Работа с ключевыми федеральными партнерами, открытие новых регионов (Екб, Архангельск).</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Руководитель отдела сетей и дистрибуции</td>
-                                    <td class="p-3">200 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
-                                    <td class="p-3 text-xs">Расширение матрицы SKU, ввод бренда "РУСЬ" в федеральные и локальные ритейлеры.</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Руководитель направления Тендеров и Бюджета</td>
-                                    <td class="p-3">200 000 ₽ + %</td>
-                                    <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
-                                    <td class="p-3 text-xs">Контракты со школами, детскими садами, бюджетными монополиями (Сбербанк, Газпром).</td>
-                                </tr>
-                                <tr class="hover:bg-sky-50/20">
-                                    <td class="p-3 font-semibold text-slate-800">Командировочный фонд</td>
-                                    <td class="p-3">—</td>
-                                    <td class="p-3 font-bold text-slate-800">400 000 ₽</td>
-                                    <td class="p-3 text-xs">Оплата перелетов и встреч с дистрибьюторами (минимизирован, берем готовых людей с базой).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="bg-sky-50 p-3 rounded-lg border border-sky-100 text-xs text-sky-600 mt-4 leading-relaxed font-medium">
-                            💡 <strong>Преимущество на рынке труда:</strong> Высокий официальный белый оклад является нашим мощным конкурентным магнитом для лучших отраслевых ТОП-менеджеров, поскольку большинство конкурентов платят "в серую".
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- ТАБЛИЦА 2 -->
+  <div class="lg:col-span-8 overflow-x-auto">
+    <table class="w-full text-left text-sm text-slate-600">
+      <thead class="bg-sky-50 text-slate-800">
+        <tr>
+          <th class="p-3 rounded-l-lg whitespace-nowrap">Должность ТОП-кадра</th>
+          <th class="p-3 text-center whitespace-nowrap">Фиксированный Оклад</th>
+          <th class="p-3 text-center whitespace-nowrap">Общий итог (12 мес)</th>
+          <th class="p-3 text-center rounded-r-lg whitespace-nowrap">Цели & Задачи</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-sky-100/50">
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Коммерческий Директор</td>
+          <td class="p-3">300 000 ₽ + %</td>
+          <td class="p-3 font-bold text-slate-800">3 600 000 ₽</td>
+          <td class="p-3 text-xs">Работа с ключевыми федеральными партнерами, открытие новых регионов (Екб, Архангельск).</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Руководитель отдела сетей и дистрибуции</td>
+          <td class="p-3">200 000 ₽ + %</td>
+          <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
+          <td class="p-3 text-xs">Расширение матрицы SKU, ввод бренда "РУСЬ" в федеральные и локальные ритейлеры.</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Руководитель направления Тендеров и Бюджета</td>
+          <td class="p-3">200 000 ₽ + %</td>
+          <td class="p-3 font-bold text-slate-800">2 400 000 ₽</td>
+          <td class="p-3 text-xs">Контракты со школами, детскими садами, бюджетными монополиями (Сбербанк, Газпром).</td>
+        </tr>
+        <tr class="hover:bg-sky-50/20">
+          <td class="p-3 font-semibold text-slate-800">Командировочный фонд</td>
+          <td class="p-3">—</td>
+          <td class="p-3 font-bold text-slate-800">400 000 ₽</td>
+          <td class="p-3 text-xs">Оплата перелетов и встреч с дистрибьюторами (минимизирован, берем готовых людей с базой).</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="bg-sky-50 p-3 rounded-lg border border-sky-100 text-xs text-sky-600 mt-4 leading-relaxed font-medium">
+      💡 <strong>Преимущество на рынке труда:</strong> Высокий официальный белый оклад является нашим мощным конкурентным магнитом для лучших отраслевых ТОП-менеджеров, поскольку большинство конкурентов платят "в серую".
+    </div>
+  </div>
+</div>
+
 
             <!-- ==================== CALCULATOR BOX ==================== -->
             <div id="calc-box" class="bg-gradient-to-tr from-white via-white to-sky-50/60 rounded-3xl p-6 sm:p-8 border border-sky-100 space-y-8 shadow-xl shadow-sky-100/20 relative overflow-hidden">
