@@ -1150,81 +1150,87 @@ h1, h2, h3 {
                 </div>
             </div>
 <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК -->
-            <div class="flex flex-col lg:flex-row gap-12 mb-8 w-full max-w-4xl mx-auto justify-center">
-<div class="flex flex-col lg:flex-row gap-6 mb-8 w-full max-w-4xl justify-start">
-    
-    <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
-    <div class="max-w-sm w-full bg-white/40 p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
-        <div class="space-y-4">
-            <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
-                <span class="text-xs text-slate-400 block">Размер 1-го транша:</span>
-                <span class="text-2xl font-black text-slate-800">5 000 000 ₽</span>
-                <p class="text-xs text-slate-500 mt-2">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
-            </div>
-            
-            <div class="space-y-3">
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>ФОТ команды на 12 мес.</span>
-                        <span>4 392 000 ₽ (87%)</span>
-                    </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 87.8%"></div></div>
+            <!-- СТРОКА 1215: Главный контейнер, который выстраивает блоки друг под другом по центру -->
+<div class="flex flex-col gap-12 w-full items-center">
+
+    <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Центрирует их и делает красивый зазор) -->
+    <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch">
+        
+        <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
+        <div class="max-w-sm w-full bg-white/40 p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
+                    <span class="text-xs text-slate-400 block">Размер 1-го транша:</span>
+                    <span class="text-2xl font-black text-slate-800 whitespace-nowrap">5 000 000 ₽</span>
+                    <p class="text-xs text-slate-500 mt-2">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
                 </div>
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>Товарные знаки & СТМ</span>
-                        <span>214 000 ₽ (4.3%)</span>
+                
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">ФОТ команды на 12 мес.</span>
+                            <span class="whitespace-nowrap">4 392 000 ₽ (87%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 87.8%"></div></div>
                     </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-blue-400 h-full rounded-full" style="width: 4.3%"></div></div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>Брендированная упаковка</span>
-                        <span>224 000 ₽ (4.5%)</span>
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">Товарные знаки & СТМ</span>
+                            <span class="whitespace-nowrap">214 000 ₽ (4.3%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-blue-400 h-full rounded-full" style="width: 4.3%"></div></div>
                     </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4.5%"></div></div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>Сертификаты & Декларации</span>
-                        <span>90 000 ₽ (1.8%)</span>
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">Брендированная упаковка</span>
+                            <span class="whitespace-nowrap">224 000 ₽ (4.5%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4.5%"></div></div>
                     </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-500 h-full rounded-full" style="width: 1.8%"></div></div>
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">Сертификаты & Декларации</span>
+                            <span class="whitespace-nowrap">90 000 ₽ (1.8%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-500 h-full rounded-full" style="width: 1.8%"></div></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- КАРТОЧКА 2-ГО ТРАНША (ПРАВАЯ) -->
-    <div class="max-w-sm w-full bg-white/40 p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
-        <div class="space-y-4">
-            <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
-                <span class="text-xs text-slate-400 block">Размер 2-го транша (с 01.10.2025):</span>
-                <span class="text-2xl font-black text-slate-800">10 000 000 ₽</span>
-                <p class="text-xs text-slate-500 mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
-            </div>
-            
-            <div class="space-y-3">
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>ФОТ 3-х Топ-менеджеров</span>
-                        <span>9 600 000 ₽ (96%)</span>
-                    </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 96%"></div></div>
+        <!-- КАРТОЧКА 2-ГО ТРАНША (ПРАВАЯ) -->
+        <div class="max-w-sm w-full bg-white/40 p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
+                    <span class="text-xs text-slate-400 block">Размер 2-го транша (с 01.10.2025):</span>
+                    <span class="text-2xl font-black text-slate-800 whitespace-nowrap">10 000 000 ₽</span>
+                    <p class="text-xs text-slate-500 mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
                 </div>
-                <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-1">
-                        <span>Командировочный фонд</span>
-                        <span>400 000 ₽ (4%)</span>
+                
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">ФОТ 3-х Топ-менеджеров</span>
+                            <span class="whitespace-nowrap">9 600 000 ₽ (96%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 96%"></div></div>
                     </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                            <span class="truncate">Командировочный фонд</span>
+                            <span class="whitespace-nowrap">400 000 ₽ (4%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
-<!-- КОНЕЦ ОБЩЕГО БЛОКА КАРТОЧЕК (Ниже идет заголовок "Целевое освоение...") -->
+    </div>
+    <!-- КОНЕЦ ОБЩЕГО БЛОКА КАРТОЧЕК -->
+
+    <!-- ВСТАВЬТЕ СЮДА ВАШ БЛОК ИЗ СТРОКИ 1232 (INVESTMENT / BUDGET DYNAMIC TABS) И НЕ ЗАБУДЬТЕ ЗАКРЫТЬ В САМОМ КОНЦЕ ТЕГ </div> -->
+
 
 
             <!-- INVESTMENT ALLOCATION / BUDGET DYNAMIC TABS -->
