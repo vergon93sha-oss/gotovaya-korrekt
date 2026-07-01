@@ -1232,7 +1232,7 @@ h1, h2, h3 {
     <!-- ВСТАВЬТЕ СЮДА ВАШ БЛОК ИЗ СТРОКИ 1232 (INVESTMENT / BUDGET DYNAMIC TABS) И НЕ ЗАБУДЬТЕ ЗАКРЫТЬ В САМОМ КОНЦЕ ТЕГ </div> -->
 
 <div class="space-y-6">
-  
+
   <!-- БЛОК ЗАГОЛОВКОВ ПО ЦЕНТРУ, ПЛАШКА СЛЕВА -->
   <div class="flex flex-col text-center gap-1.5 w-full">
     <h2 class="text-2xl font-bold text-slate-800">Целевое освоение инвестиций</h2>
@@ -1244,13 +1244,14 @@ h1, h2, h3 {
     </div>
   </div>
          
-<div class="space-y-6">
   <!-- ================================================================= -->
   <!-- ОКНО 1: ПЕРВЫЙ ТРАНШ (ФОНД ЗАРАБОТНОЙ ПЛАТЫ И МАРКЕТИНГ)          -->
   <!-- ================================================================= -->
-  <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-    <div class="overflow-x-auto">
-      <table class="w-full text-left text-sm text-slate-600">
+  <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100">
+    
+    <!-- Контейнер с принудительным горизонтальным скроллом для мобильных -->
+    <div class="w-full overflow-x-auto scrolling-touch">
+      <table class="w-full text-left text-sm text-slate-600 min-w-[800px]">
         <!-- НОВЫЙ ЗАГОЛОВОК И ШАПКА В ЕДИНОМ СТИЛЕ -->
         <tr class="bg-sky-50/40">
           <td colspan="4" class="p-3 border-t border-sky-100">
@@ -1279,7 +1280,7 @@ h1, h2, h3 {
             </td>
             <td class="p-3 text-center whitespace-nowrap">159 000 P</td>
             <td class="p-3 text-center font-bold text-slate-800 whitespace-nowrap">1 908 000 P</td>
-            <td class="p-3 text-xs">100% отдача делу, автоматизация Бизнес-процессов, координация отделов и сотрудников компании. <p><strong>ЗП указана до вычета налога.</strong></p></td>
+            <td class="p-3 text-xs">100% отдача делу, автоматизация Бизнес-процессов, coordination отделами и сотрудниками компании. <p><strong>ЗП указана до вычета налога.</strong></p></td>
           </tr>
           <tr class="hover:bg-sky-50/20">
             <td class="p-3 font-semibold text-slate-800">
@@ -1414,23 +1415,26 @@ h1, h2, h3 {
         </tbody>
       </table>
     </div>
+
     <div class="text-[11px] text-slate-400 mt-3">
       * Остаток в размере 204 000 Р идет на годовой budget канцелярии, почтовых отправлений, мелкой техники и командировочных.
     </div>
   </div>
-
+  
   <!-- ================================================================= -->
   <!-- ОКНО 2: ВТОРОЙ ТРАНШ (ДОЛЖНОСТИ ТОП-КАДРОВ)                        -->
   <!-- ================================================================= -->
-    <div class="mt-1 self-start">
-      <span class="inline-block text-white text-[13px] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
-        2-й ТРАНШ (25 МЛН ₽)
-      </span>
-    </div>
+  <div class="mt-1 self-start">
+    <span class="inline-block text-white text-[13px] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
+      2-й ТРАНШ (25 МЛН ₽)
+    </span>
   </div>
-  <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-    <div class="overflow-x-auto">
-      <table class="w-full text-left text-sm text-slate-600">
+
+  <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100">
+    
+    <!-- Контейнер с принудительным горизонтальным скроллом для мобильных -->
+    <div class="w-full overflow-x-auto scrolling-touch">
+      <table class="w-full text-left text-sm text-slate-600 min-w-[800px]">
         <thead class="bg-sky-50 text-slate-800">
           <tr>
             <th class="p-3 rounded-l-lg whitespace-nowrap">Должность ТОП-кадра</th>
@@ -1473,11 +1477,14 @@ h1, h2, h3 {
         </tbody>
       </table>
     </div>
+
     <div class="bg-sky-50 p-3 rounded-lg border border-sky-100 text-xs text-sky-600 mt-4 leading-relaxed font-medium">
       <strong>Преимущество на рынке труда:</strong> Высокий официальный белый оклад является нашим мощным конкурентным магнитом для лучших отраслевых ТОП-менеджеров, поскольку большинство конкурентов платят "в серую".
     </div>
   </div>
+
 </div>
+
 
             <!-- ==================== CALCULATOR BOX ==================== -->
             <div id="calc-box" class="bg-gradient-to-tr from-white via-white to-sky-50/60 rounded-3xl p-6 sm:p-8 border border-sky-100 space-y-8 shadow-xl shadow-sky-100/20 relative overflow-hidden">
