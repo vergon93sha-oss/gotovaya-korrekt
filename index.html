@@ -1152,6 +1152,702 @@ h1, h2, h3 {
             </div>
         </div>
     </div>
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвестиционный калькулятор ООО "РУСЬ"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- ЗАГОЛОВОК -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-black text-slate-900">СИМУЛЯТОР ДОХОДНОСТИ</h1>
+            <p class="text-slate-500 text-sm mt-2">Инвестиционный Калькулятор ООО "РУСЬ"</p>
+        </div>
+
+        <!-- ОСНОВНАЯ СЕТКА -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- ЛЕВАЯ ЧАСТЬ: ВВОД ПАРАМЕТРОВ -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <!-- Карточка: Сумма инвестиций -->
+                <div class="bg-white border border-sky-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+                    <h3 class="text-sm font-bold text-slate-700 mb-4">СУММА ВАШИХ ИНВЕСТИЦИЙ:</h3>
+                    
+                    <!-- Пресеты -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button onclick="setInvestment(100000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">100к</button>
+                        <button onclick="setInvestment(500000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">500к</button>
+                        <button onclick="setInvestment(1000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">1 млн</button>
+                        <button onclick="setInvestment(2000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">2 млн</button>
+                        <button onclick="setInvestment(5000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">5 млн</button>
+                        <button onclick="setInvestment(10000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">10 млн</button>
+                        <button onclick="setInvestment(20000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">20 млн</button>
+                        <button onclick="setInvestment(30000000)" class="preset-btn text-xs px-3 py-2 rounded-xl font-bold border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50">30 млн</button>
+                    </div>
+
+                    <!-- Слайдер -->
+                    <div class="space-y-2">
+                        <input type="range" id="investmentSlider" min="100000" max="30000000" step="100000" value="1000000" class="w-full h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span>100 000 ₽</span>
+                            <span id="investmentDisplay" class="font-bold text-sky-600 text-sm">1 000 000 ₽</span>
+                            <span>30 000 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка: Параметры расчета -->
+                <div class="bg-white border border-sky-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+                    <h3 class="text-sm font-bold text-slate-700 mb-4">Параметры расчета ФНС (конвертация)</h3>
+                    
+                    <!-- Выручка компании -->
+                    <div class="mb-4">
+                        <label class="text-xs text-slate-500 block mb-1">ВЫРУЧКА КОМПАНИИ (годовая)</label>
+                        <div class="flex gap-3 items-center">
+                            <input type="range" id="revenueSlider" min="10" max="500" step="1" value="111.6" class="flex-1 h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                            <span id="revenueDisplay" class="font-bold text-sky-600 text-sm min-w-[80px] text-right">111.6 млн ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- Мультипликатор -->
+                    <div class="mb-4">
+                        <label class="text-xs text-slate-500 block mb-1">МУЛЬТИПЛИКАТОР</label>
+                        <div class="flex gap-3 items-center">
+                            <input type="range" id="multiplierSlider" min="1" max="10" step="0.1" value="4" class="flex-1 h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                            <span id="multiplierDisplay" class="font-bold text-sky-600 text-sm min-w-[60px] text-right">×4.0</span>
+                        </div>
+                    </div>
+
+                    <!-- Скидка инвестора -->
+                    <div class="mb-4">
+                        <label class="text-xs text-slate-500 block mb-1">СКИДКА ИНВЕСТОРА</label>
+                        <div class="flex gap-3 items-center">
+                            <input type="range" id="discountSlider" min="0" max="90" step="1" value="50" class="flex-1 h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                            <span id="discountDisplay" class="font-bold text-sky-600 text-sm min-w-[60px] text-right">50%</span>
+                        </div>
+                    </div>
+
+                    <!-- Начальный уставный капитал -->
+                    <div>
+                        <label class="text-xs text-slate-500 block mb-1">НАЧАЛЬНЫЙ УСТАВНЫЙ КАПИТАЛ</label>
+                        <input type="number" id="capitalInput" value="10000" step="1000" class="w-full px-4 py-2 border border-slate-200 rounded-xl text-sm font-bold focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+                    </div>
+                </div>
+
+                <!-- Карточка: Сценарии -->
+                <div class="bg-white border border-sky-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div id="scenario-loan" class="cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white border-[#0091ea] shadow-xl shadow-sky-900/10 ring-2 ring-[#0091ea]/30" onclick="setScenario('loan')">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-bold text-slate-400">СЦЕНАРИЙ 1</span>
+                                <div id="radio-loan"><div class="w-2.5 h-2.5 rounded-full bg-[#0091ea]"></div></div>
+                            </div>
+                            <h4 class="font-bold text-sm mt-2">Конвертируемый Заем</h4>
+                            <p class="text-[10px] text-slate-500 mt-1">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%</p>
+                        </div>
+                        <div id="scenario-equity" class="cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100" onclick="setScenario('equity')">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-bold text-slate-400">СЦЕНАРИЙ 2</span>
+                                <div id="radio-equity"></div>
+                            </div>
+                            <h4 class="font-bold text-sm mt-2">Вхождение в Долю</h4>
+                            <p class="text-[10px] text-slate-500 mt-1">Конвертация суммы инвестиций в долю владения компанией</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Предупреждение о превышении -->
+                <div id="overLimitAlert" class="bg-rose-50 border border-rose-100 text-rose-950 p-4 rounded-2xl flex items-start gap-3 hidden">
+                    <svg class="h-5 w-5 text-rose-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <div class="text-xs">
+                        <span class="font-bold">Внимание!</span> Рассчитанная доля превышает 100%. Измените параметры.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ ЧАСТЬ: РЕЗУЛЬТАТЫ -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- Прогноз окупаемости (растянутый) -->
+                <div class="bg-white border border-sky-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block">
+                        Прогноз окупаемости по симуляции:
+                    </span>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4">
+                            <span class="text-[10px] text-slate-500 block">Пассивный доход:</span>
+                            <span id="passiveIncomeDisplay" class="text-xl font-black text-[#0091ea] block">330 000 ₽</span>
+                        </div>
+                        <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4">
+                            <span class="text-[10px] text-slate-500 block">Гарант. процент:</span>
+                            <span id="guaranteedRateDisplay" class="text-xl font-black text-emerald-600 block">33.0% годовых</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-slate-100 pt-4 mt-4 text-xs font-semibold text-slate-600">
+                        <div class="flex justify-between">
+                            <span>Срок окупаемости (тело):</span>
+                            <span class="font-extrabold text-slate-900">12 Месяцев</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Период выплаты прибыли:</span>
+                            <span id="payoutPeriodDisplay" class="font-extrabold text-[#0091ea]">с 7 по 15 мес.</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Гарантийное обеспечение:</span>
+                            <span class="font-extrabold text-indigo-600">Оборотные средства / Товар</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- График прогноза выручки -->
+                <div class="bg-white border border-sky-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div class="flex items-center gap-3">
+                            <h3 class="font-bold text-sm text-slate-800">Прогноз выручки по месяцам</h3>
+                            <div class="flex gap-1">
+                                <button onclick="setChartMode('company')" id="modeCompany" class="text-[9px] px-2 py-1 rounded-full bg-sky-500 text-white font-bold transition-all">Выручка</button>
+                                <button onclick="setChartMode('investor')" id="modeInvestor" class="text-[9px] px-2 py-1 rounded-full bg-slate-200 text-slate-600 font-bold transition-all">Ваш доход</button>
+                            </div>
+                        </div>
+                        <span class="text-[9px] text-slate-400">Кликните на бар для просмотра деталей</span>
+                    </div>
+
+                    <div class="w-full overflow-x-auto pb-2">
+                        <div class="h-48 flex items-end justify-between space-x-1 pt-4 border-b border-sky-100 relative min-w-[480px]">
+                            <!-- Helper lines -->
+                            <div class="absolute w-full border-t border-sky-100/40 top-[25%] pointer-events-none"></div>
+                            <div class="absolute w-full border-t border-sky-100/40 top-[50%] pointer-events-none"></div>
+                            <div class="absolute w-full border-t border-sky-100/40 top-[75%] pointer-events-none"></div>
+
+                            <!-- Bars -->
+                            <div onclick="selectMonth('M1')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">0.8М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[8px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M1</span>
+                            </div>
+                            <div onclick="selectMonth('M2')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">1.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[16px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M2</span>
+                            </div>
+                            <div onclick="selectMonth('M3')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">2.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[26px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M3</span>
+                            </div>
+                            <div onclick="selectMonth('M4')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">3.8М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[40px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M4</span>
+                            </div>
+                            <div onclick="selectMonth('M5')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">5.0М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[52px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M5</span>
+                            </div>
+                            <div onclick="selectMonth('M6')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">6.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[68px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M6</span>
+                            </div>
+                            <div onclick="selectMonth('M7')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">8.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[88px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M7</span>
+                            </div>
+                            <div onclick="selectMonth('M8')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">10.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[110px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M8</span>
+                            </div>
+                            <div onclick="selectMonth('M9')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">13.0М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[136px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M9</span>
+                            </div>
+                            <div onclick="selectMonth('M10')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">16.0М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[168px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M10</span>
+                            </div>
+                            <div onclick="selectMonth('M11')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100">19.5М</span>
+                                <div class="w-full bg-sky-100 rounded-t transition-all duration-300 h-[204px]"></div>
+                                <span class="text-[8px] text-slate-400 mt-1">M11</span>
+                            </div>
+                            <div onclick="selectMonth('M12')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
+                                <span class="text-[8px] font-bold text-sky-500 transition-opacity opacity-100">24.0М</span>
+                                <div class="w-full bg-sky-400 rounded-t transition-all duration-300 h-[252px] shadow-lg shadow-sky-300"></div>
+                                <span class="text-[8px] text-sky-500 mt-1 font-bold">M12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Выбранный месяц -->
+                    <div class="mt-4 bg-sky-50 p-4 rounded-2xl border border-sky-100 flex flex-col sm:flex-row gap-2 items-start sm:items-center justify-between">
+                        <div>
+                            <span class="text-[9px] text-slate-400 block">Выбранный период:</span>
+                            <span id="selectedMonthName" class="text-sm font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <span class="text-[9px] text-slate-400 block">Плановая выручка:</span>
+                            <span id="selectedMonthValue" class="text-lg font-black text-sky-600">24 000 000 ₽</span>
+                            <span id="investorShareDisplay" class="text-[10px] text-slate-500 block">Ваша доля: 3.33%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ ФНС -->
+        <section class="mt-8 bg-white border border-slate-100 rounded-[2rem] p-6 shadow-xl shadow-sky-950/5">
+            <h3 class="text-sm font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                <svg class="h-5 w-5 text-[#0091ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Юридически безупречный математический протокол для ФНС (Сценарий 1)
+            </h3>
+
+            <div class="space-y-6 text-sm">
+                <!-- Шаг 1 -->
+                <div class="bg-slate-50 rounded-2xl p-5 space-y-3">
+                    <h4 class="font-extrabold text-slate-800">ШАГ 1. РАСЧЕТ БАЗОВОЙ ДОЛИ ИНВЕСТОРА (БДИ)</h4>
+                    <p class="text-slate-600">Доля инвестора в капитале компании рассчитывается с учетом инвестиционной скидки по формуле:</p>
+                    <div class="bg-white rounded-xl p-4 font-mono text-sm border border-slate-200 overflow-x-auto">
+                        d = <span id="step1Formula">30.00 млн ₽ / [111.6 млн ₽ × 4.0 × (1 - 50%)]</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="bg-white rounded-xl p-3 border border-slate-200">
+                            <span class="text-slate-500 text-xs">1. Знаменатель формулы:</span>
+                            <span id="calcDenominatorText" class="block font-bold text-slate-800 text-lg">223.20 млн ₽</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 border border-slate-200">
+                            <span class="text-slate-500 text-xs">2. Доля инвестора:</span>
+                            <span id="calcFractionText" class="block font-bold text-[#0091ea] text-lg">3 / 20</span>
+                            <span id="calcPercentText" class="text-xs text-slate-500">(что составляет 15.0000%)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Шаг 2 -->
+                <div class="bg-slate-50 rounded-2xl p-5 space-y-3">
+                    <h4 class="font-extrabold text-slate-800">ШАГ 2. РАСЧЕТ НОМИНАЛЬНОЙ СТОИМОСТИ ДОЛИ (НСД)</h4>
+                    <p class="text-slate-600">Номинал доли инвестора рассчитывается для сохранения точных пропорций УК при вхождении:</p>
+                    <div class="bg-white rounded-xl p-4 font-mono text-sm border border-slate-200">
+                        N = Начальный УК × d / (1 - d)
+                    </div>
+                    <div class="bg-white rounded-xl p-4 border border-slate-200 space-y-2">
+                        <div>
+                            <span class="text-slate-500 text-xs">Подставляя точную простую дробь для исключения периодов:</span>
+                            <div class="font-mono text-sm mt-1">
+                                N = <span id="calcCapitalPlaceholder">10 000</span> × <span id="calcNominalFractionText">3 / (20 - 3)</span> = <span id="calcNominalResultText" class="font-bold text-emerald-600">1 764.71 руб.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Шаг 3 -->
+                <div class="bg-slate-50 rounded-2xl p-5 space-y-3">
+                    <h4 class="font-extrabold text-slate-800">ШАГ 3. ИТОГОВЫЙ УСТАВНЫЙ КАПИТАЛ И ПЕРЕВОД В КОПЕЙКИ</h4>
+                    <p class="text-slate-600">Для подачи документов в ФНС значения переводятся в неделимые копейки во избежание юридических отказов:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="bg-white rounded-xl p-4 border border-slate-200 text-center">
+                            <span class="text-slate-500 text-xs block">Номинал доли инвестора (копейки):</span>
+                            <span id="fnsNominalKopeck" class="font-black text-[#0091ea] text-xl block">176 471</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-slate-200 text-center">
+                            <span class="text-slate-500 text-xs block">Номинал уставной капитала (копейки):</span>
+                            <span id="fnsTotalKopeck" class="font-black text-emerald-600 text-xl block">1 176 471</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-slate-200 text-center">
+                            <span class="text-slate-500 text-xs block">Проверка пропорции:</span>
+                            <span id="fnsFinalFraction" class="font-black text-indigo-600 text-sm block">176 471 / 1 176 471</span>
+                            <span id="fnsCheckPercent" class="text-[10px] text-slate-500">(Результат деления: 15.0000%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ============================================
+        // 1. КОНФИГУРАЦИЯ
+        // ============================================
+        const CONFIG = {
+            minInvestment: 100000,
+            maxInvestment: 30000000,
+            step: 100000,
+            loanRate: 33, // % годовых
+            payoutStart: 7,
+            payoutEnd: 15,
+            months: {
+                M1:  { label: 'M1', desc: '1-й Месяц развития (июнь 2025)', val: 0.8 },
+                M2:  { label: 'M2', desc: '2-й Месяц развития (июль 2025)', val: 1.5 },
+                M3:  { label: 'M3', desc: '3-й Месяц развития (август 2025)', val: 2.5 },
+                M4:  { label: 'M4', desc: '4-й Месяц развития (сентябрь 2025)', val: 3.8 },
+                M5:  { label: 'M5', desc: '5-й Месяц развития (октябрь 2025)', val: 5.0 },
+                M6:  { label: 'M6', desc: '6-й Месяц развития (ноябрь 2025)', val: 6.5 },
+                M7:  { label: 'M7', desc: '7-й Месяц развития (декабрь 2025)', val: 8.5 },
+                M8:  { label: 'M8', desc: '8-й Месяц развития (январь 2026)', val: 10.5 },
+                M9:  { label: 'M9', desc: '9-й Месяц развития (февраль 2026)', val: 13.0 },
+                M10: { label: 'M10', desc: '10-й Месяц развития (март 2026)', val: 16.0 },
+                M11: { label: 'M11', desc: '11-й Месяц развития (апрель 2026)', val: 19.5 },
+                M12: { label: 'M12', desc: '12-й Месяц развития (май-июнь 2026)', val: 24.0 }
+            }
+        };
+
+        // ============================================
+        // 2. СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+        // ============================================
+        const state = {
+            investment: 1000000,
+            revenue: 111.6,
+            multiplier: 4.0,
+            discount: 50,
+            capital: 10000,
+            scenario: 'loan',
+            selectedMonth: 'M12',
+            chartMode: 'company' // 'company' | 'investor'
+        };
+
+        // ============================================
+        // 3. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+        // ============================================
+        function formatCurrency(value) {
+            return Math.round(value).toLocaleString('ru-RU') + ' ₽';
+        }
+
+        function formatMillion(value) {
+            return value.toFixed(1) + ' млн ₽';
+        }
+
+        function gcd(a, b) {
+            a = Math.round(a);
+            b = Math.round(b);
+            while (b) {
+                const t = b;
+                b = a % b;
+                a = t;
+            }
+            return a;
+        }
+
+        function getMonthData(id) {
+            return CONFIG.months[id] || CONFIG.months['M12'];
+        }
+
+        function getYearlyRevenue() {
+            return Object.values(CONFIG.months).reduce((sum, m) => sum + m.val, 0);
+        }
+
+        // ============================================
+        // 4. ОСНОВНЫЕ РАСЧЁТЫ
+        // ============================================
+        function calculateInvestorShare(investment, revenue, multiplier, discount) {
+            const discountFactor = 1 - discount / 100;
+            const denominator = revenue * multiplier * discountFactor;
+            
+            if (denominator <= 0) return { share: 0, numerator: 0, denominator: 0 };
+            
+            const loanAmountMillion = investment / 1000000;
+            const shareDecimal = loanAmountMillion / denominator;
+            
+            // Сокращение дроби
+            const rawNum = Math.round(loanAmountMillion * 100);
+            const rawDen = Math.round(denominator * 100);
+            const commonDivisor = gcd(rawNum, rawDen);
+            
+            return {
+                share: shareDecimal,
+                numerator: rawNum / commonDivisor,
+                denominator: rawDen / commonDivisor,
+                rawNumerator: rawNum,
+                rawDenominator: rawDen
+            };
+        }
+
+        function calculateNominalValue(capital, numerator, denominator) {
+            const nominalDen = denominator - numerator;
+            if (nominalDen <= 0) return { nominal: 0, totalCapital: 0 };
+            
+            const nominal = (capital * numerator) / nominalDen;
+            const totalCapital = (capital * denominator) / nominalDen;
+            
+            return { nominal, totalCapital };
+        }
+
+        function calculateInvestorIncome(investment, monthRevenue) {
+            const yearlyRevenue = getYearlyRevenue();
+            const companyValuation = yearlyRevenue * state.multiplier;
+            const investorShare = investment / (companyValuation * 1000000);
+            return monthRevenue * 1000000 * investorShare;
+        }
+
+        // ============================================
+        // 5. ФУНКЦИИ УПРАВЛЕНИЯ
+        // ============================================
+        function setInvestment(value) {
+            value = Math.round(value / CONFIG.step) * CONFIG.step;
+            value = Math.max(CONFIG.minInvestment, Math.min(CONFIG.maxInvestment, value));
+            state.investment = value;
+            document.getElementById('investmentSlider').value = value;
+            updateUI();
+        }
+
+        function setScenario(scen) {
+            state.scenario = scen;
+            const loanCard = document.getElementById('scenario-loan');
+            const equityCard = document.getElementById('scenario-equity');
+            const loanRadio = document.getElementById('radio-loan');
+            const equityRadio = document.getElementById('radio-equity');
+
+            if (scen === 'loan') {
+                loanCard.className = 'cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white border-[#0091ea] shadow-xl shadow-sky-900/10 ring-2 ring-[#0091ea]/30';
+                equityCard.className = 'cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100';
+                loanRadio.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[#0091ea]"></div>';
+                equityRadio.innerHTML = '';
+            } else {
+                loanCard.className = 'cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100';
+                equityCard.className = 'cursor-pointer rounded-[2rem] p-4 border transition-all-custom bg-white border-indigo-600 shadow-xl shadow-indigo-900/10 ring-2 ring-indigo-600/30';
+                loanRadio.innerHTML = '';
+                equityRadio.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>';
+            }
+            updateUI();
+        }
+
+        function selectMonth(id) {
+            state.selectedMonth = id;
+            
+            document.querySelectorAll('.chart-col').forEach(col => {
+                const bar = col.querySelector('.w-full');
+                const label = col.querySelector('.text-sky-500, .text-slate-400');
+                if (bar) {
+                    bar.className = 'w-full bg-sky-100 rounded-t transition-all duration-300';
+                }
+                if (label && !col.querySelector('.text-sky-500.font-bold')) {
+                    label.className = 'text-[8px] font-bold text-slate-400 group-hover:text-sky-500 transition-opacity opacity-0 group-hover:opacity-100';
+                }
+            });
+
+            const activeCol = document.querySelector(`[onclick*="selectMonth('${id}')"]`);
+            if (activeCol) {
+                const activeBar = activeCol.querySelector('.w-full');
+                const activeLabel = activeCol.querySelector('.text-[8px]');
+                if (activeBar) {
+                    activeBar.className = 'w-full bg-sky-400 rounded-t transition-all duration-300 shadow-lg shadow-sky-300';
+                }
+                if (activeLabel) {
+                    activeLabel.className = 'text-[8px] font-bold text-sky-500 transition-opacity opacity-100';
+                }
+            }
+            updateUI();
+        }
+
+        function setChartMode(mode) {
+            state.chartMode = mode;
+            document.getElementById('modeCompany').className = mode === 'company' 
+                ? 'text-[9px] px-2 py-1 rounded-full bg-sky-500 text-white font-bold transition-all'
+                : 'text-[9px] px-2 py-1 rounded-full bg-slate-200 text-slate-600 font-bold transition-all';
+            document.getElementById('modeInvestor').className = mode === 'investor'
+                ? 'text-[9px] px-2 py-1 rounded-full bg-sky-500 text-white font-bold transition-all'
+                : 'text-[9px] px-2 py-1 rounded-full bg-slate-200 text-slate-600 font-bold transition-all';
+            updateUI();
+        }
+
+        // ============================================
+        // 6. ОСНОВНАЯ ФУНКЦИЯ ОБНОВЛЕНИЯ UI
+        // ============================================
+        function updateUI() {
+            const investment = state.investment;
+            const revenue = state.revenue;
+            const multiplier = state.multiplier;
+            const discount = state.discount;
+            const capital = state.capital;
+
+            // ---- 1. Отображение суммы инвестиций ----
+            document.getElementById('investmentDisplay').textContent = formatCurrency(investment);
+
+            // ---- 2. Отображение параметров ----
+            document.getElementById('revenueDisplay').textContent = formatMillion(revenue);
+            document.getElementById('multiplierDisplay').textContent = '×' + multiplier.toFixed(1);
+            document.getElementById('discountDisplay').textContent = discount + '%';
+
+            // ---- 3. Пассивный доход и гарант. процент ----
+            const annualIncome = investment * (CONFIG.loanRate / 100);
+            document.getElementById('passiveIncomeDisplay').textContent = formatCurrency(annualIncome);
+            document.getElementById('guaranteedRateDisplay').textContent = CONFIG.loanRate + '.0% годовых';
+            document.getElementById('payoutPeriodDisplay').textContent = `с ${CONFIG.payoutStart} по ${CONFIG.payoutEnd} мес.`;
+
+            // ---- 4. Расчёт доли инвестора ----
+            const shareResult = calculateInvestorShare(investment, revenue, multiplier, discount);
+            const isOverLimit = shareResult.share >= 1;
+            
+            const alertEl = document.getElementById('overLimitAlert');
+            if (isOverLimit) {
+                alertEl.classList.remove('hidden');
+            } else {
+                alertEl.classList.add('hidden');
+            }
+
+            // ---- 5. Номинальная стоимость ----
+            const nominalResult = calculateNominalValue(
+                capital, 
+                shareResult.numerator, 
+                shareResult.denominator
+            );
+
+            // ---- 6. Выбранный месяц ----
+            const monthData = getMonthData(state.selectedMonth);
+            const monthRevenue = monthData.val;
+            
+            // Доход инвестора за выбранный месяц
+            const investorMonthIncome = calculateInvestorIncome(investment, monthRevenue);
+            const investorSharePercent = (shareResult.share * 100);
+
+            // ---- 7. Обновление информации о месяце ----
+            document.getElementById('selectedMonthName').textContent = monthData.desc;
+            
+            if (state.chartMode === 'company') {
+                document.getElementById('selectedMonthValue').textContent = formatCurrency(monthRevenue * 1000000);
+            } else {
+                document.getElementById('selectedMonthValue').textContent = formatCurrency(investorMonthIncome);
+            }
+            document.getElementById('investorShareDisplay').textContent = `Ваша доля: ${investorSharePercent.toFixed(2)}%`;
+
+            // ---- 8. Обновление высоты баров ----
+            const maxRevenue = Math.max(...Object.values(CONFIG.months).map(m => m.val));
+            const maxInvestorIncome = calculateInvestorIncome(investment, maxRevenue);
+            
+            document.querySelectorAll('.chart-col').forEach(col => {
+                const onclick = col.getAttribute('onclick');
+                if (!onclick) return;
+                
+                const match = onclick.match(/selectMonth\('([^']+)'\)/);
+                if (!match) return;
+                
+                const id = match[1];
+                const data = CONFIG.months[id];
+                if (!data) return;
+                
+                const bar = col.querySelector('.w-full');
+                if (!bar) return;
+                
+                let heightPercent;
+                if (state.chartMode === 'company') {
+                    heightPercent = (data.val / maxRevenue) * 100;
+                } else {
+                    const income = calculateInvestorIncome(investment, data.val);
+                    heightPercent = maxInvestorIncome > 0 ? (income / maxInvestorIncome) * 100 : 0;
+                }
+                
+                // Минимальная высота для видимости
+                heightPercent = Math.max(heightPercent, 5);
+                bar.style.height = heightPercent + '%';
+            });
+
+            // ---- 9. Математический протокол ФНС ----
+            const loanAmountMillion = investment / 1000000;
+            const discountFactor = 1 - discount / 100;
+            const denominatorValue = revenue * multiplier * discountFactor;
+            
+            // Шаг 1: формула
+            document.getElementById('step1Formula').textContent = 
+                `d = ${loanAmountMillion.toFixed(2)} млн ₽ / [${revenue.toFixed(1)} млн ₽ × ${multiplier.toFixed(1)} × (1 - ${discount}%)]`;
+            
+            document.getElementById('calcDenominatorText').textContent = 
+                denominatorValue.toFixed(2) + ' млн ₽';
+            
+            document.getElementById('calcFractionText').textContent = 
+                `${shareResult.numerator} / ${shareResult.denominator}`;
+            
+            document.getElementById('calcPercentText').textContent = 
+                `(что составляет ${(shareResult.share * 100).toFixed(4)}%)`;
+            
+            // Шаг 2: номинальная стоимость
+            document.getElementById('calcCapitalPlaceholder').textContent = 
+                capital.toLocaleString('ru-RU');
+            
+            document.getElementById('calcNominalFractionText').textContent = 
+                `${shareResult.numerator} / (${shareResult.denominator} - ${shareResult.numerator})`;
+            
+            document.getElementById('calcNominalResultText').textContent = 
+                nominalResult.nominal.toFixed(2) + ' руб.';
+            
+            // Шаг 3: копейки
+            const nominalKopeck = Math.round(nominalResult.nominal * 100);
+            const totalCapitalKopeck = Math.round(nominalResult.totalCapital * 100);
+            
+            document.getElementById('fnsNominalKopeck').textContent = 
+                nominalKopeck.toLocaleString('ru-RU');
+            
+            document.getElementById('fnsTotalKopeck').textContent = 
+                totalCapitalKopeck.toLocaleString('ru-RU');
+            
+            document.getElementById('fnsFinalFraction').textContent = 
+                `${nominalKopeck.toLocaleString('ru-RU')} / ${totalCapitalKopeck.toLocaleString('ru-RU')}`;
+            
+            const checkPercent = totalCapitalKopeck > 0 ? (nominalKopeck / totalCapitalKopeck * 100) : 0;
+            document.getElementById('fnsCheckPercent').textContent = 
+                `(Результат деления: ${checkPercent.toFixed(4)}%)`;
+        }
+
+        // ============================================
+        // 7. ИНИЦИАЛИЗАЦИЯ
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Инвестиции
+            const investmentSlider = document.getElementById('investmentSlider');
+            investmentSlider.addEventListener('input', function() {
+                state.investment = parseInt(this.value);
+                updateUI();
+            });
+
+            // Выручка
+            const revenueSlider = document.getElementById('revenueSlider');
+            revenueSlider.addEventListener('input', function() {
+                state.revenue = parseFloat(this.value);
+                updateUI();
+            });
+
+            // Мультипликатор
+            const multiplierSlider = document.getElementById('multiplierSlider');
+            multiplierSlider.addEventListener('input', function() {
+                state.multiplier = parseFloat(this.value);
+                updateUI();
+            });
+
+            // Скидка
+            const discountSlider = document.getElementById('discountSlider');
+            discountSlider.addEventListener('input', function() {
+                state.discount = parseFloat(this.value);
+                updateUI();
+            });
+
+            // Уставный капитал
+            const capitalInput = document.getElementById('capitalInput');
+            capitalInput.addEventListener('input', function() {
+                state.capital = parseInt(this.value) || 0;
+                updateUI();
+            });
+
+            // Первоначальный расчёт
+            updateUI();
+        });
+    </script>
+</body>
+</html>
 
     <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Добавлен mx-auto для центровки) -->
     <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch mx-auto">
