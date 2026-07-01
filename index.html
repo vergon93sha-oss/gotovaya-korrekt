@@ -1744,206 +1744,94 @@ h1, h2, h3 {
 
           </div>
 
-          <!-- Превышение лимита -->
-          <div id="overLimitAlert" class="bg-rose-50 border border-rose-100 text-rose-950 p-4 rounded-2xl flex items-start gap-3 hidden">
-            <svg class="h-5 w-5 text-rose-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <div class="text-xs">
-              <span class="font-bold">Внимание!</span> Рассчитанная доля превышает 100%. Измените параметры.
-            </div>
-          </div>
-        </section>
+         <!-- Превышение лимита -->
+<div id="overLimitAlert" class="bg-rose-50 border border-rose-100 text-rose-950 p-4 rounded-2xl flex items-start gap-3 hidden">
+  <svg class="h-5 w-5 text-rose-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+  </svg>
+  <div class="text-xs">
+    <span class="font-bold">Внимание!</span> Рассчитанная доля превышает 100%. Измените параметры.
+  </div>
+</div>
+</section>
 
-      </main>
+</main>
 
-      <!-- ПРАВАЯ ЧАСТЬ: РЕЗУЛЬТАТЫ СИМУЛЯЦИИ И ИНТЕРАКТИВНЫЙ ГРАФИК -->
-      <aside class="lg:col-span-5 space-y-6">
-        
-        <!-- КАРТОЧКА: ПРОГНОЗ ОКУПАЕМОСТИ ПО СИМУЛЯЦИИ (СКРИНШОТ 1) -->
-        <div class="bg-white border border-sky-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-full blur-2xl -z-10"></div>
-          
-          <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-widest text-slate-400 block">
-            Прогноз окупаемости по симуляции:
-          </span>
+<!-- ПРАВАЯ ЧАСТЬ: РЕЗУЛЬТАТЫ СИМУЛЯЦИИ -->
+<aside class="lg:col-span-5 space-y-6">
+  
+  <!-- КАРТОЧКА: ПРОГНОЗ ОКУПАЕМОСТИ ПО СИМУЛЯЦИИ (РАСТЯНУТЫЙ) -->
+  <div class="bg-white border border-sky-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6 relative overflow-hidden h-full">
+    <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-full blur-2xl -z-10"></div>
+    
+    <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-widest text-slate-400 block">
+      Прогноз окупаемости по симуляции:
+    </span>
 
-          <!-- Метрики верхнего уровня -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-            
-            <!-- Метрика 1 -->
-            <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
-              <span class="text-[10px] md:text-xs text-slate-500 block">Пассивный доход:</span>
-              <span id="passiveIncomeLabel" class="text-lg md:text-2xl font-black text-[#0091ea] block">
-                9 900 000 ₽
-              </span>
-            </div>
+    <!-- Метрики верхнего уровня -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+      
+      <!-- Метрика 1 -->
+      <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
+        <span class="text-[10px] md:text-xs text-slate-500 block">Пассивный доход:</span>
+        <span id="passiveIncomeLabel" class="text-lg md:text-2xl font-black text-[#0091ea] block">
+          9 900 000 ₽
+        </span>
+      </div>
 
-            <!-- Метрика 2 -->
-            <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
-              <span class="text-[10px] md:text-xs text-slate-500 block">Гарант. процент:</span>
-              <span id="guaranteedRateLabel" class="text-lg md:text-2xl font-black text-emerald-600 block">
-                33.0% годовых
-              </span>
-            </div>
+      <!-- Метрика 2 -->
+      <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
+        <span class="text-[10px] md:text-xs text-slate-500 block">Гарант. процент:</span>
+        <span id="guaranteedRateLabel" class="text-lg md:text-2xl font-black text-emerald-600 block">
+          33.0% годовых
+        </span>
+      </div>
 
-          </div>
-
-          <!-- Таблица параметров -->
-          <div class="space-y-3 border-t border-slate-100 pt-4 text-[11px] md:text-xs font-semibold text-slate-600">
-            <div class="flex justify-between">
-              <span>Срок окупаемости (тело):</span>
-              <span class="font-extrabold text-slate-900">12 Месяцев</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Период выплаты прибыли:</span>
-              <span id="payoutPeriodLabel" class="font-extrabold text-[#0091ea]">с 13 по 15 мес.</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Гарантийное обеспечение:</span>
-              <span class="font-extrabold text-indigo-600">Оборотные средства / Товар</span>
-            </div>
-          </div>
-
-          <!-- Риск-менеджмент блок -->
-          <div class="bg-orange-50/70 border border-orange-100 rounded-2xl p-3.5 flex gap-2.5">
-            <svg class="h-5 w-5 text-orange-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <div class="space-y-0.5">
-              <h5 class="text-[11px] font-extrabold text-orange-950">
-                Консервативный риск-менеджмент: Деньги
-              </h5>
-              <p class="text-[10px] text-orange-800 leading-relaxed font-medium">
-                застрахованы реальным ликвидным товарным запасом мяса в обороте компании "РУСЬ". Риски снижены практически до нуля.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА: ПРОГНОЗ ВЫРУЧКИ ПО МЕСЯЦАМ (СКРИНШОТ 2) -->
-        <div class="bg-white border border-sky-100 rounded-[2rem] p-5 shadow-xl shadow-sky-950/5 space-y-6">
-          <div class="flex justify-between items-center">
-            <h4 class="text-[11px] md:text-xs font-extrabold uppercase tracking-wider text-slate-900">
-              Прогноз выручки по месяцам (млн ₽)
-            </h4>
-            <span class="text-[9px] text-slate-400 font-bold">Кликните на бар для просмотра деталей</span>
-          </div>
-
-          <!-- График на CSS/HTML -->
-          <div class="h-28 flex items-end justify-between gap-0.5 md:gap-1 pt-2 relative">
-            
-            <div onclick="selectMonth('M1')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 5.8%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M1</span>
-            </div>
-
-            <div onclick="selectMonth('M2')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 10%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M2</span>
-            </div>
-
-            <div onclick="selectMonth('M3')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 14.1%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M3</span>
-            </div>
-
-            <div onclick="selectMonth('M4')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 21.1%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M4</span>
-            </div>
-
-            <div onclick="selectMonth('M5')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 28.8%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M5</span>
-            </div>
-
-            <div onclick="selectMonth('M6')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 37.6%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M6</span>
-            </div>
-
-            <div onclick="selectMonth('M7')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 47%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M7</span>
-            </div>
-
-            <div onclick="selectMonth('M8')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 56.4%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M8</span>
-            </div>
-
-            <div onclick="selectMonth('M9')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 68.2%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M9</span>
-            </div>
-
-            <div onclick="selectMonth('M10')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 80%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M10</span>
-            </div>
-
-            <div onclick="selectMonth('M11')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 89.4%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M11</span>
-            </div>
-
-            <div onclick="selectMonth('M12')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 100%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#0091ea] shadow-lg shadow-sky-300"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-black text-[#0091ea] scale-110">M12</span>
-            </div>
-
-          </div>
-
-          <!-- Блок выбранного периода -->
-          <div class="bg-[#f8fafc] border border-slate-100 rounded-2xl p-4 flex justify-between items-center text-[11px] md:text-xs">
-            <div>
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Выбранный период:</span>
-              <span id="selectedMonthName" class="font-extrabold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
-            </div>
-            <div class="text-right">
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Плановая выручка:</span>
-              <span id="selectedMonthValue" class="font-black text-[#0091ea] text-sm md:text-lg">85 000 000 ₽</span>
-            </div>
-          </div>
-
-        </div>
-
-      </aside>
     </div>
 
-    <!-- МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ РАСЧЕТОВ ФНС -->
-    <section class="bg-white border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
-      <h3 class="text-sm md:text-base font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-        <svg class="h-5 w-5 text-[#0091ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-        Юридически безупречный математический протокол для ФНС (Сценарий 1)
-      </h3>
+    <!-- Таблица параметров -->
+    <div class="space-y-3 border-t border-slate-100 pt-4 text-[11px] md:text-xs font-semibold text-slate-600">
+      <div class="flex justify-between">
+        <span>Срок окупаемости (тело):</span>
+        <span class="font-extrabold text-slate-900">12 Месяцев</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Период выплаты прибыли:</span>
+        <span id="payoutPeriodLabel" class="font-extrabold text-[#0091ea]">с 13 по 15 мес.</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Гарантийное обеспечение:</span>
+        <span class="font-extrabold text-indigo-600">Оборотные средства / Товар</span>
+      </div>
+    </div>
+
+    <!-- Риск-менеджмент блок -->
+    <div class="bg-orange-50/70 border border-orange-100 rounded-2xl p-3.5 flex gap-2.5">
+      <svg class="h-5 w-5 text-orange-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+      <div class="space-y-0.5">
+        <h5 class="text-[11px] font-extrabold text-orange-950">
+          Консервативный риск-менеджмент: Деньги
+        </h5>
+        <p class="text-[10px] text-orange-800 leading-relaxed font-medium">
+          застрахованы реальным ликвидным товарным запасом мяса в обороте компании "РУСЬ". Риски снижены практически до нуля.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<!-- МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ РАСЧЕТОВ ФНС -->
+<section class="bg-white border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
+  <h3 class="text-sm md:text-base font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+    <svg class="h-5 w-5 text-[#0091ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    Юридически безупречный математический протокол для ФНС (Сценарий 1)
+  </h3>
 
       <div class="space-y-6 text-[11px] md:text-sm text-slate-600 leading-relaxed">
         
@@ -2264,99 +2152,6 @@ h1, h2, h3 {
   </script>
 </body>
 </html>
-
-
-
-    <!-- ==================== CALCULATOR BOX ==================== -->
-    <div id="calc-box" class="bg-gradient-to-tr from-white via-white to-sky-50/60 rounded-3xl p-6 sm:p-8 border border-sky-100 space-y-8 shadow-xl shadow-sky-100/20 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-48 h-48 bg-sky-100 rounded-full blur-3xl"></div>
-        
-        <div class="space-y-2">
-            <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
-            <h3 class="text-2xl font-black text-slate-800">Интерактивный Инвестиционный Калькулятор</h3>
-            <p class="text-slate-500 text-sm max-w-2xl">
-                Задайте параметры инвестиций и рассчитайте потенциальную доходность. Выберите формат: процентный заём или долгосрочное вхождение в капитал компании.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Calculator Inputs -->
-            <div class="lg:col-span-6 space-y-6">
-                <!-- Slider -->
-                <div class="space-y-3">
-                    <div class="flex justify-between text-sm font-semibold text-slate-700">
-                        <span>Сумма Ваших инвестиций:</span>
-                        <span class="text-sky-600 font-extrabold text-lg" id="calc-sum-display">5 000 000 ₽</span>
-                    </div>
-                    <input oninput="updateCalculator()" type="range" id="calc-sum" min="1000000" max="15000000" step="500000" value="5000000" class="w-full h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
-                    <div class="flex justify-between text-[11px\] text-slate-400">
-                        <span>1 000 000 ₽</span>
-                        <span>5 000 000 ₽</span>
-                        <span>10 000 000 ₽</span>
-                        <span>15 000 000 ₽</span>
-                    </div>
-                </div>
-
-                <!-- Option Types -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-white p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-sky-600 uppercase">Сценарий 1</span>
-                            <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-white" id="calc-radio-loan"></div>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm">Конвертируемый Заём</h4>
-                        <p class="text-slate-500 text-[11px\] leading-relaxed">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%.</p>
-                    </div>
-
-                    <div onclick="selectCalcType('equity')" id="calc-type-equity" class="cursor-pointer bg-sky-50/20 p-4 rounded-3xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-blue-500 uppercase">Сценарий 2</span>
-                            <div class="w-4 h-4 rounded-full border border-sky-200 bg-white" id="calc-radio-equity"></div>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm">Вхождение в Долю</h4>
-                        <p class="text-slate-500 text-[11px\] leading-relaxed">Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calculator Outputs -->
-            <div class="lg:col-span-6 bg-sky-50/50 p-6 rounded-3xl border border-sky-100 space-y-6">
-                <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block">Ваш пассивный доход:</span>
-                        <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
-                    </div>
-                    <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
-                        <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3 pt-3 border-t border-sky-100">
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Срок окупаемости (тело):</span>
-                        <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
-                        <span class="text-sky-600 font-bold" id="calc-time-profit">с 13 по 15 мес.</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Гарантийное обеспечение:</span>
-                        <span class="text-sky-600 font-bold">Оборотные средства / Товар</span>
-                    </div>
-                </div>
-
-                <div class="p-3 bg-transparent rounded-lg text-[11px\] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
-                    🛡️ <strong class="text-slate-800">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
-                </div>
-            </div>
-
-        </div>
-    </div>
 </section>
 
 
