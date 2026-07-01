@@ -1058,98 +1058,126 @@ h1, h2, h3 {
                 </div>
 
                 <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
-                <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="font-bold text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
-                            <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
-                        </div>
-                        
-                        <!-- Mini SVG chart with hover effects -->
-                        <div class="h-64 flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative">
-                            <!-- Helper guide lines -->
-                            <div class="absolute w-full border-t border-sky-100/40 top-[25%] pointer-events-none"></div>
-                            <div class="absolute w-full border-t border-sky-100/40 top-[50%] pointer-events-none"></div>
-                            <div class="absolute w-full border-t border-sky-100/40 top-[75%] pointer-events-none"></div>
-                            
-                            <!-- Monthly bars -->
-                            <div onclick="selectMonth(1, 5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">5М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-4 transition-all duration-300 shadow-lg shadow-sky-400/0 group-hover:shadow-sky-400/10"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М1</span>
-                            </div>
-                            <div onclick="selectMonth(2, 6.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">6.5М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-6 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М2</span>
-                            </div>
-                            <div onclick="selectMonth(3, 12.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">12.5М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-12 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М3</span>
-                            </div>
-                            <div onclick="selectMonth(4, 15)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">15М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-14 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М4</span>
-                            </div>
-                            <div onclick="selectMonth(5, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М5</span>
-                            </div>
-                            <div onclick="selectMonth(6, 30)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">30М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-28 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М6</span>
-                            </div>
-                            <div onclick="selectMonth(7, 50)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">50М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-40 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М7</span>
-                            </div>
-                            <div onclick="selectMonth(8, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М8</span>
-                            </div>
-                            <div onclick="selectMonth(9, 60)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">60М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-48 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М9</span>
-                            </div>
-                            <div onclick="selectMonth(10, 65)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">65М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-52 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М10</span>
-                            </div>
-                            <div onclick="selectMonth(11, 75)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">75М</span>
-                                <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-56 transition-all duration-300"></div>
-                                <span class="text-[9px] text-slate-400 mt-2">М11</span>
-                            </div>
-                            <div onclick="selectMonth(12, 85)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                                <span class="text-[10px] font-bold text-sky-500 mb-1 opacity-100 transition-opacity text-sky-500">85М</span>
-                                <div class="w-full bg-sky-400 rounded-t h-60 transition-all duration-300"></div>
-                                <span class="text-[9px] text-sky-500 mt-2 font-bold">М12</span>
-                            </div>
-                        </div>
-                    </div>
+<div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
+  <div>
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-bold text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
+      <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
+    </div>
 
-                    <!-- Selected Month Stats -->
-                    <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 block">Выбранный период:</span>
-                            <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs text-slate-400 block">Плановая выручка:</span>
-                            <span id="selected-month-val" class="text-xl font-black text-sky-600">85 000 000 ₽</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК -->
+    <!-- НАЧАЛО АДАПТИВНОГО КОНТЕЙНЕРА (добавили скролл для мобилок) -->
+    <div class="w-full overflow-x-auto pb-4">
+      
+      <!-- Сам график (задали минимальную ширину 650px, чтобы на смартфонах он не сжимался в кашу) -->
+      <div class="h-64 min-w-[650px] flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative">
+        <!-- Helper guide lines -->
+        <div class="absolute w-full border-t border-sky-100/40 top-[25%] pointer-events-none"></div>
+        <div class="absolute w-full border-t border-sky-100/40 top-[50%] pointer-events-none"></div>
+        <div class="absolute w-full border-t border-sky-100/40 top-[75%] pointer-events-none"></div>
+
+        <!-- Monthly bars -->
+        <!-- М1 -->
+        <div onclick="selectMonth(1, 5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">5М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-4 transition-all duration-300 shadow-lg shadow-sky-400/0 group-hover:shadow-sky-400/10"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М1</span>
+        </div>
+
+        <!-- М2 -->
+        <div onclick="selectMonth(2, 6.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">6.5М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-6 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М2</span>
+        </div>
+
+        <!-- М3 -->
+        <div onclick="selectMonth(3, 12.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">12.5М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-12 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М3</span>
+        </div>
+
+        <!-- М4 -->
+        <div onclick="selectMonth(4, 15)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">15М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-14 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М4</span>
+        </div>
+
+        <!-- М5 -->
+        <div onclick="selectMonth(5, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М5</span>
+        </div>
+
+        <!-- М6 -->
+        <div onclick="selectMonth(6, 30)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">30М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-28 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М6</span>
+        </div>
+
+        <!-- М7 -->
+        <div onclick="selectMonth(7, 50)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">50М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-40 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М7</span>
+        </div>
+
+        <!-- М8 -->
+        <div onclick="selectMonth(8, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М8</span>
+        </div>
+
+        <!-- М9 -->
+        <div onclick="selectMonth(9, 60)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">60М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-48 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М9</span>
+        </div>
+
+        <!-- М10 -->
+        <div onclick="selectMonth(10, 65)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">65М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-52 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М10</span>
+        </div>
+
+        <!-- М11 -->
+        <div onclick="selectMonth(11, 75)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">75М</span>
+          <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-56 transition-all duration-300"></div>
+          <span class="text-[9px] text-slate-400 mt-2">М11</span>
+        </div>
+
+        <!-- М12 -->
+        <div onclick="selectMonth(12, 85)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+          <span class="text-[10px] font-bold text-sky-500 mb-1 opacity-100 transition-opacity text-sky-500">85М</span>
+          <div class="w-full bg-sky-400 rounded-t h-60 transition-all duration-300"></div>
+          <span class="text-[9px] text-sky-500 mt-2 font-bold">М12</span>
+        </div>
+      </div>
+    </div>
+    <!-- КОНЕЦ АДАПТИВНОГО КОНТЕЙНЕРА -->
+
+  </div>
+
+  <!-- Selected Month Stats -->
+  <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
+    <div>
+      <span class="text-xs text-slate-400 block">Выбранный период:</span>
+      <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
+    </div>
+    <div class="text-right">
+      <span class="text-xs text-slate-400 block">Плановая выручка:</span>
+      <span id="selected-month-val" class="text-xl font-black text-sky-600">85 000 000 ₽</span>
+    </div>
+  </div>
+</div>
+
             <!-- СТРОКА 1215: Главный контейнер, который выстраивает блоки друг под другом по центру -->
 <div class="flex flex-col gap-12 w-full items-center">
 
