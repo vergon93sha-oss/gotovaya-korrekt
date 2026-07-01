@@ -1910,23 +1910,6 @@ h1, h2, h3 {
 
           </div>
 
-          <!-- Блок выбранного периода -->
-          <div class="bg-[#f8fafc] border border-slate-100 rounded-2xl p-4 flex justify-between items-center text-[11px] md:text-xs">
-            <div>
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Выбранный период:</span>
-              <span id="selectedMonthName" class="font-extrabold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
-            </div>
-            <div class="text-right">
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Плановая выручка:</span>
-              <span id="selectedMonthValue" class="font-black text-[#0091ea] text-sm md:text-lg">85 000 000 ₽</span>
-            </div>
-          </div>
-
-        </div>
-
-      </aside>
-    </div>
-
     <!-- МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ РАСЧЕТОВ ФНС -->
     <section class="bg-white border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
       <h3 class="text-sm md:text-base font-extrabold text-slate-900 mb-6 flex items-center gap-2">
@@ -2255,97 +2238,6 @@ h1, h2, h3 {
   </script>
 </body>
 </html>
-
-    <!-- ==================== CALCULATOR BOX ==================== -->
-    <div id="calc-box" class="bg-gradient-to-tr from-white via-white to-sky-50/60 rounded-3xl p-6 sm:p-8 border border-sky-100 space-y-8 shadow-xl shadow-sky-100/20 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-48 h-48 bg-sky-100 rounded-full blur-3xl"></div>
-        
-        <div class="space-y-2">
-            <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
-            <h3 class="text-2xl font-black text-slate-800">Интерактивный Инвестиционный Калькулятор</h3>
-            <p class="text-slate-500 text-sm max-w-2xl">
-                Задайте параметры инвестиций и рассчитайте потенциальную доходность. Выберите формат: процентный заём или долгосрочное вхождение в капитал компании.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Calculator Inputs -->
-            <div class="lg:col-span-6 space-y-6">
-                <!-- Slider -->
-                <div class="space-y-3">
-                    <div class="flex justify-between text-sm font-semibold text-slate-700">
-                        <span>Сумма Ваших инвестиций:</span>
-                        <span class="text-sky-600 font-extrabold text-lg" id="calc-sum-display">5 000 000 ₽</span>
-                    </div>
-                    <input oninput="updateCalculator()" type="range" id="calc-sum" min="1000000" max="15000000" step="500000" value="5000000" class="w-full h-2 bg-sky-100 rounded-lg appearance-none cursor-pointer accent-sky-500">
-                    <div class="flex justify-between text-[11px\] text-slate-400">
-                        <span>1 000 000 ₽</span>
-                        <span>5 000 000 ₽</span>
-                        <span>10 000 000 ₽</span>
-                        <span>15 000 000 ₽</span>
-                    </div>
-                </div>
-
-                <!-- Option Types -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div onclick="selectCalcType('loan')" id="calc-type-loan" class="cursor-pointer bg-white p-4 rounded-3xl border border-sky-300 space-y-2 hover:border-sky-400 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-sky-600 uppercase">Сценарий 1</span>
-                            <div class="w-4 h-4 rounded-full border-4 border-sky-400 bg-white" id="calc-radio-loan"></div>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm">Конвертируемый Заём</h4>
-                        <p class="text-slate-500 text-[11px\] leading-relaxed">Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33%.</p>
-                    </div>
-
-                    <div onclick="selectCalcType('equity')" id="calc-type-equity" class="cursor-pointer bg-sky-50/20 p-4 rounded-3xl border border-sky-100 space-y-2 hover:border-sky-300 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-blue-500 uppercase">Сценарий 2</span>
-                            <div class="w-4 h-4 rounded-full border border-sky-200 bg-white" id="calc-radio-equity"></div>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm">Вхождение в Долю</h4>
-                        <p class="text-slate-500 text-[11px\] leading-relaxed">Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calculator Outputs -->
-            <div class="lg:col-span-6 bg-sky-50/50 p-6 rounded-3xl border border-sky-100 space-y-6">
-                <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block">Ваш пассивный доход:</span>
-                        <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
-                    </div>
-                    <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
-                        <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3 pt-3 border-t border-sky-100">
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Срок окупаемости (тело):</span>
-                        <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
-                        <span class="text-sky-600 font-bold" id="calc-time-profit">с 13 по 15 мес.</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Гарантийное обеспечение:</span>
-                        <span class="text-sky-600 font-bold">Оборотные средства / Товар</span>
-                    </div>
-                </div>
-
-                <div class="p-3 bg-transparent rounded-lg text-[11px\] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
-                    🛡️ <strong class="text-slate-800">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
-                </div>
-            </div>
-
-        </div>
-    </div>
 </section>
 
 
