@@ -1337,7 +1337,7 @@ h1, h2, h3 {
                             <td class="p-2 md:p-3 text-[11px] md:text-xs">Прохождение аудитов ХАССП, внедрение нововведений и устранение замечаний.</td>
                         </tr>
                         
-                        <!-- РАЗДЕЛ МАРКЕТИНГ (Убран дубль затрат) -->
+                        <!-- РАЗДЕЛ МАРКЕТИНГ -->
                         <tr class="bg-sky-50/40">
                             <td colspan="4" class="p-2 md:p-3 border-t border-sky-100">
                                 <h4 class="text-sm md:text-base font-semibold text-slate-700 mt-2">МАРКЕТИНГ И РЕГИСТРАЦИЯ ЗНАКОВ</h4>
@@ -1457,7 +1457,7 @@ h1, h2, h3 {
 
     </div>
 
-    <!-- РАСТЯНУТЫЙ БЛОК: ПАРАМЕТРЫ РАСЧЕТА ФНС -->
+    <!-- РАСТЯНУТЫЙ БЛОК: ПАРАМЕТРЫ РАСЧЕТА ФНС (КОНВЕРТАЦИЯ) -->
     <div class="w-full bg-transparent border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6">
         <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
             <span class="w-1.5 h-5 bg-[#0091ea] rounded-full inline-block"></span>
@@ -1588,7 +1588,7 @@ h1, h2, h3 {
         </div>
     </div>
 
-    <!-- РАСТЯНУТЫЙ БЛОК: МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ ДЛЯ ФНС -->
+    <!-- РАСТЯНУТЫЙ БЛОК: МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ РАСЧЕТОВ ФНС -->
     <div class="w-full bg-transparent border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
         <h3 class="text-sm md:text-base font-extrabold text-slate-900 mb-6 flex items-center gap-2">
             <svg class="h-5 w-5 text-[#0091ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -1665,253 +1665,6 @@ h1, h2, h3 {
         </div>
     </div>
 
-    <script>
-        // Базовое состояние
-        let state = {
-            investmentAmount: 30000000,
-            scenario: 'loan',
-            revenueInput: 100,
-            multiplier: 4.0,
-            discount: 50,
-            initialCapital: 10000,
-            selectedMonthId: 'M12'
-        };
-
-        // Данные месяцев
-        const monthsData = {
-            M1: { label: 'M1', desc: '1-й Месяц развития (июнь 2025)', val: 5.0 },
-            M2: { label: 'M2', desc: '2-й Месяц развития (июль 2025)', val: 8.5 },
-            M3: { label: 'M3', desc: '3-й Месяц развития (август 2025)', val: 12.0 },
-            M4: { label: 'M4', desc: '4-й Месяц развития (сентябрь 2025)', val: 18.0 },
-            M5: { label: 'M5', desc: '5-й Месяц развития (октябрь 2025)', val: 24.5 },
-            M6: { label: 'M6', desc: '6-й Месяц развития (ноябрь 2025)', val: 32.0 },
-            M7: { label: 'M7', desc: '7-й Месяц развития (декабрь 2025)', val: 40.0 },
-            M8: { label: 'M8', desc: '8-й Месяц развития (январь 2026)', val: 48.0 },
-            M9: { label: 'M9', desc: '9-й Месяц развития (февраль 2026)', val: 58.0 },
-            M10: { label: 'M10', desc: '10-й Месяц развития (март 2026)', val: 68.0 },
-            M11: { label: 'M11', desc: '11-й Месяц развития (апрель 2026)', val: 76.0 },
-            M12: { label: 'M12', desc: '12-й Месяц развития (май-июнь 2026)', val: 85.0 }
-        };
-
-        // Наибольший Общий Делитель
-        function gcd(a, b) {
-            a = Math.abs(Math.round(a));
-            b = Math.abs(Math.round(b));
-            while (b) {
-                const t = b;
-                b = a % b;
-                a = t;
-            }
-            return a;
-        }
-
-        // Красивое форматирование валюты
-        function formatCurrency(val, digits = 0) {
-            return new Intl.NumberFormat('ru-RU', {
-                style: 'decimal',
-                minimumFractionDigits: digits,
-                maximumFractionDigits: digits,
-            }).format(val);
-        }
-
-        // Инициализация обработчиков ввода
-        document.getElementById('investmentSlider').addEventListener('input', (e) => {
-            state.investmentAmount = parseInt(e.target.value) || 0;
-            updateUI();
-        });
-
-        document.getElementById('revenueSlider').addEventListener('input', (e) => {
-            state.revenueInput = parseFloat(e.target.value) || 0;
-            document.getElementById('revenueNumber').value = state.revenueInput;
-            updateUI();
-        });
-
-        document.getElementById('revenueNumber').addEventListener('input', (e) => {
-            state.revenueInput = parseFloat(e.target.value) || 0;
-            document.getElementById('revenueSlider').value = state.revenueInput;
-            updateUI();
-        });
-
-        document.getElementById('multiplierSlider').addEventListener('input', (e) => {
-            state.multiplier = parseFloat(e.target.value) || 0;
-            document.getElementById('multiplierNumber').value = state.multiplier;
-            updateUI();
-        });
-
-        document.getElementById('multiplierNumber').addEventListener('input', (e) => {
-            state.multiplier = parseFloat(e.target.value) || 0;
-            document.getElementById('multiplierSlider').value = state.multiplier;
-            updateUI();
-        });
-
-        document.getElementById('discountSlider').addEventListener('input', (e) => {
-            state.discount = parseFloat(e.target.value) || 0;
-            document.getElementById('discountNumber').value = state.discount;
-            updateUI();
-        });
-
-        document.getElementById('discountNumber').addEventListener('input', (e) => {
-            state.discount = parseFloat(e.target.value) || 0;
-            document.getElementById('discountSlider').value = state.discount;
-            updateUI();
-        });
-
-        document.getElementById('capitalNumber').addEventListener('input', (e) => {
-            state.initialCapital = parseInt(e.target.value) || 0;
-            updateUI();
-        });
-
-        // Установка пресетов суммы
-        function setInvestment(val) {
-            state.investmentAmount = val;
-            document.getElementById('investmentSlider').value = val;
-            
-            // Обновление стилей кнопок пресетов
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                btn.className = "preset-btn text-[10px] md:text-xs px-3 py-2 rounded-xl font-bold transition-all border bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50";
-            });
-            
-            // Найти нажатую кнопку и подсветить
-            event.currentTarget.className = "preset-btn text-[10px] md:text-xs px-3 py-2 rounded-xl font-bold transition-all border bg-[#0091ea] text-white border-[#0091ea] shadow-md shadow-sky-400/20";
-            
-            updateUI();
-        }
-
-        // Переключение сценария
-        function setScenario(scen) {
-            state.scenario = scen;
-            
-            const loanCard = document.getElementById('scenario-loan');
-            const equityCard = document.getElementById('scenario-equity');
-            const loanRadio = document.getElementById('radio-loan');
-            const equityRadio = document.getElementById('radio-equity');
-
-            if (scen === 'loan') {
-                loanCard.className = "cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white border-[#0091ea] shadow-xl shadow-sky-900/10 ring-2 ring-[#0091ea]/30";
-                equityCard.className = "cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100";
-                loanRadio.innerHTML = `<div class="w-2.5 h-2.5 rounded-full bg-[#0091ea]"></div>`;
-                equityRadio.innerHTML = ``;
-            } else {
-                loanCard.className = "cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100";
-                equityCard.className = "cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white border-indigo-600 shadow-xl shadow-indigo-900/10 ring-2 ring-indigo-600/30";
-                loanRadio.innerHTML = ``;
-                equityRadio.innerHTML = `<div class="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>`;
-            }
-
-            updateUI();
-        }
-
-        // Выбор месяца на графике
-        function selectMonth(id) {
-            state.selectedMonthId = id;
-            
-            // Сбросить активные стили на графике
-            document.querySelectorAll('.chart-col').forEach(col => {
-                const bar = col.querySelector('.bar-fill');
-                const label = col.querySelector('.bar-label');
-                bar.className = "bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200";
-                label.className = "bar-label text-[9px] mt-1.5 font-bold text-slate-400";
-            });
-
-            // Подсветить выбранный столбик
-            const activeCol = event.currentTarget;
-            const activeBar = activeCol.querySelector('.bar-fill');
-            const activeLabel = activeCol.querySelector('.bar-label');
-            
-            activeBar.className = "bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#0091ea] shadow-lg shadow-sky-300";
-            activeLabel.className = "bar-label text-[9px] mt-1.5 font-black text-[#0091ea] scale-110";
-
-            updateUI();
-        }
-
-        // Пересчет всей логики и обновление экрана
-        function updateUI() {
-            // 1. Сумма и средняя отметка
-            document.getElementById('investmentValueLabel').innerText = `${formatCurrency(state.investmentAmount)} ₽`;
-            
-            // 2. Симуляция доходности
-            let rate = state.scenario === 'loan' ? 33.0 : 45.0;
-            let rateText = state.scenario === 'loan' ? "33.0% годовых" : "До 45% прогнозируемо";
-            let passiveIncome = Math.round(state.investmentAmount * (rate / 100));
-
-            document.getElementById('passiveIncomeLabel').innerText = `${formatCurrency(passiveIncome)} ₽`;
-            document.getElementById('guaranteedRateLabel').innerText = rateText;
-            document.getElementById('payoutPeriodLabel').innerText = state.scenario === 'loan' ? "с 13 по 15 мес." : "Ежеквартально";
-
-            // 3. Выбор месяца под графиком
-            const activeMonth = monthsData[state.selectedMonthId];
-            document.getElementById('selectedMonthName').innerText = activeMonth.desc;
-            document.getElementById('selectedMonthValue').innerText = `${formatCurrency(activeMonth.val * 1000000)} ₽`;
-
-            // 4. Тексты параметров калькулятора
-            document.getElementById('revenueLabel').innerText = `${state.revenueInput} млн ₽`;
-            document.getElementById('multiplierLabel').innerText = `x ${state.multiplier}`;
-            document.getElementById('discountLabel').innerText = `${state.discount}%`;
-
-            // 5. Точные Математические расчеты конвертации долей
-            const loanAmountMillion = state.investmentAmount / 1000000;
-            const discountFactor = 1 - state.discount / 100;
-            const denominatorValue = state.revenueInput * state.multiplier * discountFactor;
-            
-            const investorShareDecimal = denominatorValue > 0 ? loanAmountMillion / denominatorValue : 0;
-            const isOverLimit = investorShareDecimal >= 1;
-
-            // Алерт о превышении
-            if (isOverLimit) {
-                document.getElementById('overLimitAlert').classList.remove('hidden');
-            } else {
-                document.getElementById('overLimitAlert').classList.add('hidden');
-            }
-
-            // Сокращение простой дроби
-            const rawNumerator = Math.round(loanAmountMillion * 100);
-            const rawDenominator = Math.round(state.revenueInput * state.multiplier * discountFactor * 100);
-            
-            let shareNum = 0;
-            let shareDen = 0;
-            if (rawDenominator > 0) {
-                const commonDivisor = gcd(rawNumerator, rawDenominator);
-                shareNum = rawNumerator / commonDivisor;
-                shareDen = rawDenominator / commonDivisor;
-            }
-
-            // Расчет номинальной стоимости доли
-            const nominalDen = shareDen - shareNum;
-            let nominalValue = 0;
-            if (nominalDen > 0) {
-                nominalValue = (state.initialCapital * shareNum) / nominalDen;
-            }
-
-            // Расчет увеличенного уставного капитала
-            let totalCapitalValue = 0;
-            if (nominalDen > 0) {
-                totalCapitalValue = (state.initialCapital * shareDen) / nominalDen;
-            }
-
-            const nominalKopeck = Math.round(nominalValue * 100);
-            const totalCapitalKopeck = Math.round(totalCapitalValue * 100);
-
-            // Обновление математического протокола внизу страницы
-            document.getElementById('step1Formula').innerText = `d = ${loanAmountMillion.toFixed(2)} млн ₽ / [${state.revenueInput} млн ₽ × ${state.multiplier} × (1 - ${state.discount}%)]`;
-            document.getElementById('calcDenominatorText').innerText = `${denominatorValue.toFixed(2)} млн ₽`;
-            document.getElementById('calcFractionText').innerText = `${shareNum} / ${shareDen}`;
-            document.getElementById('calcPercentText').innerText = `${(investorShareDecimal * 100).toFixed(4)}%`;
-
-            document.getElementById('calcCapitalPlaceholder').innerText = state.initialCapital.toLocaleString('ru-RU');
-            document.getElementById('calcNominalFractionText').innerText = `${shareNum} / (${shareDen} - ${shareNum})`;
-            document.getElementById('calcNominalResultText').innerText = `${formatCurrency(nominalValue, 2)} руб.`;
-
-            document.getElementById('fnsNominalKopeckes').innerText = nominalKopeck.toLocaleString('ru-RU');
-            document.getElementById('fnsTotalKopeckes').innerText = totalCapitalKopeck.toLocaleString('ru-RU');
-            document.getElementById('fnsFinalFraction').innerText = `${nominalKopeck} / ${totalCapitalKopeck}`;
-            
-            const checkPercent = totalCapitalKopeck > 0 ? (nominalKopeck / totalCapitalKopeck * 100) : 0;
-            document.getElementById('fnsCheckPercent').innerText = `(Результат деления: ${checkPercent.toFixed(6)}%)`;
-        }
-
-        // Запустить расчет при первой загрузке
-        updateUI();
-    </script>
 </section>
 
               <!-- ==================== TAB: HISTORY/STORY ==================== -->
