@@ -1057,7 +1057,7 @@ h1, h2, h3 {
                     </div>
                 </div>
 
-                <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
+               <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
 <div class="lg:col-span-7 bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between">
   <div>
     <div class="flex justify-between items-center mb-4">
@@ -1065,7 +1065,7 @@ h1, h2, h3 {
       <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
     </div>
 
-    <!-- НАЧАЛО АДАПТИВНОГО КОНТЕЙНЕРА -->
+    <!-- АДАПТИВНЫЙ КОНТЕЙНЕР ДЛЯ МОБИЛОК (Появится аккуратный скролл пальцем) -->
     <div class="w-full overflow-x-auto pb-4">
       <div class="h-64 min-w-[650px] flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative">
         <!-- Helper guide lines -->
@@ -1159,29 +1159,28 @@ h1, h2, h3 {
         </div>
       </div>
     </div>
-    <!-- КОНЕЦ АДАПТИВНОГО КОНТЕЙНЕРА -->
+    <!-- КОНЕЦ АДАПТИВНОГО КОНТЕЙНЕРА ГРАФИКА -->
   </div>
+</div> <!-- ЗАКРЫВАЕМ КАРТОЧКУ ГРАФИКА ДО СЛЕДУЮЩИХ БЛОКОВ -->
 
-  <!-- Selected Month Stats -->
-  <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
-    <div>
-      <span class="text-xs text-slate-400 block">Выбранный период:</span>
-      <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
-    </div>
-    <div class="text-right">
-      <span class="text-xs text-slate-400 block">Плановая выручка:</span>
-      <span id="selected-month-val" class="text-xl font-black text-sky-600">85 000 000 ₽</span>
-    </div>
+<!-- Selected Month Stats (Синий блок теперь идет отдельно, как и должен) -->
+<div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex items-center justify-between">
+  <div>
+    <span class="text-xs text-slate-400 block">Выбранный период:</span>
+    <span id="selected-month-label" class="text-md font-bold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
   </div>
+  <div class="text-right">
+    <span class="text-xs text-slate-400 block">Плановая выручка:</span>
+    <span id="selected-month-val" class="text-xl font-black text-sky-600">85 000 000 ₽</span>
+  </div>
+</div>
 
+<!-- СТРОКА 1215: Главный контейнер, который выстраивает блоки друг под другом по центру -->
+<div class="flex flex-col gap-12 w-full items-center mt-12">
 
-            <!-- СТРОКА 1215: Главный контейнер, который выстраивает блоки друг под другом по центру -->
-<div class="flex flex-col gap-12 w-full items-center">
-
-    <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Центрирует их и делает красивый зазор) -->
-    <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch">
-        
-        <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
+  <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Они встанут в ряд на ПК и друг под друга на мобилках) -->
+  <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch">
+         <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
         <div class="max-w-sm w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
             <div class="space-y-4">
                 <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
