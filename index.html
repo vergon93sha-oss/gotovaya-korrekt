@@ -1156,15 +1156,17 @@ h1, h2, h3 {
     </div>
 </div>
 
-<!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК -->
-<!-- СТРОКА 1215: Главный контейнер, который выстраивает блоки друг под другом по центру -->
-<div class="flex flex-col gap-12 w-full items-center">
 
-    <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Центрирует их и делает красивый зазор) -- >
-    <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch">
+<!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК -->
+<!-- Добавили w-full block clear-both, чтобы контейнер гарантированно встал ниже верхних блоков на всю ширину -->
+<div class="w-full block clear-both mt-12">
+  
+    <!-- Контейнер для карточек: на мобилках колонкой, от md (планшеты/десктоп) — строкой -->
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-6xl mx-auto justify-center items-stretch px-4">
         
         <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
-        <div class="max-w-sm w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+        <!-- Убрали жесткий max-w-sm, заменили на flex-1 md:max-w-md, чтобы они не сжимались в кашу -->
+        <div class="flex-1 md:max-w-md w-full bg-white/80 p-5 rounded-3xl border border-slate-200/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
             <div class="space-y-4">
                 <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
                     <span class="text-xs text-slate-400 block">Размер 1-го транша:</span>
@@ -1204,9 +1206,9 @@ h1, h2, h3 {
                 </div>
             </div>
         </div>
-
+  
         <!-- КАРТОЧКА 2-ГО ТРАНША (ПРАВАЯ) -->
-        <div class="max-w-sm w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+        <div class="flex-1 md:max-w-md w-full bg-white/80 p-5 rounded-3xl border border-slate-200/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
             <div class="space-y-4">
                 <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
                     <span class="text-xs text-slate-400 block">Размер 2-го транша (с 01.10.2025):</span>
@@ -1232,9 +1234,10 @@ h1, h2, h3 {
                 </div>
             </div>
         </div>
-
+  
     </div>
-    <!-- КОНЕЦ ОБЩЕГО БЛОКА КАРТОЧЕК -->
+</div>
+<!-- КОНЕЦ ОБЩЕГО БЛОКА КАРТОЧЕК -->
 
     <!-- ВСТАВЬТЕ СЮДА ВАШ БЛОК ИЗ СТРОКИ 1232 (INVESTMENT / BUDGET DYNAMIC TABS) И НЕ ЗАБУДЬТЕ ЗАКРЫТЬ В САМОМ КОНЦЕ ТЕГ </div> -->
 
