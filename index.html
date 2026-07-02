@@ -607,13 +607,14 @@ h1, h2, h3 {
     </div>
 </div>
 
+                 <!--ВИДЕО ЭТИКЕТКИ--> 
 <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
-        <video id="upakovka.mp4" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
-            <source src="upakovka.mp4" type="upakovka.mp4">
+        <video id="upakovka-mp4" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="gruz.jpeg">
+            <source src="upakovka.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-            <button onclick="toggleVideoPlay('upakovka.mp4')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+            <button onclick="toggleVideoPlay('upakovka-mp4')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
         </div>
@@ -2613,101 +2614,127 @@ h1, h2, h3 {
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT STATE MANAGEMENT -->
-    <script>
-        // Tab switching logic
-        function switchTab(tabName) {
-            // Stop all playing videos when switching tabs
-            document.querySelectorAll('video').forEach(video => {
-                video.pause();
-            });
+<script>
+    // Tab switching logic
+    function switchTab(tabName) {
+        // Stop all playing videos when switching tabs
+        document.querySelectorAll('video').forEach(video => {
+            video.pause();
+        });
 
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-                content.classList.remove('block');
-            });
-            
-            // Show selected tab content
-            const activeTab = document.getElementById(`tab-${tabName}`);
-            if (activeTab) {
-                activeTab.classList.remove('hidden');
-                activeTab.classList.add('block');
-            }
-
-            // Update desktop tab buttons active class
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
-                btn.classList.add('text-slate-600', 'hover:text-sky-600');
-            });
-            const activeDesktopBtn = document.getElementById(`btn-${tabName}`);
-            if (activeDesktopBtn) {
-                activeDesktopBtn.classList.remove('text-slate-600', 'hover:text-sky-600');
-                activeDesktopBtn.classList.add('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
-            }
-
-            // Update mobile tab buttons active class
-            document.querySelectorAll('.mob-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-sky-400', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-700');
-            });
-            const activeMobileBtn = document.getElementById(`mob-btn-${tabName}`);
-            if (activeMobileBtn) {
-                activeMobileBtn.classList.remove('bg-slate-100', 'text-slate-700');
-                activeMobileBtn.classList.add('bg-sky-400', 'text-white');
-            }
-
-            // Smooth scroll to top
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.add('hidden');
+            content.classList.remove('block');
+        });
+        
+        // Show selected tab content
+        const activeTab = document.getElementById(`tab-${tabName}`);
+        if (activeTab) {
+            activeTab.classList.remove('hidden');
+            activeTab.classList.add('block');
         }
 
-        // Play/Pause preview videos inside cards
-        function toggleVideoPlay(videoId) {
-            const player = document.getElementById(videoId);
-            if (player.paused) {
-                // Pause other videos first
-                document.querySelectorAll('video').forEach(v => {
-                    if (v.id !== videoId) v.pause();
-                });
-                player.play();
-            } else {
-                player.pause();
-            }
+        // Update desktop tab buttons active class
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
+            btn.classList.add('text-slate-600', 'hover:text-sky-600');
+        });
+        const activeDesktopBtn = document.getElementById(`btn-${tabName}`);
+        if (activeDesktopBtn) {
+            activeDesktopBtn.classList.remove('text-slate-600', 'hover:text-sky-600');
+            activeDesktopBtn.classList.add('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
         }
 
-        // Open video in full screen modal
-        function openVideoModal(videoSrc, title) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            const titleEl = document.getElementById('videoModalTitle');
+        // Update mobile tab buttons active class
+        document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+            btn.classList.remove('bg-sky-400', 'text-white');
+            btn.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        const activeMobileBtn = document.getElementById(`mob-btn-${tabName}`);
+        if (activeMobileBtn) {
+            activeMobileBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            activeMobileBtn.classList.add('bg-sky-400', 'text-white');
+        }
 
-            // Set content and source
-            titleEl.textContent = title;
-            player.src = videoSrc;
-            
-            // Show modal and auto-play
-            modal.classList.remove('hidden');
-            player.load();
+        // Smooth scroll to top
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Play/Pause preview videos inside cards
+    function toggleVideoPlay(videoId) {
+        const player = document.getElementById(videoId);
+        if (player.paused) {
+            // Pause other videos first
+            document.querySelectorAll('video').forEach(v => {
+                if (v.id !== videoId) v.pause();
+            });
             player.play();
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            
-            modal.classList.add('hidden');
+        } else {
             player.pause();
-            player.src = "";
         }
-        // Функция для открытия картинки
-function openImageModal(imgSrc, title) {
-    const modal = document.getElementById('imageModal');
-    const imgEl = document.getElementById('modalImageDisplay');
-    const titleEl = document.getElementById('imageModalTitle');
+    }
 
-    titleEl.textContent = title;
-    imgEl.src = imgSrc;
-    modal.classList.remove('hidden');
-}
+    // Open video in full screen modal
+    function openVideoModal(videoSrc, title) {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalVideoPlayer');
+        const titleEl = document.getElementById('videoModalTitle');
+
+        // Ставим на паузу все видео на карточках, чтобы звук не накладывался
+        document.querySelectorAll('video').forEach(v => v.pause());
+
+        // Set content and source
+        titleEl.textContent = title;
+        player.src = videoSrc;
+        
+        // Show modal and auto-play
+        modal.classList.remove('hidden');
+        player.load();
+        player.play();
+    }
+
+    // Close video modal
+    function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalVideoPlayer');
+        
+        modal.classList.add('hidden');
+        player.pause();
+        player.src = "";
+    }
+
+    // Функция для открытия картинки
+    function openImageModal(imgSrc, title) {
+        const modal = document.getElementById('imageModal');
+        const imgEl = document.getElementById('modalImageDisplay');
+        const titleEl = document.getElementById('imageModalTitle');
+
+        titleEl.textContent = title;
+        imgEl.src = imgSrc;
+        modal.classList.remove('hidden');
+    }
+
+    // ==========================================
+    // СЛУШАТЕЛИ СОБЫТИЙ ДЛЯ УДОБСТВА (UX)
+    // ==========================================
+
+    // 1. Закрытие видео-модалки по клику на темный фон (оверлей)
+    document.getElementById('videoModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeVideoModal();
+        }
+    });
+
+    // 2. Закрытие видео-модалки по нажатию на клавишу Escape
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modal = document.getElementById('videoModal');
+            if (modal && !modal.classList.contains('hidden')) {
+                closeVideoModal();
+            }
+        }
+    });
 
 // Функция для закрытия картинки
 function closeImageModal() {
