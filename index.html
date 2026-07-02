@@ -540,27 +540,38 @@ h1, h2, h3 {
                 <!-- Video Box 1 -->
                <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
-        <video id="video-1" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
-            <source src="видео/v1.mp4" type="video/mp4">
+        <!-- 
+            video id="video-pogruzka" — уникальный ID для управления
+            poster="mashina.png" — ЭТО ОБЛОЖКА (показывается до воспроизведения)
+            src="pogruzka.mp4" — ЭТО САМО ВИДЕО
+        -->
+        <video id="video-pogruzka" class="w-full h-full object-cover" loop muted playsinline poster="mashina.png">
+            <source src="pogruzka.mp4" type="video/mp4">
         </video>
+        
+        <!-- КНОПКА ВОСПРОИЗВЕДЕНИЯ (поверх обложки) -->
         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-300">
-            <button onclick="toggleVideoPlay('video-1')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+            <button onclick="openFullscreen('video-pogruzka')" class="bg-white/90 hover:bg-sky-400 text-slate-600 hover:text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
         </div>
+        
+        <!-- ХРОНОМЕТРАЖ -->
         <span class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">0:10</span>
     </div>
+    
+    <!-- ТЕКСТОВЫЙ БЛОК -->
     <div class="p-5 space-y-2">
         <span class="text-xs font-bold text-sky-600 uppercase">ЛОГИСТИКА И КРОСС-ДОКИНГ</span>
         <h4 class="font-extrabold text-slate-800 text-md">Погрузка товара и отгрузка в регионы</h4>
         <p class="text-slate-500 text-xs leading-relaxed">Эффективная система распределенной логистики с использованием технологии кросс-докинга для быстрой межрегиональной доставки. Прямая перевалка партий через терминалы исключает затраты на промежуточное хранение и минимизирует риски нарушения температурного режима. Налаженные логистические цепочки позволяют осуществлять бесперебойные поставки охлажденной и замороженной продукции, гарантируя партнерам в регионах максимальный остаточный срок годности товара.</p>
-        <button onclick="openVideoModal('видео/v1.mp4', 'Филе Грудки и Бедра Индейки')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
+        <button onclick="openFullscreen('video-pogruzka')" class="text-xs text-sky-500 hover:text-sky-600 font-bold flex items-center pt-2">
             <span>Развернуть на весь экран</span>
             <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
         </button>
     </div>
 </div>
-
+                
 <div class="bg-transparent rounded-3xl overflow-hidden border border-sky-100 shadow-xl shadow-sky-500/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
     <div class="relative bg-slate-900 aspect-video group overflow-hidden">
         <video id="video-3" class="w-full h-full object-cover opacity-80" loop muted playsinline poster="">
@@ -2612,92 +2623,132 @@ h1, h2, h3 {
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT STATE MANAGEMENT -->
-    <script>
-        // Tab switching logic
-        function switchTab(tabName) {
-            // Stop all playing videos when switching tabs
-            document.querySelectorAll('video').forEach(video => {
-                video.pause();
-            });
+   <!-- INTERACTIVE JAVASCRIPT STATE MANAGEMENT -->
+<script>
+    // Tab switching logic
+    function switchTab(tabName) {
+        // Stop all playing videos when switching tabs
+        document.querySelectorAll('video').forEach(video => {
+            video.pause();
+        });
 
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-                content.classList.remove('block');
-            });
-            
-            // Show selected tab content
-            const activeTab = document.getElementById(`tab-${tabName}`);
-            if (activeTab) {
-                activeTab.classList.remove('hidden');
-                activeTab.classList.add('block');
-            }
-
-            // Update desktop tab buttons active class
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
-                btn.classList.add('text-slate-600', 'hover:text-sky-600');
-            });
-            const activeDesktopBtn = document.getElementById(`btn-${tabName}`);
-            if (activeDesktopBtn) {
-                activeDesktopBtn.classList.remove('text-slate-600', 'hover:text-sky-600');
-                activeDesktopBtn.classList.add('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
-            }
-
-            // Update mobile tab buttons active class
-            document.querySelectorAll('.mob-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-sky-400', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-700');
-            });
-            const activeMobileBtn = document.getElementById(`mob-btn-${tabName}`);
-            if (activeMobileBtn) {
-                activeMobileBtn.classList.remove('bg-slate-100', 'text-slate-700');
-                activeMobileBtn.classList.add('bg-sky-400', 'text-white');
-            }
-
-            // Smooth scroll to top
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.add('hidden');
+            content.classList.remove('block');
+        });
+        
+        // Show selected tab content
+        const activeTab = document.getElementById(`tab-${tabName}`);
+        if (activeTab) {
+            activeTab.classList.remove('hidden');
+            activeTab.classList.add('block');
         }
 
-        // Play/Pause preview videos inside cards
-        function toggleVideoPlay(videoId) {
-            const player = document.getElementById(videoId);
-            if (player.paused) {
-                // Pause other videos first
-                document.querySelectorAll('video').forEach(v => {
-                    if (v.id !== videoId) v.pause();
-                });
-                player.play();
-            } else {
-                player.pause();
-            }
+        // Update desktop tab buttons active class
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
+            btn.classList.add('text-slate-600', 'hover:text-sky-600');
+        });
+        const activeDesktopBtn = document.getElementById(`btn-${tabName}`);
+        if (activeDesktopBtn) {
+            activeDesktopBtn.classList.remove('text-slate-600', 'hover:text-sky-600');
+            activeDesktopBtn.classList.add('bg-sky-400', 'text-white', 'shadow-xl shadow-sky-500/10');
         }
 
-        // Open video in full screen modal
-        function openVideoModal(videoSrc, title) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            const titleEl = document.getElementById('videoModalTitle');
+        // Update mobile tab buttons active class
+        document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+            btn.classList.remove('bg-sky-400', 'text-white');
+            btn.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        const activeMobileBtn = document.getElementById(`mob-btn-${tabName}`);
+        if (activeMobileBtn) {
+            activeMobileBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            activeMobileBtn.classList.add('bg-sky-400', 'text-white');
+        }
 
-            // Set content and source
-            titleEl.textContent = title;
-            player.src = videoSrc;
-            
-            // Show modal and auto-play
-            modal.classList.remove('hidden');
-            player.load();
+        // Smooth scroll to top
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Play/Pause preview videos inside cards
+    function toggleVideoPlay(videoId) {
+        const player = document.getElementById(videoId);
+        if (player.paused) {
+            // Pause other videos first
+            document.querySelectorAll('video').forEach(v => {
+                if (v.id !== videoId) v.pause();
+            });
             player.play();
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalVideoPlayer');
-            
-            modal.classList.add('hidden');
+        } else {
             player.pause();
-            player.src = "";
         }
+    }
+
+    // ===========================================
+    // НОВАЯ ФУНКЦИЯ ДЛЯ ПОЛНОЭКРАННОГО РЕЖИМА
+    // ===========================================
+    function openFullscreen(videoId) {
+        const video = document.getElementById(videoId);
+        if (!video) return;
+
+        // Включаем звук
+        video.muted = false;
+        
+        // Запускаем видео
+        video.play().then(() => {
+            // Открываем полноэкранный режим
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }).catch(err => {
+            console.warn('Автовоспроизведение заблокировано:', err);
+        });
+    }
+
+    // ===========================================
+    // СЛЕДИМ ЗА ВЫХОДОМ ИЗ ПОЛНОЭКРАННОГО РЕЖИМА
+    // ===========================================
+    document.addEventListener('fullscreenchange', function() {
+        if (!document.fullscreenElement) {
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+    });
+    document.addEventListener('webkitfullscreenchange', function() {
+        if (!document.webkitFullscreenElement) {
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+    });
+
+    // ===========================================
+    // СТАРЫЕ ФУНКЦИИ ДЛЯ МОДАЛЬНОГО ОКНА (ОСТАВЛЯЕМ)
+    // ===========================================
+    function openVideoModal(videoSrc, title) {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalVideoPlayer');
+        const titleEl = document.getElementById('videoModalTitle');
+
+        titleEl.textContent = title;
+        player.src = videoSrc;
+        
+        modal.classList.remove('hidden');
+        player.load();
+        player.play();
+    }
+
+    function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalVideoPlayer');
+        
+        modal.classList.add('hidden');
+        player.pause();
+        player.src = "";
+    }
+</script>
         // Функция для открытия картинки
 function openImageModal(imgSrc, title) {
     const modal = document.getElementById('imageModal');
