@@ -645,13 +645,13 @@ h1, h2, h3 {
         <!-- Окошко отображения картинок — теперь они занимают ВСЁ доступное пространство -->
         <div id="decl-slider" class="flex overflow-x-auto snap-x snap-mandatory w-full h-full" style="scrollbar-width: none; -ms-overflow-style: none;">
             <div id="pic1" class="min-w-full w-full h-full flex items-center justify-center snap-center shrink-0">
-                <img src="STR1.jpeg" alt="Декларация 1" class="w-full h-full object-contain rounded-xl">
+                <img src="https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek1.png" alt="Декларация 1" class="w-full h-full object-contain rounded-xl">
             </div>
             <div id="pic2" class="min-w-full w-full h-full flex items-center justify-center snap-center shrink-0">
-                <img src="STR2.jpeg" alt="Декларация 2" class="w-full h-full object-contain rounded-xl">
+                <img src="https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek2.png" alt="Декларация 2" class="w-full h-full object-contain rounded-xl">
             </div>
             <div id="pic3" class="min-w-full w-full h-full flex items-center justify-center snap-center shrink-0">
-                <img src="STR3.jpeg" alt="Декларация 3" class="w-full h-full object-contain rounded-xl">
+                <img src="https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek3.png" alt="Декларация 3" class="w-full h-full object-contain rounded-xl">
             </div>
         </div>
 
@@ -678,7 +678,7 @@ h1, h2, h3 {
     
     <!-- Кнопка со встроенной интерактивной галереей (вперед/назад) -->
     <button onclick="
-        const images = ['STR1.jpeg', 'STR2.jpeg', 'STR3.jpeg'];
+        const images = ['https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek1.png', 'https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek2.png', 'https://storage.yandexcloud.net/investiciirus/%D0%B4%D0%B5%D0%BA%D0%BB%D0%B0%D1%80%D0%B0%D1%86%D0%B8%D1%8F/dek3.png'];
         const slider = document.getElementById('decl-slider');
         let currentIdx = slider ? Math.round(slider.scrollLeft / slider.offsetWidth) : 0;
         if(currentIdx < 0 || currentIdx > 2) currentIdx = 0;
