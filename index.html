@@ -1024,241 +1024,138 @@ h1, h2, h3 {
 
 
        
-<!-- ==================== TAB: FINANCIALS & CALCULATOR ==================== -->
-<section id="tab-financials" class="tab-content scroll-mt-24 hidden space-y-12 animate-fade-in">
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- LEFT: Explanations & Projections -->
+<div class="lg:col-span-5 space-y-6">
 
-        <!-- LEFT: Explanations & Projections -->
-        <div class="lg:col-span-5 space-y-6">
+    <!-- Внутренний грид: собирает два верхних окошка в одну строку -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- Левое окошко: Описание -->
+        <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
                 <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Оцифрованные финансы</span>
                 <h2 class="text-3xl font-black text-slate-800">План финансового роста</h2>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                    Ниже представлена динамика выручки в течение первого года после освоения инвестиций. Средняя рентабельность проекта на всех этапах составляет <span class="text-sky-600 font-bold">не менее 35%</span> за счет диверсификации направлений.
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed">
+                Ниже представлена динамика выручки в течение первого года после освоения инвестиций. Средняя рентабельность проекта на всех этапах составляет <span class="text-sky-600 font-bold">не менее 35%</span> за счет диверсификации направлений.
+            </p>
+        </div>
+
+        <!-- Правое окошко: Показатели -->
+        <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4 flex flex-col justify-center">
+            <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
+            <div class="space-y-3">
+                <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Совокупный годовой оборот:</span>
+                    <span class="text-slate-800 font-extrabold text-md">> 454 000 000 ₽</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Рентабельность опта:</span>
+                    <span class="text-slate-800 font-semibold">5% - 105%</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Рентабельность производства:</span>
+                    <span class="text-slate-800 font-semibold">15% - 250%</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Средняя рентабельность:</span>
+                    <span class="text-sky-600 font-bold">от ~ 35%</span>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- /Конец внутреннего грида -->
+
+    <!-- Risk Control: Защитные сценарии (теперь лежат внутри общего контейнера ПОД окошками и тянутся во всю ширь) -->
+    <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/5 space-y-4">
+        <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider mb-2">Защитные сценарии</h4>
+        
+        <div class="space-y-3.5">
+            <!-- Сценарий 1 -->
+            <div class="flex items-start gap-2.5 text-xs text-slate-600">
+                <svg class="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p class="leading-relaxed m-0">
+                    <strong class="font-bold text-slate-800">Сценарий при падении спроса:</strong> 
+                    Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам «ниже рынка».
                 </p>
             </div>
 
-            <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-4">
-                <h4 class="font-bold text-slate-800 text-sm">Плановые финансовые показатели по году:</h4>
-                <div class="space-y-3">
-                    <div class="flex justify-between text-sm">
-                        <span class="text-slate-500">Совокупный годовой оборот:</span>
-                        <span class="text-slate-800 font-extrabold text-md">> 454 000 000 ₽</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span class="text-slate-500">Рентабельность опта:</span>
-                        <span class="text-slate-800 font-semibold">5% - 105%</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span class="text-slate-500">Рентабельность производства:</span>
-                        <span class="text-slate-800 font-semibold">15% - 250%</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span class="text-slate-500">Средняя рентабельность:</span>
-                        <span class="text-sky-600 font-bold">от ~ 35%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Risk Control -->
-            <div class="bg-transparent p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-3">
-                <h4 class="font-bold text-sky-600 text-xs uppercase tracking-wider">Защитные сценарии</h4>
-                <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
-                    <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий при падении спроса:</strong> Снижаем наценку на 5-10%, кратно наращиваем объем за счет опта по ценам "ниже рынка".</li>
-                    <li class="flex items-start"><span class="text-sky-500 mr-2">✔</span> <strong>Сценарий дефицита ликвидности:</strong> Снижаем оборот закупки и выпуск низкомаржинального продукта, делая жесткий фокус на маржинальные продукты и клиентов, работающих в предоплату.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
-        <div class="lg:col-span-7 bg-transparent p-4 sm:p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between overflow-hidden">
-            <div>
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
-                    <h3 class="font-bold text-base sm:text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
-                    <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
-                </div>
-                
-                <div class="w-full overflow-x-auto pb-2 -mx-2 px-2" style="-webkit-overflow-scrolling: touch;">
-                    <div class="h-64 flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative min-w-[540px\] sm:min-w-0">
-                        <!-- Helper guide lines -->
-                        <div class="absolute w-full border-t border-sky-100/40 top-[25%\] pointer-events-none"></div>
-                        <div class="absolute w-full border-t border-sky-100/40 top-[50%\] pointer-events-none"></div>
-                        <div class="absolute w-full border-t border-sky-100/40 top-[75%\] pointer-events-none"></div>
-                        
-                        <!-- Monthly bars -->
-                        <div onclick="selectMonth(1, 5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">5М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-4 transition-all duration-300 shadow-lg shadow-sky-400/0 group-hover:shadow-sky-400/10"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М1</span>
-                        </div>
-                        <div onclick="selectMonth(2, 6.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">6.5М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-6 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М2</span>
-                        </div>
-                        <div onclick="selectMonth(3, 12.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">12.5М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-12 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М3</span>
-                        </div>
-                        <div onclick="selectMonth(4, 15)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">15М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-14 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М4</span>
-                        </div>
-                        <div onclick="selectMonth(5, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М5</span>
-                        </div>
-                        <div onclick="selectMonth(6, 30)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">30М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-28 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М6</span>
-                        </div>
-                        <div onclick="selectMonth(7, 50)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">50М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-40 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М7</span>
-                        </div>
-                        <div onclick="selectMonth(8, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М8</span>
-                        </div>
-                        <div onclick="selectMonth(9, 60)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">60М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-48 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М9</span>
-                        </div>
-                        <div onclick="selectMonth(10, 65)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">65М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-52 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М10</span>
-                        </div>
-                        <div onclick="selectMonth(11, 75)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">75М</span>
-                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-56 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-slate-400 mt-2">М11</span>
-                        </div>
-                        <div onclick="selectMonth(12, 85)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
-                            <span class="text-[10px\] font-bold text-sky-500 mb-1 opacity-100 transition-opacity">85М</span>
-                            <div class="w-full bg-sky-400 rounded-t h-60 transition-all duration-300"></div>
-                            <span class="text-[9px\] text-sky-500 mt-2 font-bold">М12</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Selected Month Stats -->
-            <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-                <div>
-                    <span class="text-xs text-slate-400 block">Выбранный период:</span>
-                    <span id="selected-month-label" class="text-sm sm:text-md font-bold text-slate-800 block">12-й Месяц развития (май-июнь 2026)</span>
-                </div>
-                <div class="text-left sm:text-right">
-                    <span class="text-xs text-slate-400 block">Плановая выручка:</span>
-                    <span id="selected-month-val" class="text-lg sm:text-xl font-black text-sky-600 block">85 000 000 ₽</span>
-                </div>
+            <!-- Сценарий 2 -->
+            <div class="flex items-start gap-2.5 text-xs text-slate-600">
+                <svg class="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p class="leading-relaxed m-0">
+                    <strong class="font-bold text-slate-800">Сценарий дефицита ликвидности:</strong> 
+                    Снижаем оборот закупки и выпуск низкомаржинального продукта, делая жесткий фокус на маржинальные продукты и клиентов, работающих в предоплату.
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- ОБЩИЙ КОНТЕНЕР ДЛЯ ДВУХ КАРТОЧЕК (Добавлен mx-auto для центровки) -->
-    <div class="flex flex-col sm:flex-row gap-10 w-full max-w-4xl justify-center items-stretch mx-auto">
-        
-        <!-- КАРТОЧКА 1-ГО ТРАНША (ЛЕВАЯ) -->
-        <div class="max-w-sm w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
-            <div class="space-y-4">
-                <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
-                    <span class="text-xs text-slate-400 block">Размер 1-го транша:</span>
-                    <span class="text-2xl font-black text-slate-800 whitespace-nowrap">5 000 000 ₽</span>
-                    <p class="text-xs text-slate-500 mt-2">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
-                </div>
-                
-                <div class="space-y-3">
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">ФОТ команды на 12 мес.</span>
-                            <span class="whitespace-nowrap">10 686 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 85%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">Товарные знаки & СТМ</span>
-                            <span class="whitespace-nowrap">614 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-blue-400 h-full rounded-full" style="width: 5%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">Брендированная упаковка</span>
-                            <span class="whitespace-nowrap">224 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">Этикетки и расходники</span>
-                            <span class="whitespace-nowrap">199 500 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-500 h-full rounded-full" style="width: 2%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div> <!-- /Закрывает левую колонку lg:col-span-5 -->
 
-        <!-- КАРТОЧКА 2-ГО ТРАНША (ПРАВАЯ) -->
-        <div class="max-w-sm w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
-            <div class="space-y-4">
-                <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
-                    <span class="text-xs text-slate-400 block">Размер 2-го транша (с 01.10.2025):</span>
-                    <span class="text-2xl font-black text-slate-800 whitespace-nowrap">10 000 000 ₽</span>
-                    <p class="text-xs text-slate-500 mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
-                </div>
-                
-                <div class="space-y-3">
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">ФОТ 3-х Топ-менеджеров</span>
-                            <span class="whitespace-nowrap">8 400 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 84%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">Командировочный фонд</span>
-                            <span class="whitespace-nowrap">400 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
-                            <span class="truncate">Резервный фонд развития</span>
-                            <span class="whitespace-nowrap">1 200 000 ₽</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-emerald-400 h-full rounded-full" style="width: 12%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </div>
 
-    <!-- ТАБЛИЦЫ ОСВОЕНИЯ -->
     <div class="space-y-6 max-w-full overflow-hidden">
 
-        <div class="flex flex-col text-center gap-1.5 w-full px-4 items-center">
+        <div class="flex flex-col text-center gap-1.5 w-full px-4 items-center pt-12">
             <h2 class="text-2xl font-bold text-slate-800">Целевое освоение инвестиций</h2>
             <p class="text-sm text-slate-500">Посмотрите, как распределяется инвестиционный капитал</p>
             <div class="mt-2">
                 <span class="inline-block text-white text-[13px\] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
-                    БЮДЖЕТ ПЕРВОГО ЭТАПА
+                    БЮДЖЕТ ПЕРВОГО ТРАНША
                 </span>
             </div>
         </div>
+
+    <!-- КАРТОЧКА 1-ГО ТРАНША (ОТДЕЛЬНОЕ ОКНО) -->
+<div class="w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+    <div class="space-y-4">
+        <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
+            <span class="text-xs text-slate-400 block">Размер 1-го транша:</span>
+            <span class="text-2xl font-black text-slate-800 whitespace-nowrap">5 000 000 ₽</span>
+            <p class="text-xs text-slate-500 mt-2">Ориентирован на юридическое оформление СТМ, ФОТ запускных месяцев и авансовый оборот материалов.</p>
+        </div>
+        
+        <div class="space-y-3">
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">ФОТ команды на 12 мес.</span>
+                    <span class="whitespace-nowrap">10 686 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 85%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">Товарные знаки & СТМ</span>
+                    <span class="whitespace-nowrap">614 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-blue-400 h-full rounded-full" style="width: 5%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">Брендированная упаковка</span>
+                    <span class="whitespace-nowrap">224 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">Этикетки и расходники</span>
+                    <span class="whitespace-nowrap">199 500 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-500 h-full rounded-full" style="width: 2%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- ТАБЛИЦЫ ОСВОЕНИЯ -->
              
         <!-- ОКНО 1: ПЕРВЫЙ ЭТАП -->
         <div class="mx-4 bg-white p-3 md:p-6 rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -1402,13 +1299,50 @@ h1, h2, h3 {
                 * Остаток в размере 204 000 ₽ идет на годовой бюджет канцелярии, почтовых отправлений, мелкой техники и командировочных.
             </div>
         </div>
+
+        <!-- КАРТОЧКА 2-ГО ТРАНША (ОТДЕЛЬНОЕ ОКНО) -->
+<div class="w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+    <div class="space-y-4">
+        <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
+            <span class="text-xs text-slate-400 block">Размер 2-го транша (с 01.10.2025):</span>
+            <span class="text-2xl font-black text-slate-800 whitespace-nowrap">10 000 000 ₽</span>
+            <p class="text-xs text-slate-500 mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
+        </div>
+        
+        <div class="space-y-3">
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">ФОТ 3-х Топ-менеджеров</span>
+                    <span class="whitespace-nowrap">8 400 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 84%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">Командировочный фонд</span>
+                    <span class="whitespace-nowrap">400 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-slate-500 mb-1 gap-2">
+                    <span class="truncate">Резервный фонд развития</span>
+                    <span class="whitespace-nowrap">1 200 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-emerald-400 h-full rounded-full" style="width: 12%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
         
         <!-- ИСПРАВЛЕНА ПЛАШКА: ТЕПЕРЬ СУММА СОВПАДАЕТ С КАРТОЧКОЙ -->
-        <div class="mt-2 px-4 self-start mx-auto max-w-4xl w-full text-left">
-            <span class="inline-block text-white text-[13px\] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
-                2-й ТРАНШ (10 МЛН ₽)
-            </span>
-        </div>
+        <div class="w-full flex justify-center mt-2">
+                <span class="inline-block text-white text-[13px\] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
+                    БЮДЖЕТ ВТОРОГО ТРАНША
+                </span>
+            </div>
+      
         
         <!-- ОКНО 2: ВТОРОЙ ТРАНШ (ТОП-КАДРЫ) -->
         <div class="mx-4 bg-white p-3 md:p-6 rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -1525,7 +1459,7 @@ h1, h2, h3 {
   <div class="max-w-7xl mx-auto px-4 py-4 md:py-12 space-y-6 md:space-y-8">
     
     <!-- ШАПКА КАЛЬКУЛЯТОРА В НЕБЕСНОМ СТИЛЕ -->
-    <header class="bg-white/90 backdrop-blur-md border border-sky-100 rounded-3xl p-5 md:p-8 shadow-lg shadow-sky-950/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <header class="bg-transparent border border-sky-100 rounded-3xl p-5 md:p-8 shadow-lg shadow-sky-950/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
       <div class="space-y-1">
         <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-widest text-[#0091ea]">Симулятор доходности</span>
         <h1 class="text-xl md:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
@@ -1547,10 +1481,10 @@ h1, h2, h3 {
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
       
       <!-- ЛЕВАЯ ЧАСТЬ: ВХОДНЫЕ ДАННЫЕ И НАСТРОЙКИ -->
-      <main class="lg:col-span-7 space-y-6">
+      <main class="lg:col-span-12 space-y-6">
         
         <!-- КАРТОЧКА: СУММА ИНВЕСТИЦИЙ С ПОЛЗУНКОМ -->
-        <section class="bg-white border border-sky-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6">
+        <section class="bg-transparent border-sky-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6">
           <div class="flex justify-between items-center flex-wrap gap-2">
             <h3 class="text-[10px] md:text-xs font-extrabold text-slate-400 uppercase tracking-widest">
               Сумма Ваших инвестиций:
@@ -1591,53 +1525,10 @@ h1, h2, h3 {
           </div>
         </section>
 
-        <!-- КАРТОЧКА: ВЫБОР СЦЕНАРИЯ -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          
-          <!-- Сценарий 1 -->
-          <div 
-            id="scenario-loan"
-            onclick="setScenario('loan')"
-            class="cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white border-[#0091ea] shadow-xl shadow-sky-900/10 ring-2 ring-[#0091ea]/30"
-          >
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-[9px] font-black text-sky-500 uppercase tracking-widest">Сценарий 1</span>
-                <h4 class="font-extrabold text-slate-900 text-sm md:text-base mt-1">Конвертируемый Заем</h4>
-              </div>
-              <div id="radio-loan" class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-[#0091ea] bg-white">
-                <div class="w-2.5 h-2.5 rounded-full bg-[#0091ea]"></div>
-              </div>
-            </div>
-            <p class="text-slate-500 text-[11px] leading-relaxed mt-2">
-              Инвестиции в виде долгового обязательства под гарантированный годовой процент до 33% с точной формулой ФНС.
-            </p>
-          </div>
-
-          <!-- Сценарий 2 -->
-          <div 
-            id="scenario-equity"
-            onclick="setScenario('equity')"
-            class="cursor-pointer rounded-[2rem] p-5 md:p-6 border transition-all-custom relative flex flex-col justify-between h-44 bg-white/60 border-slate-100 hover:border-sky-300 opacity-80 hover:opacity-100"
-          >
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-[9px] font-black text-indigo-500 uppercase tracking-widest">Сценарий 2</span>
-                <h4 class="font-extrabold text-slate-900 text-sm md:text-base mt-1">Вхождение в Долю</h4>
-              </div>
-              <div id="radio-equity" class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-slate-300">
-                <div class="w-2.5 h-2.5 rounded-full bg-indigo-600 hidden"></div>
-              </div>
-            </div>
-            <p class="text-slate-500 text-[11px] leading-relaxed mt-2">
-              Конвертация суммы инвестиций в долю владения компанией "РУСЬ" при следующей оценке стоимости бизнеса.
-            </p>
-          </div>
-
-        </section>
+       
 
         <!-- ТОЧНЫЙ КАЛЬКУЛЯТОР КОНВЕРТАЦИИ ПО ВЫРУЧКЕ -->
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6">
+        <section class="bg-transparent border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6">
           <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
             <span class="w-1.5 h-5 bg-[#0091ea] rounded-full inline-block"></span>
             <div>
@@ -1769,187 +1660,9 @@ h1, h2, h3 {
 
       </main>
 
-      <!-- ПРАВАЯ ЧАСТЬ: РЕЗУЛЬТАТЫ СИМУЛЯЦИИ И ИНТЕРАКТИВНЫЙ ГРАФИК -->
-      <aside class="lg:col-span-5 space-y-6">
-        
-        <!-- КАРТОЧКА: ПРОГНОЗ ОКУПАЕМОСТИ ПО СИМУЛЯЦИИ (СКРИНШОТ 1) -->
-        <div class="bg-white border border-sky-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5 space-y-6 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-full blur-2xl -z-10"></div>
-          
-          <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-widest text-slate-400 block">
-            Прогноз окупаемости по симуляции:
-          </span>
-
-          <!-- Метрики верхнего уровня -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-            
-            <!-- Метрика 1 -->
-            <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
-              <span class="text-[10px] md:text-xs text-slate-500 block">Пассивный доход:</span>
-              <span id="passiveIncomeLabel" class="text-lg md:text-2xl font-black text-[#0091ea] block">
-                9 900 000 ₽
-              </span>
-            </div>
-
-            <!-- Метрика 2 -->
-            <div class="bg-[#f0f9ff] border border-sky-100/70 rounded-2xl p-4 md:p-5 space-y-1">
-              <span class="text-[10px] md:text-xs text-slate-500 block">Гарант. процент:</span>
-              <span id="guaranteedRateLabel" class="text-lg md:text-2xl font-black text-emerald-600 block">
-                33.0% годовых
-              </span>
-            </div>
-
-          </div>
-
-          <!-- Таблица параметров -->
-          <div class="space-y-3 border-t border-slate-100 pt-4 text-[11px] md:text-xs font-semibold text-slate-600">
-            <div class="flex justify-between">
-              <span>Срок окупаемости (тело):</span>
-              <span class="font-extrabold text-slate-900">12 Месяцев</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Период выплаты прибыли:</span>
-              <span id="payoutPeriodLabel" class="font-extrabold text-[#0091ea]">с 13 по 15 мес.</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Гарантийное обеспечение:</span>
-              <span class="font-extrabold text-indigo-600">Оборотные средства / Товар</span>
-            </div>
-          </div>
-
-          <!-- Риск-менеджмент блок -->
-          <div class="bg-orange-50/70 border border-orange-100 rounded-2xl p-3.5 flex gap-2.5">
-            <svg class="h-5 w-5 text-orange-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <div class="space-y-0.5">
-              <h5 class="text-[11px] font-extrabold text-orange-950">
-                Консервативный риск-менеджмент: Деньги
-              </h5>
-              <p class="text-[10px] text-orange-800 leading-relaxed font-medium">
-                застрахованы реальным ликвидным товарным запасом мяса в обороте компании "РУСЬ". Риски снижены практически до нуля.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА: ПРОГНОЗ ВЫРУЧКИ ПО МЕСЯЦАМ (СКРИНШОТ 2) -->
-        <div class="bg-white border border-sky-100 rounded-[2rem] p-5 shadow-xl shadow-sky-950/5 space-y-6">
-          <div class="flex justify-between items-center">
-            <h4 class="text-[11px] md:text-xs font-extrabold uppercase tracking-wider text-slate-900">
-              Прогноз выручки по месяцам (млн ₽)
-            </h4>
-            <span class="text-[9px] text-slate-400 font-bold">Кликните на бар для просмотра деталей</span>
-          </div>
-
-          <!-- График на CSS/HTML -->
-          <div class="h-28 flex items-end justify-between gap-0.5 md:gap-1 pt-2 relative">
-            
-            <div onclick="selectMonth('M1')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 5.8%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M1</span>
-            </div>
-
-            <div onclick="selectMonth('M2')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 10%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M2</span>
-            </div>
-
-            <div onclick="selectMonth('M3')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 14.1%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M3</span>
-            </div>
-
-            <div onclick="selectMonth('M4')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 21.1%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M4</span>
-            </div>
-
-            <div onclick="selectMonth('M5')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 28.8%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M5</span>
-            </div>
-
-            <div onclick="selectMonth('M6')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 37.6%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M6</span>
-            </div>
-
-            <div onclick="selectMonth('M7')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 47%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M7</span>
-            </div>
-
-            <div onclick="selectMonth('M8')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 56.4%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M8</span>
-            </div>
-
-            <div onclick="selectMonth('M9')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 68.2%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M9</span>
-            </div>
-
-            <div onclick="selectMonth('M10')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 80%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M10</span>
-            </div>
-
-            <div onclick="selectMonth('M11')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 89.4%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#e0f2fe] group-hover:bg-sky-200"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-bold text-slate-400">M11</span>
-            </div>
-
-            <div onclick="selectMonth('M12')" class="chart-col flex-1 flex flex-col items-center group cursor-pointer">
-              <div class="w-full relative h-20 flex items-end">
-                <div style="height: 100%" class="bar-fill w-full rounded-t-sm transition-all duration-300 bg-[#0091ea] shadow-lg shadow-sky-300"></div>
-              </div>
-              <span class="bar-label text-[9px] mt-1.5 font-black text-[#0091ea] scale-110">M12</span>
-            </div>
-
-          </div>
-
-          <!-- Блок выбранного периода -->
-          <div class="bg-[#f8fafc] border border-slate-100 rounded-2xl p-4 flex justify-between items-center text-[11px] md:text-xs">
-            <div>
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Выбранный период:</span>
-              <span id="selectedMonthName" class="font-extrabold text-slate-800">12-й Месяц развития (май-июнь 2026)</span>
-            </div>
-            <div class="text-right">
-              <span class="text-slate-400 block text-[9px] uppercase font-bold">Плановая выручка:</span>
-              <span id="selectedMonthValue" class="font-black text-[#0091ea] text-sm md:text-lg">85 000 000 ₽</span>
-            </div>
-          </div>
-
-        </div>
-
-      </aside>
-    </div>
 
     <!-- МАТЕМАТИЧЕСКИЙ ПРОТОКОЛ РАСЧЕТОВ ФНС -->
-    <section class="bg-white border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
+    <section class="lg:col-span-12 bg-transparent border border-slate-100 rounded-[2rem] p-5 md:p-8 shadow-xl shadow-sky-950/5">
       <h3 class="text-sm md:text-base font-extrabold text-slate-900 mb-6 flex items-center gap-2">
         <svg class="h-5 w-5 text-[#0091ea]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -2284,8 +1997,8 @@ h1, h2, h3 {
         <div class="absolute top-0 right-0 w-48 h-48 bg-sky-100 rounded-full blur-3xl"></div>
         
         <div class="space-y-2">
-            <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
-            <h3 class="text-2xl font-black text-slate-800">Интерактивный Инвестиционный Калькулятор</h3>
+            <span class="text-xs font-normal text-sky-600 uppercase tracking-widest block">Симулятор доходности</span>
+            <h2 class="text-2xl font-normal text-sky-600">Интерактивный Инвестиционный Калькулятор</h3>
             <p class="text-slate-500 text-sm max-w-2xl">
                 Задайте параметры инвестиций и рассчитайте потенциальную доходность. Выберите формат: процентный заём или долгосрочное вхождение в капитал компании.
             </p>
@@ -2337,7 +2050,7 @@ h1, h2, h3 {
                 <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
                 
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
+                    <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
                         <span class="text-[10px\] text-slate-400 block">Ваш пассивный доход:</span>
                         <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
                     </div>
@@ -2367,6 +2080,100 @@ h1, h2, h3 {
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
+        <div class="lg:col-span-7 bg-transparent p-4 sm:p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between overflow-hidden">
+            <div>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                    <h3 class="font-bold text-base sm:text-lg text-slate-800">Прогноз выручки по месяцам (млн ₽)</h3>
+                    <span class="text-xs text-slate-400">Кликните на бар для просмотра деталей</span>
+                </div>
+                
+                <div class="w-full overflow-x-auto pb-2 -mx-2 px-2" style="-webkit-overflow-scrolling: touch;">
+                    <div class="h-64 flex items-end justify-between space-x-2 pt-6 border-b border-sky-100 relative min-w-[540px\] sm:min-w-0">
+                        <!-- Helper guide lines -->
+                        <div class="absolute w-full border-t border-sky-100/40 top-[25%\] pointer-events-none"></div>
+                        <div class="absolute w-full border-t border-sky-100/40 top-[50%\] pointer-events-none"></div>
+                        <div class="absolute w-full border-t border-sky-100/40 top-[75%\] pointer-events-none"></div>
+                        
+                        <!-- Monthly bars -->
+                        <div onclick="selectMonth(1, 5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">5М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-4 transition-all duration-300 shadow-lg shadow-sky-400/0 group-hover:shadow-sky-400/10"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М1</span>
+                        </div>
+                        <div onclick="selectMonth(2, 6.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">6.5М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-6 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М2</span>
+                        </div>
+                        <div onclick="selectMonth(3, 12.5)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">12.5М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-12 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М3</span>
+                        </div>
+                        <div onclick="selectMonth(4, 15)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">15М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-14 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М4</span>
+                        </div>
+                        <div onclick="selectMonth(5, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М5</span>
+                        </div>
+                        <div onclick="selectMonth(6, 30)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">30М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-28 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М6</span>
+                        </div>
+                        <div onclick="selectMonth(7, 50)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">50М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-40 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М7</span>
+                        </div>
+                        <div onclick="selectMonth(8, 25)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">25М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-24 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М8</span>
+                        </div>
+                        <div onclick="selectMonth(9, 60)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">60М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-48 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М9</span>
+                        </div>
+                        <div onclick="selectMonth(10, 65)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">65М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-52 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М10</span>
+                        </div>
+                        <div onclick="selectMonth(11, 75)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-slate-500 group-hover:text-sky-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">75М</span>
+                            <div class="w-full bg-sky-100 group-hover:bg-sky-400 rounded-t h-56 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-slate-400 mt-2">М11</span>
+                        </div>
+                        <div onclick="selectMonth(12, 85)" class="month-bar group cursor-pointer flex-1 flex flex-col items-center">
+                            <span class="text-[10px\] font-bold text-sky-500 mb-1 opacity-100 transition-opacity">85М</span>
+                            <div class="w-full bg-sky-400 rounded-t h-60 transition-all duration-300"></div>
+                            <span class="text-[9px\] text-sky-500 mt-2 font-bold">М12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selected Month Stats -->
+            <div class="mt-4 bg-sky-50 p-4 rounded-3xl border border-sky-100 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+                <div>
+                    <span class="text-xs text-slate-400 block">Выбранный период:</span>
+                    <span id="selected-month-label" class="text-sm sm:text-md font-bold text-slate-800 block">12-й Месяц развития (май-июнь 2026)</span>
+                </div>
+                <div class="text-left sm:text-right">
+                    <span class="text-xs text-slate-400 block">Плановая выручка:</span>
+                    <span id="selected-month-val" class="text-lg sm:text-xl font-black text-sky-600 block">85 000 000 ₽</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
