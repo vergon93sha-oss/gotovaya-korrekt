@@ -1942,42 +1942,43 @@ h1, h2, h3 {
             </div>
 
             <!-- Calculator Outputs -->
-            <div class="lg:col-span-6 bg-sky-50/50 p-6 rounded-3xl border border-sky-100 space-y-6">
-                <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block">Ваш пассивный доход:</span>
-                        <span class="text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
-                    </div>
-                    <div class="bg-transparent p-3 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10">
-                        <span class="text-[10px\] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
-                        <span class="text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
-                    </div>
-                </div>
+<div class="lg:col-span-6 bg-sky-50/50 p-4 md:p-6 rounded-3xl border border-sky-100 space-y-6">
+    <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Прогноз окупаемости по симуляции:</h4>
 
-                <div class="space-y-3 pt-3 border-t border-sky-100">
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Срок окупаемости (тело):</span>
-                        <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
-                        <span class="text-sky-600 font-bold" id="calc-time-profit">с 13 по 15 мес.</span>
-                    </div>
-                    <div class="flex justify-between text-xs">
-                        <span class="text-slate-500">Гарантийное обеспечение:</span>
-                        <span class="text-sky-600 font-bold">Оборотные средства / Товар</span>
-                    </div>
-                </div>
-
-                <div class="p-3 bg-transparent rounded-lg text-[11px\] text-slate-500 leading-relaxed border border-sky-100 shadow-xl shadow-sky-500/10">
-                    🛡️ <strong class="text-slate-800">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
-                </div>
-            </div>
-
+    <!-- Сетка: 1 колонка на моб, 2 колонки на планшетах и ПК -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="bg-white p-3 rounded-2xl border border-sky-100 shadow-sm">
+            <span class="text-[10px] text-slate-400 block">Ваш пассивный доход:</span>
+            <span class="text-base md:text-lg font-extrabold text-sky-600" id="calc-return-display">1 650 000 ₽</span>
+        </div>
+        <div class="bg-white p-3 rounded-2xl border border-sky-100 shadow-sm">
+            <span class="text-[10px] text-slate-400 block" id="calc-metric-label">Эффективный процент:</span>
+            <span class="text-base md:text-lg font-extrabold text-slate-800" id="calc-metric-val">33.0% годовых</span>
         </div>
     </div>
+
+    <!-- Инфо-список (всё сохранено) -->
+    <div class="space-y-3 pt-3 border-t border-sky-100">
+        <div class="flex justify-between text-[11px] md:text-xs">
+            <span class="text-slate-500">Срок окупаемости (тело):</span>
+            <span class="text-slate-800 font-bold" id="calc-time-body">12 Месяцев</span>
+        </div>
+        <div class="flex justify-between text-[11px] md:text-xs">
+            <span class="text-slate-500" id="calc-details-label">Выплата процентов (профит):</span>
+            <span class="text-sky-600 font-bold" id="calc-time-profit">с 13 по 15 мес.</span>
+        </div>
+        <div class="flex justify-between text-[11px] md:text-xs">
+            <span class="text-slate-500">Гарантийное обеспечение:</span>
+            <span class="text-sky-600 font-bold truncate ml-2">Оборотные средства / Товар</span>
+        </div>
+    </div>
+
+    <!-- Риск-менеджмент -->
+    <div class="p-3 bg-white rounded-lg text-[10px] md:text-[11px] text-slate-500 leading-relaxed border border-sky-100 shadow-sm">
+        🛡️  <strong class="text-slate-800">Консервативный риск-менеджмент:</strong> Деньги застрахованы реальным ликвидным товарным запасом мяса в обороте. Риски снижены практически до нуля.
+    </div>
+</div>
+
 
     <!-- RIGHT: Custom SVG Chart for Projections (Interactive) -->
         <div class="lg:col-span-7 bg-transparent p-4 sm:p-6 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 flex flex-col justify-between overflow-hidden">
