@@ -1812,11 +1812,6 @@ h1, h2, h3 {
 
       updateUI();
     }
-
-    // Пересчет всей логики и обновление экрана
-    function updateUI() {
-      // 1. Сумма и средняя отметка
-      document.getElementById('investmentValueLabel').innerText = `${formatCurrency(state.investmentAmount)} ₽`;
       
 
       // 5. Точные Математические расчеты конвертации долей
@@ -1862,6 +1857,7 @@ h1, h2, h3 {
       const nominalKopecks = Math.round(nominalValue * 100);
       const totalCapitalKopecks = Math.round(totalCapitalValue * 100);
 
+function updateUI() {
       // Обновление математического протокола внизу страницы
       document.getElementById('step1Formula').innerText = `d = ${loanAmountMillion.toFixed(2)} млн ₽ / [${state.revenueInput} млн ₽ × ${state.multiplier} × (1 - ${state.discount}%)]`;
       document.getElementById('calcDenominatorText').innerText = `${denominatorValue.toFixed(2)} млн ₽`;
