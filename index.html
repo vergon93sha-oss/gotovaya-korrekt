@@ -955,22 +955,105 @@ h1, h2, h3 {
         <!-- grid-cols-1 для мобильных, sm:grid-cols-2 для планшетов, lg:grid-cols-3 для ПК -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- Карточка 1 -->
-            <div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-                <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
-                    <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/i.webp" alt="Александр Рудный" class="w-full h-full object-cover">
-                </div>
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Генеральный директор</span>
-                <h5 class="font-normal italic text-slate-800 text-base leading-tight">Рудный Александр Викторович</h5>
-            </div>
+            <!-- Рудный-->
+<div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
+    <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
+        <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/i.webp" alt="Сосина Екатерина Андреевна" class="w-full h-full object-cover">
+    </div>
+    
+    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Генеральный директор</span>
+    
+    <!-- ФИО: наклонный, обычный вес (не жирный) -->
+    <h5 class="font-normal italic text-slate-800 text-base leading-tight">Рудный Александр Викторович</h5>
+    
+    <!-- Описание с отступом (mt-4) -->
+    <div class="mt-4 text-slate-800 text-base leading-tight">
+Основатель компании.<br>
+Образование Арктический Морской Институт имени В.И. Воронина, Филиал ГМА С.О. Макарова.
+    </div>
+</div>
 
-             <!-- Карточка 1 -->
+             <!-- Рудная -->
+<div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
+    <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
+        <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/%D0%AD%D0%BB%D1%8C%D0%BD%D0%B0%D1%80%D0%B0.jpeg" alt="Сосина Екатерина Андреевна" class="w-full h-full object-cover">
+    </div>
+    
+    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Финансовый Директор</span>
+    
+    <!-- ФИО: наклонный, обычный вес (не жирный) -->
+    <h5 class="font-normal italic text-slate-800 text-base leading-tight">Рудная Эльнара Юсифовна</h5>
+    
+    <!-- Описание с отступом (mt-4) -->
+    <div class="mt-4 text-slate-800 text-base leading-tight">
+
+        Образование СПБГУ очное вечернее, факультет Психологии.<br>
+
+Любимая супруга и партнёр по жизни.<br>
+До компании "РУСЬ", Эльнара имела 10-летний опыт работы заместителем ген. директора на крупном производстве кондитерских изделий в СПб.<br>
+Получила хороший опыт работы бухгалтером с частичным функционалом гл.бухгалтера в компании по поставкам мед. оборудования и производству мед. изделий.<br>
+
+Она часто не соглашается с руководителем, но продолжает работать, находя счастья в мелочах:<br>
+
+например, когда есть время, она может сесть и пообзванивать клиентов, чтобы что-нибудь продать!  При чем она это делает искусно! Первый раз, когда я услышал, как она общается с клиентом, я оборвал собеседника, и наблюдал со стороны, как она это делает. В итоге,она распродала тогда весь зависший товар,  новые SKU.<br>
+Особое удовольствие ей доставляет проверить кого-нибудь по документам или договорам, работе, найти ошибки). Поэтому предпочитаю договоры и счета доверять ей для проверки.<br>
+
+Первый инвестор компании ООО "РУСЬ" и уже получила свои первые дивиденды.
+    </div>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
+    
+    <div x-data="{ active: 0 }" 
+         x-init="setInterval(() => { active = active === 0 ? 1 : 0 }, 1500)" 
+         class="relative w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
+        
+        <img x-show="active === 0" 
+             x-transition:enter="transition-opacity duration-700"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/a69dbdf2-d41b-4eb6-a9b9-dbaa49012ba3.jpeg" 
+             alt="Фото 1" 
+             class="absolute inset-0 w-full h-full object-cover">
+             
+        <img x-show="active === 1" 
+             x-transition:enter="transition-opacity duration-700"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/e4bc17d1-6bb3-4947-a832-acd6db96eac5.jpeg" 
+             alt="Фото 2" 
+             class="absolute inset-0 w-full h-full object-cover">
+    </div>
+    
+    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Сын основателя</span>
+    
+    <h5 class="font-normal italic text-slate-800 text-base leading-tight">Рудный Дмитрий Александрович</h5>
+    
+    <div class="mt-4 text-slate-800 text-base leading-tight text-center px-2">
+
+
+        Все называют его любя "Димасик" или "Димарик-фонарик".<br>
+
+Искренний позыв открытия данного производства заключался не только в том, чтоб создавать и выпускать продукт высокого качества с ценой ниже рыночных аналогов, но и для того, чтобы приучать наших детей трудиться совместно с нами- взрослыми.<br>
+А ещё для того, чтобы мы могли трудиться семьями на нашем предприятии, и каждый мог передать собственные бизнес процессы своим детям.<br>
+Двигаясь от поколения к поколению.<br>
+
+Мы хотим выпускать именно такой продукт, которым уверенно можем кормить наших детей, наши семьи и наших близких.<br>
+Поэтому мы поместили фото нашего сына.<br>
+Надеемся, что в ближайшем времени к нам присоединятся наши коллеги.
+    </div>
+</div>
+
+
+            <!-- Сосина -->
 <div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
     <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
         <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/%D0%A1%D0%BE%D1%81%D0%B8%D0%BD%D0%B0.jpeg" alt="Сосина Екатерина Андреевна" class="w-full h-full object-cover">
     </div>
     
-    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Бизнес ассистент руководителя и его правая рука.</span>
+    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Бизнес ассистент руководителя и его правая рука</span>
     
     <!-- ФИО: наклонный, обычный вес (не жирный) -->
     <h5 class="font-normal italic text-slate-800 text-base leading-tight">Сосина Екатерина Андреевна</h5>
@@ -978,7 +1061,7 @@ h1, h2, h3 {
     <!-- Описание с отступом (mt-4) -->
     <div class="mt-4 text-slate-800 text-base leading-tight">
 
-        Образование: ТОГАПОУ «Многопрофильный колледж им. И.Т. Карасева»<br>
+        Образование: ТОГАПОУ «Многопрофильный колледж им. И.Т. Карасева»
         Имела опыт работы руководителем отделами на Вайлдберриз и опыт запуска складов Вайлдберриз с "0" в новых городах.<br>
 
 По образованию парикмахер, но по талантам и профессиональным качествам фору даст большинству программистов и специалистов других профилей.
@@ -993,23 +1076,39 @@ h1, h2, h3 {
     </div>
 </div>
 
-            <!-- Карточка 3 -->
-            <div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-                <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
-                    <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/i.webp" alt="ФИО" class="w-full h-full object-cover">
-                </div>
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Финансовый директор</span>
-                <h5 class="font-normal italic text-slate-800 text-base leading-tight">Имя Фамилия</h5>
-            </div>
+ <!-- Коломенский -->
+<div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
+    <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
+        <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/%D0%9A%D0%BE%D0%BB%D0%BE%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B8%CC%86.jpg" alt="Сосина Екатерина Андреевна" class="w-full h-full object-cover">
+    </div>
+    
+    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Юрист</span>
+    
+    <!-- ФИО: наклонный, обычный вес (не жирный) -->
+    <h5 class="font-normal italic text-slate-800 text-base leading-tight">Коломенский Даниил Анатольевич</h5>
+    
+    <!-- Описание с отступом (mt-4) -->
+    <div class="mt-4 text-slate-800 text-base leading-tight">
 
- <!-- Карточка 5 -->
-            <div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-                <div class="w-full max-w-[220px] aspect-square rounded-xl bg-slate-100 overflow-hidden mb-4 border border-sky-50">
-                    <img src="https://storage.yandexcloud.net/investiciirus/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2/i.webp" alt="ФИО" class="w-full h-full object-cover">
-                </div>
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Менеджер по продажам</span>
-                <h5 class="font-normal italic text-slate-800 text-base leading-tight">Имя Фамилия</h5>
-            </div>
+        Образование
+Всероссийский государственный университет юстиции (РПА Минюста России), юриспруденция<br>
+        Опыт работы : 
+ООО «Правовой гид», помощник юрисконсульта
+2020 — 2022; АО «Новая Авиация», юрисконсульт по 2022; ПАО «Газпром нефть», юрисконсульт 2022 — 2023; ООО Торговый дом "ЭлектроМир", юрисконсульт в единственном числе
+2023 — 2025;Частная практика с 2025<br>
+
+Даниил внёс огромный вклад в развитие компании и в разработку целого "свода" юридической документации, правовой базы компании, корпоративного права и стиля.<br>
+Упростив, усовершенствовав совместно многие договоры и договорные отношения. Оказывая большую помощь во многих сложных и "острых" моментах в жизни компании. При чем он всегда это делал и продолжает делать максимально оперативно и точно!<br>
+Такое ощущение, что он не отходит от компьютера совсем).<br>
+Он был один из первых членов команды с кем мы начали наш путь!<br>
+
+Самое увлекательное, что с Даниилом мы проработали почти 1.5 года, ежедневно онлайн, и никогда даже не созванивались по видео, и ни разу не встретились за такой период времени!<br>
+ Все это время шел этап становления новой компании, физически у нас не оставалось сил на это.<br>
+
+Первый раз встретились через 1.5 года. <br>
+Даниил, сказал решимо: "надо затусить")<br>
+    </div>
+</div>
 
             <!-- Карточка 4 -->
             <div class="bg-transparent backdrop-blur-sm rounded-2xl border border-sky-100 p-6 shadow-xl shadow-sky-500/5 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
