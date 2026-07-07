@@ -873,11 +873,11 @@ h1, h2, h3 {
                 <h4 class="font-white text-white text-sm">Формула кадровой надёжности и эффективности :</h4>
                 <div class="flex items-center space-x-2">
                     <span class="text-2xl font-white text-sky-500">30%</span>
-                    <span class="text-white-600 text-sm">— Члены семьи и близкий круг (высокая лояльность)</span>
+                    <span class="text-white text-sm">— Члены семьи и близкий круг (высокая лояльность)</span>
                 </div>
                 <div class="flex items-center space-x-2">
                     <span class="text-2xl font-black text-blue-500">70%</span>
-                    <span class="text-white-600 text-sm">— Рыночные специалисты и фрилансеры</span>
+                    <span class="text-white text-sm">— Рыночные специалисты и фрилансеры</span>
                 </div>
                 <p class="text-xs text-white italic mt-2">
                     Присутствие родственников не дает привилегий: показатели результативности и договора едины для всей команды без исключений.
@@ -1256,8 +1256,8 @@ h1, h2, h3 {
     
     <div class="bg-transparent p-8 rounded-3xl border-sky-100 backdrop-blur-sm shadow-sm w-full">
         <span class="text-sky-600 font-bold text-xs uppercase tracking-widest">Оцифрованные финансы</span>
-        <h3 class="text-3xl font-extrabold text-slate-900 mt-2">План финансового роста</h3>
-        <p class="text-slate-600 mt-4 text-lg leading-relaxed max-w-full">
+        <h3 class="text-3xl font-extrabold text-white mt-2">План финансового роста</h3>
+        <p class="text-white mt-4 text-lg leading-relaxed max-w-full">
             Ниже представлена динамика выручки в течение первого года после освоения инвестиций. 
             Средняя рентабельность проекта на всех этапах составляет 
             <span class="font-bold text-sky-700">не менее 35%</span> за счет диверсификации направлений.
@@ -1269,7 +1269,7 @@ h1, h2, h3 {
 <!-- Карточка "Целевое освоение инвестиций" -->
 <div class="w-full mt-8 p-8 bg-transparent rounded-3xl border border-sky-100 shadow-sm text-center">
     <h2 class="text-2xl font-extrabold text-white">Целевое освоение инвестиций</h2>
-    <p class="text-slate-600 mt-2">Посмотрите, как распределяется инвестиционный капитал.</p>
+    <p class="text-white mt-2">Посмотрите, как распределяется инвестиционный капитал.</p>
     
     <button class="mt-6 bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300">
         БЮДЖЕТ ПЕРВОГО ТРАНША
@@ -1340,11 +1340,11 @@ h1, h2, h3 {
                     </tr>
                     <tbody class="divide-y divide-sky-100/50">
                         <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-white">
-                                Генеральный директор<br><span class="text-[11px\] font-normal italic text-white">Рудный А.В.</span>
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Генеральный директор<br><span class="text-[11px\] font-normal italic text-black">Рудный А.В.</span>
                             </td>
                             <td class="p-2 md:p-3 text-center whitespace-nowrap">386 000 ₽</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-white whitespace-nowrap">4 632 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">4 632 000 ₽</td>
                             <td class="p-2 md:p-3 text-[11px\] md:text-xs">100% вовлеченность. ЗП указана ниже рынка за счет наличия дополнительного дохода. <p><strong>ЗП указана до вычета налога.</strong></p></td>
                         </tr>
                         <tr class="hover:bg-sky-50/20">
@@ -1598,28 +1598,29 @@ h1, h2, h3 {
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     </style>
 </head>
-<body class="bg-transparent p-4 md:p-10">
+<div id="content-to-save">
+<div class="w-full mt-10">
 
 <div class="w-full max-w-7xl mx-auto bg-transparent rounded-3xl border border-sky-100 shadow-lg p-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div class="space-y-6">
             <h3 class="text-lg font-bold text-sky-700 uppercase tracking-wider mb-4">Для инвестора</h3>
             <div class="input-group">
-                <div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Сумма внесения (₽)</label><input type="number" id="inv-sum" value="100000" min="100000" max="30000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div>
+                <div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Сумма внесения (₽)</label><input type="number" id="inv-sum" value="100000" min="100000" max="30000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div>
                 <input type="range" id="inv-sum-range" min="100000" max="30000000" step="100000" value="100000">
             </div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Скидка инвестора (%)</label><input type="number" id="discount" value="10" min="10" max="30" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="discount-range" min="10" max="30" step="1" value="10"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Процент (%)</label><input type="number" id="percent" value="10" min="10" max="33" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="percent-range" min="10" max="33" step="1" value="10"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Штрафные санкции при недостижении выручки (%)</label><input type="number" id="penalties" value="1" min="1" max="30" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="penalties-range" min="1" max="30" step="1" value="1"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Мультипликатор</label><input type="number" id="mult" value="1" min="1" max="5" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="mult-range" min="1" max="5" step="1" value="1"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Скидка инвестора (%)</label><input type="number" id="discount" value="10" min="10" max="30" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="discount-range" min="10" max="30" step="1" value="10"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Процент (%)</label><input type="number" id="percent" value="10" min="10" max="33" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="percent-range" min="10" max="33" step="1" value="10"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Штрафные санкции при недостижении выручки (%)</label><input type="number" id="penalties" value="1" min="1" max="30" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="penalties-range" min="1" max="30" step="1" value="1"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Мультипликатор</label><input type="number" id="mult" value="1" min="1" max="5" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-16 text-right outline-none"></div><input type="range" id="mult-range" min="1" max="5" step="1" value="1"></div>
         </div>
 
         <div class="space-y-6">
             <h3 class="text-lg font-bold text-sky-700 uppercase tracking-wider mb-4">Для заемщика</h3>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Выручка компании (₽)</label><input type="number" id="rev-start" value="500000" min="500000" max="20000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="rev-start-range" min="500000" max="20000000" step="100000" value="500000"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Целевая выручка (₽)</label><input type="number" id="rev-target" value="500000" min="500000" max="30000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="rev-target-range" min="500000" max="30000000" step="100000" value="500000"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Уставной капитал (₽)</label><input type="number" id="capital" value="5000" min="5000" max="50000" step="5000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="capital-range" min="5000" max="50000" step="5000" value="5000"></div>
-            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-slate-600">Ежемесячный платеж (₽)</label><input type="number" id="monthly" value="1000" min="1000" max="500000" step="1000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="monthly-range" min="1000" max="500000" step="1000" value="1000"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Выручка компании (₽)</label><input type="number" id="rev-start" value="500000" min="500000" max="20000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="rev-start-range" min="500000" max="20000000" step="100000" value="500000"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Целевая выручка (₽)</label><input type="number" id="rev-target" value="500000" min="500000" max="30000000" step="100000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="rev-target-range" min="500000" max="30000000" step="100000" value="500000"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Уставной капитал (₽)</label><input type="number" id="capital" value="5000" min="5000" max="50000" step="5000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="capital-range" min="5000" max="50000" step="5000" value="5000"></div>
+            <div class="input-group"><div class="flex justify-between mb-2"><label class="text-sm font-medium text-white">Ежемесячный платеж (₽)</label><input type="number" id="monthly" value="1000" min="1000" max="500000" step="1000" class="text-sky-600 font-bold bg-sky-50 rounded-lg px-2 w-28 text-right outline-none"></div><input type="range" id="monthly-range" min="1000" max="500000" step="1000" value="1000"></div>
         </div>
     </div>
 
@@ -1646,15 +1647,15 @@ h1, h2, h3 {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div class="p-4 border border-slate-700 rounded-2xl">
                 <p class="text-xs text-white uppercase">Номинальная доля (₽)</p>
-                <p id="fns-nom-rub" class="text-lg font-bold">0 ₽</p>
+                <p id="fns-nom-rub" class="text-white font-bold">0 ₽</p>
             </div>
             <div class="p-4 border border-slate-700 rounded-2xl">
                 <p class="text-xs text-white uppercase">Номинал (копейки)</p>
-                <p id="fns-nom-kop" class="text-lg font-bold">0</p>
+                <p id="fns-nom-kop" class="text-white font-bold">0</p>
             </div>
             <div class="p-4 border border-slate-700 rounded-2xl">
                 <p class="text-xs text-white uppercase">Новый УК (копейки)</p>
-                <p id="fns-uk-kop" class="text-lg font-bold">0</p>
+                <p id="fns-uk-kop" class="text-white font-bold">0</p>
             </div>
         </div>
         <div class="mt-6 text-center">
@@ -1723,6 +1724,8 @@ h1, h2, h3 {
 
 
 <!-- Единый блок: Финансовые показатели и сценарии -->
+<div id="content-to-save">
+<div class="w-full mt-10">
 <div class="bg-transparent p-8 rounded-3xl border border-sky-100 shadow-xl shadow-sky-500/10 space-y-8">
     <h3 class="text-xl font-bold text-white">Плановые показатели и защитные сценарии</h3>
 
@@ -1732,33 +1735,33 @@ h1, h2, h3 {
         <!-- Показатель 1 -->
         <div class="space-y-1">
             <h4 class="font-bold text-white flex items-center">
-                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2 flex-shrink-0"></span>Совокупный годовой оборот
+                <span class="w-2 h-2 rounded-full text-white mr-2 flex-shrink-0"></span>Совокупный годовой оборот
             </h4>
-            <p class="text-slate-600 font-semibold pl-4"> > 454 000 000 ₽</p>
+            <p class="text-white font-semibold pl-4"> > 454 000 000 ₽</p>
         </div>
 
         <!-- Показатель 2 -->
         <div class="space-y-1">
             <h4 class="font-bold text-white flex items-center">
-                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2 flex-shrink-0"></span>Средняя рентабельность
+                <span class="w-2 h-2 rounded-full text-white mr-2 flex-shrink-0"></span>Средняя рентабельность
             </h4>
-            <p class="text-slate-600 font-semibold pl-4">от ~ 35%</p>
+            <p class="text-white  font-semibold pl-4">от ~ 35%</p>
         </div>
 
         <!-- Показатель 3 -->
         <div class="space-y-1">
             <h4 class="font-bold text-white flex items-center">
-                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2 flex-shrink-0"></span>Рентабельность опта
+                <span class="w-2 h-2 rounded-full text-white mr-2 flex-shrink-0"></span>Рентабельность опта
             </h4>
-            <p class="text-slate-600 font-semibold pl-4">5% - 105%</p>
+            <p class="text-white  font-semibold pl-4">5% - 105%</p>
         </div>
 
         <!-- Показатель 4 -->
         <div class="space-y-1">
             <h4 class="font-bold text-white flex items-center">
-                <span class="w-2 h-2 rounded-full bg-sky-400 mr-2 flex-shrink-0"></span>Рентабельность производства
+                <span class="w-2 h-2 rounded-full text-white mr-2 flex-shrink-0"></span>Рентабельность производства
             </h4>
-            <p class="text-slate-600 font-semibold pl-4">15% - 250%</p>
+            <p class="text-white  font-semibold pl-4">15% - 250%</p>
         </div>
     </div>
 
@@ -1787,7 +1790,7 @@ h1, h2, h3 {
 
 <!-- Founder Quote (Цитата в самом низу правой колонки) -->
             <div class="border-t border-sky-100 pt-10 !mt-[110px]">
-                <blockquote class="italic text-slate-600 border-l-4 border-sky-400 pl-4 text-sm leading-relaxed">
+                <blockquote class="italic text-white border-l-4 border-sky-400 pl-4 text-sm leading-relaxed">
                     «Я вырос в то время, когда цена слова была дороже денег. Если обещал — исполни. Иначе с тобой не будут иметь дела. Это правило — главный гарант безопасности для инвестора компании "РУСЬ".»
                     <span class="block mt-2 text-xs font-bold text-white uppercase tracking-widest">— Александр Рудный, Генеральный директор ООО «РУСЬ»</span>
                 </blockquote>
