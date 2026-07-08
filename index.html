@@ -200,17 +200,22 @@ h1, h2, h3 {
 
                       <!-- Правая колонка: Main Highlight Card -->
 <!-- Из первого тега div удален класс animate-pulse -->
-<div class="lg:col-span-5 p-6 sm:p-8 rounded-3xl border-2 border-sky-300 shadow-xl shadow-sky-100 overflow-hidden relative" style="background-image: url('https://yandexcloud.net'); background-size: cover; background-position: center; background-color: rgba(255, 255, 255, 0.45); backdrop-filter: blur(24px);"> 
-  <div class="absolute -top-16 -right-16 w-32 h-32 bg-sky-100 rounded-full blur-2xl"></div> 
+<div class="lg:col-span-5 p-6 sm:p-8 rounded-3xl border-2 border-sky-400 shadow-xl shadow-sky-500/20 overflow-hidden relative" style="background-image: url('https://yandexcloud.net'); background-size: cover; background-position: center; background-color: rgba(10, 14, 26, 0.88); backdrop-filter: blur(20px);"> 
+  <!-- Мощное ярко-голубое свечение (как в оригинале, но адаптировано для контраста с черным) -->
+  <div class="absolute -top-20 -right-20 w-44 h-44 bg-sky-400 opacity-40 rounded-full blur-3xl pointer-events-none"></div> 
+  
   <div class="space-y-6 relative z-10"> 
     <!-- Шапка: Название раунда и плашка --> 
     <div class="flex justify-between items-center gap-4"> 
-      <span class="text-xs uppercase font-bold text-white tracking-wider">Параметры раунда</span> 
-      <span class="flex flex-col sm:flex-row items-center justify-center text-center gap-0.5 sm:gap-1 px-2.5 py-1.5 rounded bg-sky-100 text-sky-600 text-xs font-bold border border-sky-200 min-h-[2rem]"> 
+      <span class="text-xs uppercase font-bold text-sky-200 tracking-wider">Параметры раунда</span> 
+      <!-- Контрастная светлая плашка из первой версии, которая круто горит на темном фоне -->
+      <span class="flex flex-col sm:flex-row items-center justify-center text-center gap-0.5 sm:gap-1 px-2.5 py-1.5 rounded bg-sky-400 text-slate-950 text-xs font-bold border border-sky-300 shadow-lg shadow-sky-400/20 min-h-[2rem]"> 
         <span>Seed Round</span> 
-        <span>(Посевной этап)</span> 
+        <span class="sm:opacity-90 font-medium sm:font-bold">(Посевной этап)</span> 
       </span> 
     </div>
+
+
 
 
 
