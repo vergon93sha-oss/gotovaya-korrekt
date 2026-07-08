@@ -228,13 +228,23 @@ h1, h2, h3 {
 
         <!-- Инфо о сумме и пороге входа -->
         <div class="space-y-4">
-            <div class="space-y-1">
-                <span class="text-white text-sm">Общая сумма привлечения:</span>
-                <div class="text-4xl font-black text-white">31 130 500 ₽</div>
-                <span class="block text-xs text-white">
-                    Двумя траншами: 5 млн ₽ + 25 млн ₽ для плавного запуска
-                </span>
-            </div>
+    <div class="space-y-1">
+        <span class="text-white text-sm">Общая сумма привлечения:</span>
+        <div class="text-8xl font-black text-white">31 130 500 ₽</div>
+        
+        <!-- Измененный блок -->
+        <div class="block">
+            <span class="text-blue-400 text-base font-semibold">
+                Сумма полностью находится в обороте на протяжении всего срока
+            </span>
+            <br>
+            <span class="text-xs text-white">
+                Двумя траншами: 5 млн ₽ + 25 млн ₽ для плавного запуска
+            </span>
+        </div>
+    </div>
+</div>
+
             
             <!-- Минимальный чек -->
             <div class="p-3 bg-white/40 border border-white/60 rounded-xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm">
@@ -1292,7 +1302,7 @@ h1, h2, h3 {
             <div>
                 <div class="flex justify-between text-xs text-white mb-1 gap-2">
                     <span class="truncate">ФОТ команды на 12 мес.</span>
-                    <span class="whitespace-nowrap">10 686 000 ₽</span>
+                    <span class="whitespace-nowrap">8 400 000 ₽</span>
                 </div>
                 <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 85%"></div></div>
             </div>
@@ -1329,7 +1339,213 @@ h1, h2, h3 {
             <div class="w-full overflow-x-auto block clear-both" style="-webkit-overflow-scrolling: touch;">
                 <table class="w-full text-left text-xs md:text-sm text-slate-600 min-w-[750px\]">
                     <tr class="bg-sky-50/40">
-                        <td colspan="4" class="p-2 md:p-3 border-t border-sky-100">
+                        
+                        
+                        <!-- РАЗДЕЛ МАРКЕТИНГ (Убран дубль затрат) -->
+                        <tr class="bg-sky-50/40">
+                            <td colspan="4" class="p-2 md:p-3 border-t border-sky-100">
+                                <h4 class="text-sm md:text-base font-semibold text-slate-700 mt-2">ПРОИЗВОДСТВО</h4>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-sky-100 bg-slate-50/50">
+                        <th class="p-2 md:p-3 text-left text-[11px\] font-semibold text-black uppercase tracking-wider">Статья расходов</th>
+                        <th class="p-2 md:p-3 text-center text-[11px\] font-semibold text-black uppercase tracking-wider whitespace-nowrap">Расчёт в месяц</th>
+                        <th class="p-2 md:p-3 text-center text-[11px\] font-semibold text-black tracking-wider whitespace-nowrap">Общий итог (год)</th>
+                        <th class="p-2 md:p-3 text-center text-[11px\] font-semibold text-black uppercase tracking-wider">Комментарий</th>
+                    </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Начальник производства<br><span class="text-[11px\] font-normal italic text-black">Шалай Павел Юрьевич</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">250 000 ₽
+                            </td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">3 000 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>ЗП указана до вычета налога.</p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Бренд Шеф<br><span class="text-[11px\] font-normal italic text-black">Павлов Станислав Игоревич</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">200 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">2 400 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>ЗП указана до вычета налога.</p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Шеф Повар<br><span class="text-[11px\] font-normal italic text-black">Мирошниченко Дмитрий Борисович</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">170 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">2 040 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>ЗП указана до вычета налога.</p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Документооборот<br><span class="text-[11px\] font-normal italic text-black">Платонова Диана Андреевна</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">80 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">960 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>ЗП указана до вычета налога.</p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-6 font-semibold text-sky-600">
+                                ИТОГО<br><span class="font-semibold text-sky-600"></span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap"></td>
+                            <td class="p-2 md:p-3 text-center font-bold text-sky-600 whitespace-nowrap">8 400 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p></p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Аренда производства<br><span class="font-semibold text-black"></span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">75 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">900 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p></p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Электричество<br> Вода<br> Вывоз мусора<br><span class="font-semibold text-black"></span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">70 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">840 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p></p>
+                            </td>
+                        </tr>
+ 
+  <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                ХАССП<br>Аудиты<br>Лабораторные иследования<br><span class="font-semibold text-black"></span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">25 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">300 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p></p>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Регистрация ТЗ<br><span class="font-semibold text-black"></span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">614 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">Единоразово</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>3 знака: РУСЬ, говядина, птица, сыровяленая группа. Фирменный стиль, дизайн этикеток. </p>
+                            </td>
+                        </tr>
+
+                        
+
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Брендированная коробка<br><span class="font-semibold text-black">(2 вида)</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">224 000 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">Единоразово</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
+                                <p>Из расчета 20 000 шт (Большая и маленькая коробка).</p>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Закупка этикеток на короб<br><span class="font-semibold text-[11px\] text-black">(за 1 шт)</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">2.80 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">83 500 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs">
+                                <p>Бюджет на ≈3 000 коробок из расчета 38 тонн продукции (с учетом брака и настройки).</p>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-sky-50/20">
+                            <td class="p-2 md:p-3 font-semibold text-black">
+                                Этикетка штучная<br><span class="font-semibold text-[11px\] text-black">(за 1 шт)</span>
+                            </td>
+                            <td class="p-2 md:p-3 text-center whitespace-nowrap">1.20 ₽</td>
+                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">116 000 ₽</td>
+                            <td class="p-2 md:p-3 text-[11px\] md:text-xs">
+                                <p>Общий бюджет на 96 667 штук единичной готовой продукции.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-[11px\] text-black mt-3 px-1">
+                
+            </div>
+        </div>
+
+        <!-- КАРТОЧКА 2-ГО ТРАНША (ОТДЕЛЬНОЕ ОКНО) -->
+<div class="w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
+    <div class="space-y-4">
+        <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
+            <span class="text-xs text-black block">Размер 2-го транша:</span>
+            <span class="text-2xl font-black text-black whitespace-nowrap">10 000 000 ₽</span>
+            <p class="text-xs text-black mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
+        </div>
+        
+        <div class="space-y-3">
+            <div>
+                <div class="flex justify-between text-xs text-black mb-1 gap-2">
+                    <span class="truncate">ФОТ 3-х Топ-менеджеров</span>
+                    <span class="whitespace-nowrap">8 400 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 84%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-black mb-1 gap-2">
+                    <span class="truncate">Командировочный фонд</span>
+                    <span class="whitespace-nowrap">400 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between text-xs text-black mb-1 gap-2">
+                    <span class="truncate">Резервный фонд развития</span>
+                    <span class="whitespace-nowrap">1 200 000 ₽</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-emerald-400 h-full rounded-full" style="width: 12%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+        <!-- ИСПРАВЛЕНА ПЛАШКА: ТЕПЕРЬ СУММА СОВПАДАЕТ С КАРТОЧКОЙ -->
+        <div class="w-full flex justify-center mt-2">
+                <span class="inline-block text-white text-[13px\] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
+                    БЮДЖЕТ ВТОРОГО ТРАНША
+                </span>
+            </div>
+      
+        
+        <!-- ОКНО 2: ВТОРОЙ ТРАНШ (ТОП-КАДРЫ) -->
+        <div class="mx-4 bg-white p-3 md:p-6 rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+            <div class="w-full overflow-x-auto block clear-both" style="-webkit-overflow-scrolling: touch;">
+                <table class="w-full text-left text-xs md:text-sm text-slate-600 min-w-[750px\]">
+                    <tbody class="divide-y divide-sky-100/50">
+                        <tr class="hover:bg-sky-50/20">
+
+                            <td colspan="4" class="p-2 md:p-3 border-t border-sky-100">
                             <h4 class="text-sm md:text-base font-semibold text-slate-700 mt-1">ФОНД ЗАРАБОТНОЙ ПЛАТЫ</h4>
                         </td>
                     </tr>
@@ -1404,127 +1620,13 @@ h1, h2, h3 {
                             <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">180 000 ₽</td>
                             <td class="p-2 md:p-3 text-[11px\] md:text-xs">Выписка ветеринарных документов, сопровождение в системе "Меркурий". <p><strong>ЗП указана до вычета налога.</strong></p></td>
                         </tr>
-                        <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-black">
-                                Производственные затраты<br><span class="text-[11px\] font-normal italic text-black">-</span>
-                            </td>
-                            <td class="p-2 md:p-3 text-center whitespace-nowrap">25 000 ₽</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">300 000 ₽</td>
-                            <td class="p-2 md:p-3 text-[11px\] md:text-xs">Прохождение аудитов ХАССП, внедрение нововведений и устранение замечаний.</td>
-                        </tr>
-                        
-                        <!-- РАЗДЕЛ МАРКЕТИНГ (Убран дубль затрат) -->
+
                         <tr class="bg-sky-50/40">
                             <td colspan="4" class="p-2 md:p-3 border-t border-sky-100">
-                                <h4 class="text-sm md:text-base font-semibold text-slate-700 mt-2">МАРКЕТИНГ И РЕГИСТРАЦИЯ ЗНАКОВ</h4>
+                                <h4 class="text-sm md:text-base font-semibold text-slate-700 mt-2"></h4>
                             </td>
                         </tr>
-                        <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-black">
-                                Регистрация ТЗ<br><span class="font-semibold text-black">(3 знака)</span>
-                            </td>
-                            <td class="p-2 md:p-3 text-center whitespace-nowrap">Единоразово</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">614 000 ₽</td>
-                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
-                                <p>3 знака: РУСЬ, говядина, птица, сыровяленая группа. Фирменный стиль, дизайн этикеток.</p>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-black">
-                                Брендированная коробка<br><span class="font-semibold text-black">(2 вида)</span>
-                            </td>
-                            <td class="p-2 md:p-3 text-center whitespace-nowrap">Единоразово</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">224 000 ₽</td>
-                            <td class="p-2 md:p-3 text-[11px\] md:text-xs space-y-1">
-                                <p>Тираж от 1000 шт. (Большая и маленькая коробка).</p>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-black">
-                                Закупка этикеток на короб<br><span class="font-semibold text-[11px\] text-black">(за 1 шт)</span>
-                            </td>
-                            <td class="p-2 md:p-3 text-center whitespace-nowrap">2.80 ₽</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">83 500 ₽</td>
-                            <td class="p-2 md:p-3 text-[11px\] md:text-xs">
-                                <p>Бюджет на ≈3 000 коробок из расчета 38 тонн продукции (с учетом брака и настройки).</p>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-sky-50/20">
-                            <td class="p-2 md:p-3 font-semibold text-black">
-                                Этикетка штучная<br><span class="font-semibold text-[11px\] text-black">(за 1 шт)</span>
-                            </td>
-                            <td class="p-2 md:p-3 text-center whitespace-nowrap">1.20 ₽</td>
-                            <td class="p-2 md:p-3 text-center font-bold text-black whitespace-nowrap">116 000 ₽</td>
-                            <td class="p-2 md:p-3 text-[11px\] md:text-xs">
-                                <p>Общий бюджет на 96 667 штук единичной готовой продукции.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-[11px\] text-black mt-3 px-1">
-                * Остаток в размере 204 000 ₽ идет на годовой бюджет канцелярии, почтовых отправлений, мелкой техники и командировочных.
-            </div>
-        </div>
-
-        <!-- КАРТОЧКА 2-ГО ТРАНША (ОТДЕЛЬНОЕ ОКНО) -->
-<div class="w-full bg-transparent p-5 rounded-3xl border border-white/60 shadow-xl backdrop-blur-md space-y-4 flex flex-col justify-between">
-    <div class="space-y-4">
-        <div class="bg-sky-50/50 p-4 rounded-2xl border border-sky-100">
-            <span class="text-xs text-black block">Размер 2-го транша:</span>
-            <span class="text-2xl font-black text-black whitespace-nowrap">10 000 000 ₽</span>
-            <p class="text-xs text-black mt-2">Ориентирован на найм тяжеловесных ТОП-менеджеров с готовой клиентской базой для агрессивной экспансии рынка.</p>
-        </div>
-        
-        <div class="space-y-3">
-            <div>
-                <div class="flex justify-between text-xs text-black mb-1 gap-2">
-                    <span class="truncate">ФОТ 3-х Топ-менеджеров</span>
-                    <span class="whitespace-nowrap">8 400 000 ₽</span>
-                </div>
-                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-400 h-full rounded-full" style="width: 84%"></div></div>
-            </div>
-            <div>
-                <div class="flex justify-between text-xs text-black mb-1 gap-2">
-                    <span class="truncate">Командировочный фонд</span>
-                    <span class="whitespace-nowrap">400 000 ₽</span>
-                </div>
-                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-sky-300 h-full rounded-full" style="width: 4%"></div></div>
-            </div>
-            <div>
-                <div class="flex justify-between text-xs text-black mb-1 gap-2">
-                    <span class="truncate">Резервный фонд развития</span>
-                    <span class="whitespace-nowrap">1 200 000 ₽</span>
-                </div>
-                <div class="w-full bg-slate-100 h-2 rounded-full"><div class="bg-emerald-400 h-full rounded-full" style="width: 12%"></div></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        
-        <!-- ИСПРАВЛЕНА ПЛАШКА: ТЕПЕРЬ СУММА СОВПАДАЕТ С КАРТОЧКОЙ -->
-        <div class="w-full flex justify-center mt-2">
-                <span class="inline-block text-white text-[13px\] font-extrabold px-4 py-1.5 rounded-lg shadow-sm" style="background-color: #26b1f3;">
-                    БЮДЖЕТ ВТОРОГО ТРАНША
-                </span>
-            </div>
-      
-        
-        <!-- ОКНО 2: ВТОРОЙ ТРАНШ (ТОП-КАДРЫ) -->
-        <div class="mx-4 bg-white p-3 md:p-6 rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div class="w-full overflow-x-auto block clear-both" style="-webkit-overflow-scrolling: touch;">
-                <table class="w-full text-left text-xs md:text-sm text-slate-600 min-w-[750px\]">
-                    <thead class="bg-sky-50 text-black">
-                        <tr>
-                            <th class="p-2 md:p-3 rounded-l-lg whitespace-nowrap text-[11px\]">Должность ТОП-кадра</th>
-                            <th class="p-2 md:p-3 text-center whitespace-nowrap text-[11px\]">Фиксированный Оклад / мес</th>
-                            <th class="p-2 md:p-3 text-center whitespace-nowrap text-[11px\]">Общий итог (12 мес)</th>
-                            <th class="p-2 md:p-3 text-center rounded-r-lg whitespace-nowrap text-[11px\]">Цели & Задачи</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-sky-100/50">
-                        <tr class="hover:bg-sky-50/20">
+                        
                             <td class="p-2 md:p-3 font-semibold text-black">
                                 Коммерческий Директор<br><span class="text-[11px\] font-normal italic text-black">-</span>
                             </td>
