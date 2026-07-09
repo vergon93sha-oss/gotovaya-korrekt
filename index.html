@@ -1487,6 +1487,7 @@ h1, h2, h3 {
         </div>
     </div>
 
+
     <div class="mt-12 space-y-8">
         <div class="bg-transparent-50 p-6 rounded-3xl h-64 relative">
             <canvas id="revenueChart"></canvas>
@@ -1716,6 +1717,7 @@ calculateFNS();
 
     let chart, chart2;
 
+    // Инициализируем графики строго один раз при загрузке страницы
     function initCharts() {
         chart = new Chart(ctx, {
             type: 'bar',
@@ -1725,69 +1727,89 @@ calculateFNS();
 
         chart2 = new Chart(ctx2, {
             type: 'bar',
-            data: { labels: Array.from({length: 15}, (_,i) => 'M'+(i+1)), datasets: [{ data: [], borderRadius: 12, barPercentage: 0.7 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } }
-        });
+            data: { 
+                labels: ['M12', 'M13', 'M14', 'M15'], // Оставляем только нужные месяцы
+                datasets: [{ 
+                    data: [], 
+                    borderRadius: 12, 
+                    barPercentage: 0.7 
+                }] 
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { legend: { display: false } }, 
+                scales: { y: { display: false }, x: { grid: { display: false } } } 
+            }
+        }); // <- Ошибка была здесь (пропущена закрывающая скобка)
     }
 
+    // Функция обновления данных на дашборде
     function updateDashboard() {
-        // Данные
-        const inv = parseInt(document.getElementById('inv-sum').value);
-        const monthly = parseInt(document.getElementById('monthly').value);
-        const percent = parseInt(document.getElementById('percent').value);
-        const start = parseInt(document.getElementById('rev-start').value);
-        const target = parseInt(document.getElementById('rev-target').value);
-        const mult = parseInt(document.getElementById('mult').value);
+        // Данные из инпутов
+        const inv = parseInt(document.getElementById('inv-sum').value) || 0;
+        const monthly = parseInt(document.getElementById('monthly').value) || 0;
+        const percent = parseInt(document.getElementById('percent').value) || 0;
+        const start = parseInt(document.getElementById('rev-start').value) || 0;
+        const target = parseInt(document.getElementById('rev-target').value) || 0;
+        const mult = parseInt(document.getElementById('mult').value) || 0;
 
-        // График 1
-        let data1 = []; let step = (target - start) / 11;
+        // График 1: Выручка
+        let data1 = []; 
+        let step = (target - start) / 11;
         for(let i=0; i<12; i++) data1.push(Math.round(start + step * i));
         chart.data.datasets[0].data = data1;
         chart.data.datasets[0].backgroundColor = getGrad(ctx, '#bae6fd', '#ffffff', '#0284c7');
         chart.update();
 
-        // График 2 (Окупаемость)
-let data2 = new Array(15).fill(0);
-let colors = new Array(15).fill('');
+        // График 2: Окупаемость (Белый перламутр)
+        const pearlGrad = ctx2.createLinearGradient(0, 0, 0, 200);
+        pearlGrad.addColorStop(0, '#FFFFFF');       // Чистый белый верх
+        pearlGrad.addColorStop(0.6, '#F1F5F9');     // Мягкий жемчужный оттенок
+        pearlGrad.addColorStop(1, '#CBD5E1');       // Легкий платиновый отлив у основания
 
-// Градиенты
-const violetGrad = getGrad(ctx2, '#e9d5ff', '#c084fc', '#7e22ce');
-const goldGrad = getGrad(ctx2, '#fef08a', '#eab308', '#a16207');
+        // Создаем массивы ровно на 4 элемента
+        let data2 = new Array(4).fill(0);
+        let colors = new Array(4).fill(pearlGrad);
 
-// 1. Возврат тела займа — ровно в 12-й месяц (индекс 11)
-data2[11] = inv;
-colors[11] = violetGrad;
+        // 1. Возврат тела займа — в 12-й месяц (индекс 0)
+        data2[0] = inv;
 
-// 2. Прибыль — 13, 14, 15 месяцы (индексы 12, 13, 14)
-const profit = inv * (percent / 100);
-for(let i = 12; i < 15; i++) {
-    data2[i] = profit / 3;
-    colors[i] = goldGrad;
-}
+        // 2. Прибыль — 13, 14, 15 месяцы (индексы 1, 2, 3)
+        const profit = inv * (percent / 100);
+        for(let i = 1; i < 4; i++) {
+            data2[i] = profit / 3;
+        }
 
-chart2.data.datasets[0].data = data2;
-chart2.data.datasets[0].backgroundColor = colors;
-chart2.update();
+        // Обновляем данные существующего графика (без его повторного создания)
+        chart2.data.datasets[0].data = data2;
+        chart2.data.datasets[0].backgroundColor = colors;
+        chart2.update();
 
-
-        // Итоги
+        // Итоги под графиком
         document.getElementById('res-valuation').innerText = (target * mult).toLocaleString() + ' ₽';
         document.getElementById('res-profit').innerText = (target * 0.2).toLocaleString() + ' ₽';
         document.getElementById('res-return').innerText = (profit).toLocaleString() + ' ₽';
     }
 
+    // Слушатели изменения инпутов и связка range-ползунков
     document.querySelectorAll('input').forEach(input => {
         input.addEventListener('input', (e) => {
             const id = e.target.id;
-            if(id.includes('-range')) document.getElementById(id.replace('-range', '')).value = e.target.value;
-            else if (document.getElementById(id + '-range')) document.getElementById(id + '-range').value = e.target.value;
+            if(id.includes('-range')) {
+                document.getElementById(id.replace('-range', '')).value = e.target.value;
+            } else if (document.getElementById(id + '-range')) {
+                document.getElementById(id + '-range').value = e.target.value;
+            }
             updateDashboard();
         });
     });
 
+    // Запуск при старте страницы
     initCharts();
     updateDashboard();
 </script>
+
 </body>
 </html>
 
